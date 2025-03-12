@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <title>Tammy Hartline's Project Page</title>
 <head>
-    <style>
-        <link rel="stylesheet" href="styles/style.css">
+    <title>Tammy Hartline's Projects</title>
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles from index page */
         .navbar {
             overflow: hidden;
             background-color: rgb(162, 219, 221);
@@ -94,7 +95,7 @@
             z-index: 1;
             opacity: 0.9;
         }
-        
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -107,37 +108,9 @@
             z-index: 2;
         }
 
-        .profile-section {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .about-section {
-            flex: 2;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .profile-image {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-            border: 12px double black;
-            border-radius: 5%;
-        }
-
         @media screen and (max-width: 768px) {
             .container {
                 flex-direction: column;
-            }
-            
-            .profile-section, .about-section {
-                flex: 100%;
             }
             
             .social-icon {
@@ -159,7 +132,6 @@
                 display: block;
             }
             
-            /* Keep social icons visible */
             .nav-right {
                 display: flex;
             }
@@ -202,6 +174,7 @@
                 width: 100%;
             }
         }
+
         .project-section {
             background-color: rgba(0, 0, 0, 0.7);
             color: rgb(162, 219, 221);
@@ -209,7 +182,6 @@
             border-radius: 10px;
             position: relative;
             z-index: 2;
-            font-family: 'Crimson Text', serif;
         }
 
         .project-content {
@@ -218,95 +190,99 @@
 
         .project-title {
             font-family: 'Tangerine', cursive;
-            font-size: 36px;
+            font-size: 56px;
             text-align: center;
-            margin-bottom: 15px;
+            margin: 10px 0;
+            font-weight: 700;
         }
 
-        .project-technologies {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .tech-tag {
-            background-color: rgba(162, 219, 221, 0.2);
-            color: rgb(162, 219, 221);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-family: 'Gabriela', serif;
-        }
-
-        .project-description, .project-features, .project-problem-solution {
-            margin-bottom: 20px;
-        }
-
-        .project-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-family: 'Gabriela', serif;
-        }
-
-        .btn-github {
-            background-color: #24292e;
-            color: white;
-        }
-
-        .btn-live {
-            background-color: rgb(162, 219, 221);
-            color: black;
-        }
-
-        .application-embed {
-            margin-top: 20px;
-        }
-
-        .app-iframe {
-            width: 100%;
-            height: 600px;
-            border: 2px solid rgb(162, 219, 221);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .project-description, 
+        .project-features, 
+        .project-problem-solution {
+            font-family: 'Crimson Text', serif;
+            text-align: justify;
         }
 
         h4 {
             font-family: 'Gabriela', serif;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="projects" class="project-section">
+    <div class="background-container">
+        <img src="images/background.jpg" class="background-image" alt="Background">
+    </div>
+
+    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif;">
+        <div class="nav-left">
+            <a href="index.html" class="active">Home</a>
+            <div class="navbar-links">
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">☰</a>
+        </div>
+        
+        <div class="nav-right">
+            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
+            </a>
+            <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-icon" title="Facebook">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
+            </a>
+        </div>
+    </div>
+
+    <div style="
+    font-family: 'Tangerine', cursive;     
+    color: rgb(162, 219, 221);   
+    text-align: center;
+    padding: 5px 0;
+    line-height: 0.8;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 10px;
+    border-radius: 10px;
+    ">
+        <h1 style="
+            font-size: 56px;
+            font-weight: 700;
+            margin: 10px 0;
+        ">Tammy Hartline</h1>
+        
+        <hr style="
+            background-color: rgb(162, 219, 221);
+            border-color: black;
+            border-style: dotted;
+            line-height: 50%;
+            border-top-color: aliceblue;
+            border-bottom-color: black;
+            margin: 5px 0;
+        ">
+        
+        <h6 style="
+            font-family: 'Gabriela', serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 8px 0;
+            padding: 1%;
+        ">Technical Solutions Architect, Data Analyst, Software Developer & Engineer</h6>
+    </div>
+
+    <div class="container project-section">
         <div class="project-content">
             <h2 class="project-title">Global Workforce Availability Application</h2>
             
-            <div class="project-technologies">
-                <span class="tech-tag">React.js</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag">Google Cloud</span>
-                <span class="tech-tag">BigQuery</span>
-            </div>
-            
-            <p class="project-description">
-                Developed a comprehensive web application to solve communication challenges in global remote workforce management. 
+            <div class="project-description">
+                <p>Developed a comprehensive web application to solve communication challenges in global remote workforce management. 
                 The application allows employees to set and update their weekly availability, providing real-time insights 
-                for team coordination and reducing communication friction across different time zones.
-            </p>
+                for team coordination and reducing communication friction across different time zones.</p>
+            </div>
             
             <div class="project-features">
                 <h4>Key Features:</h4>
@@ -340,29 +316,18 @@
                     </ul>
                 </p>
             </div>
-            
-            <div class="project-links">
-                <a href="https://github.com/thartline35/availability-app" target="_blank" class="btn btn-github">
-                    View on GitHub
-                </a>
-                <a href="https://availability-app.web.app" target="_blank" class="btn btn-live">
-                    Live Demo
-                </a>
-            </div>
-            
-            <div class="application-embed">
-                <h4>Live Application Preview</h4>
-                <iframe 
-                    src="https://availability-app-by-tammyhartline.web.app/" 
-                    frameborder="0" 
-                    allowfullscreen 
-                    class="app-iframe"
-                >
-                    Your browser does not support iframes. 
-                    <a href="https://availability-app-by-tammyhartline.web.app/" target="_blank">Open Application</a>
-                </iframe>
-            </div>
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+    </script>
 </body>
 </html>
