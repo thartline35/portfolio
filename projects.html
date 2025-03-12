@@ -3,6 +3,205 @@
     <title>Tammy Hartline's Project Page</title>
 <head>
     <style>
+        <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+        .navbar {
+            overflow: hidden;
+            background-color: rgb(162, 219, 221);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 3px dotted white;
+        }
+        
+        .nav-left {
+            display: flex;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+            color: black;
+        }
+        
+        .social-icon img {
+            height: 24px;
+            width: 24px;
+            margin-right: 5px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: wavy;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .navbar .hamburger {
+            display: none;
+        }
+
+        .navbar-links {
+            display: flex;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: rgb(162, 219, 221);
+            position: relative;
+            padding-top: 50px;
+        }
+        
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: rgb(162, 219, 221);
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-section {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .about-section {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .profile-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border: 12px double black;
+            border-radius: 5%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .profile-section, .about-section {
+                flex: 100%;
+            }
+            
+            .social-icon {
+                margin-left: 5px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar .nav-left a:not(.hamburger) {
+                display: none;
+            }
+            
+            .navbar-links {
+                display: none;
+            }
+
+            .navbar a.hamburger {
+                float: right;
+                display: block;
+            }
+            
+            /* Keep social icons visible */
+            .nav-right {
+                display: flex;
+            }
+            
+            .social-icon img {
+                height: 18px;
+                width: 18px;
+                margin-right: 2px;
+            }
+
+            .navbar.responsive {
+                position: fixed;
+                flex-direction: column;
+            }
+
+            .navbar.responsive .hamburger {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .navbar.responsive .nav-left {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar.responsive .nav-left a:not(.hamburger) {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            .navbar.responsive .navbar-links {
+                display: block;
+                width: 100%;
+            }
+            
+            .navbar.responsive .navbar-links a {
+                display: block;
+                width: 100%;
+            }
+        }
         .project-section {
             background-color: rgba(0, 0, 0, 0.7);
             color: rgb(162, 219, 221);
