@@ -1,277 +1,168 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tammy Hartline's Test Page</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .navbar {
-            overflow: hidden;
-            background-color: rgb(162, 219, 221);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 3px dotted white;
-        }
-        
-        .nav-left {
-            display: flex;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            margin-left: 10px;
-            color: black;
-        }
-        
-        .social-icon img {
-            height: 24px;
-            width: 24px;
-            margin-right: 5px;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: wavy;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .navbar .hamburger {
-            display: none;
-        }
-
-        .navbar-links {
-            display: flex;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: rgb(162, 219, 221);
-            position: relative;
-            padding-top: 50px;
-        }
-        
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.9;
-        }
-        
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
+        .project-section {
             background-color: rgba(0, 0, 0, 0.7);
             color: rgb(162, 219, 221);
-            border-radius: 10px;
             margin: 10px;
+            border-radius: 10px;
             position: relative;
             z-index: 2;
+            font-family: 'Crimson Text', serif;
         }
 
-        .profile-section {
-            flex: 1;
-            min-width: 300px;
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-family: 'Tangerine', cursive;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .project-technologies {
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
-        .about-section {
-            flex: 2;
-            min-width: 300px;
-            padding: 20px;
+        .tech-tag {
+            background-color: rgba(162, 219, 221, 0.2);
+            color: rgb(162, 219, 221);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Gabriela', serif;
         }
 
-        .profile-image {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-            border: 12px double black;
-            border-radius: 5%;
+        .project-description, .project-features, .project-problem-solution {
+            margin-bottom: 20px;
         }
 
-        @media screen and (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .profile-section, .about-section {
-                flex: 100%;
-            }
-            
-            .social-icon {
-                margin-left: 5px;
-            }
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        @media screen and (max-width: 600px) {
-            .navbar .nav-left a:not(.hamburger) {
-                display: none;
-            }
-            
-            .navbar-links {
-                display: none;
-            }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: 'Gabriela', serif;
+        }
 
-            .navbar a.hamburger {
-                float: right;
-                display: block;
-            }
-            
-            /* Keep social icons visible */
-            .nav-right {
-                display: flex;
-            }
-            
-            .social-icon img {
-                height: 18px;
-                width: 18px;
-                margin-right: 2px;
-            }
+        .btn-github {
+            background-color: #24292e;
+            color: white;
+        }
 
-            .navbar.responsive {
-                position: fixed;
-                flex-direction: column;
-            }
+        .btn-live {
+            background-color: rgb(162, 219, 221);
+            color: black;
+        }
 
-            .navbar.responsive .hamburger {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
+        .application-embed {
+            margin-top: 20px;
+        }
 
-            .navbar.responsive .nav-left {
-                flex-direction: column;
-                width: 100%;
-            }
+        .app-iframe {
+            width: 100%;
+            height: 600px;
+            border: 2px solid rgb(162, 219, 221);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-            .navbar.responsive .nav-left a:not(.hamburger) {
-                float: none;
-                display: block;
-                text-align: left;
-            }
+        h4 {
+            font-family: 'Gabriela', serif;
+            margin-bottom: 10px;
+        }
 
-            .navbar.responsive .navbar-links {
-                display: block;
-                width: 100%;
-            }
-            
-            .navbar.responsive .navbar-links a {
-                display: block;
-                width: 100%;
-            }
+        ul {
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="background-container">
-        <img src="images/background.jpg" class="background-image" alt="Background">
-    </div>
-
-    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif;">
-        <div class="nav-left">
-            <a href="index.html" class="active">Home</a>
-            <div class="navbar-links">
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
+    <div id="projects" class="project-section">
+        <div class="project-content">
+            <h2 class="project-title">Global Workforce Availability Application</h2>
+            
+            <div class="project-technologies">
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Google Cloud</span>
+                <span class="tech-tag">BigQuery</span>
             </div>
-            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">☰</a>
+            
+            <p class="project-description">
+                Developed a comprehensive web application to solve communication challenges in global remote workforce management. 
+                The application allows employees to set and update their weekly availability, providing real-time insights 
+                for team coordination and reducing communication friction across different time zones.
+            </p>
+            
+            <div class="project-features">
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>User-friendly availability scheduling interface</li>
+                    <li>Real-time availability tracking</li>
+                    <li>Automated weekly reporting system</li>
+                    <li>Secure authentication with Google Cloud</li>
+                    <li>Data persistence with Firebase and BigQuery</li>
+                </ul>
+            </div>
+            
+            <div class="project-problem-solution">
+                <h4>Problem Statement:</h4>
+                <p>Large remote and on-site global workforces face communication challenges due to:
+                    <ul>
+                        <li>Different time zones</li>
+                        <li>Varied work schedules</li>
+                        <li>Inefficient communication methods</li>
+                        <li>Potential redundant work efforts</li>
+                    </ul>
+                </p>
+                
+                <h4>Solution:</h4>
+                <p>An intelligent availability tracking application that:
+                    <ul>
+                        <li>Allows employees to set detailed weekly availability</li>
+                        <li>Provides automated reporting to team leads</li>
+                        <li>Reduces communication friction</li>
+                        <li>Minimizes time wasted on unsuccessful communication attempts</li>
+                    </ul>
+                </p>
+            </div>
+            
+            <div class="project-links">
+                <a href="https://github.com/thartline35/availability-app" target="_blank" class="btn btn-github">
+                    View on GitHub
+                </a>
+                <a href="https://availability-app.web.app" target="_blank" class="btn btn-live">
+                    Live Demo
+                </a>
+            </div>
+            
+            <div class="application-embed">
+                <h4>Live Application Preview</h4>
+                <iframe 
+                    src="https://availability-app-by-tammyhartline.web.app/" 
+                    frameborder="0" 
+                    allowfullscreen 
+                    class="app-iframe"
+                >
+                    Your browser does not support iframes. 
+                    <a href="https://availability-app-by-tammyhartline.web.app/" target="_blank">Open Application</a>
+                </iframe>
+            </div>
         </div>
-        
-        <div class="nav-right">
-            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
-            </a>
-            <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-icon" title="Facebook">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
-            </a>
-        </div>
-    </div>
-
-    <div style="
-    font-family: 'Tangerine', cursive;     
-    color: rgb(162, 219, 221);   
-    text-align: center;
-    padding: 5px 0;
-    line-height: 0.8;
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 10px;
-    border-radius: 10px;
-    ">
-        <h1 style="
-            font-size: 56px;
-            font-weight: 700;
-            margin: 10px 0;
-        ">Tammy Hartline</h1>
-        
-        <hr style="
-            background-color: rgb(162, 219, 221);
-            border-color: black;
-            border-style: dotted;
-            line-height: 50%;
-            border-top-color: aliceblue;
-            border-bottom-color: black;
-            margin: 5px 0;
-        ">
-        
-        <h6 style="
-            font-family: 'Gabriela', serif;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 8px 0;
-            padding: 1%;
-        ">Technical Solutions Architect, Data Analyst, Software Developer & Engineer</h6>
-    </div>
-    <div style="text-align: center">
-    <h1>WIP</h1>
-    <h2>To view previous projects, and more about me, you can visit <a href="https://tammyhartline.github.io">tammyhartline.github.io</a> while my updated portfolio is under development.</h2>
     </div>
 </body>
 </html>
