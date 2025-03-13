@@ -1,39 +1,311 @@
-#header {
-    color: black;
-    background-color: rgb(162, 219, 221);
-    text-align: center;
-    font-size: 48px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 3px black;
-    border-radius: 5%;
-    border-style: groove;
+/* Import navigation styles */
+@import "nav.css";
+
+/* General styles */
+body {
+  position: relative;
+  margin: 0;
+  background-color: black;
+  padding: 0;
+  padding-top: 50px;
+  color: rgb(162, 219, 221);
 }
 
+/* Background styles */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header styles */
+#header {
+  border: 3px black;
+  border-style: groove;
+  border-radius: 5%;
+  background-color: rgb(162, 219, 221);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: black;
+  font-size: 48px;
+  text-align: center;
+}
 
 #b {
-    background-image: url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
+  background-image: url("../images/background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
-
 hr {
-    border: 2px dotted cadetblue;
-    background-color: whitesmoke;
-    height: 5px;
-    margin: 20px 0;
+  margin: 20px 0;
+  border: 2px dotted cadetblue;
+  background-color: whitesmoke;
+  height: 5px;
 }
 
 #intro {
-    font-size: 48px;
-    text-align: center;
-    color: black;
+  color: black;
+  font-size: 48px;
+  text-align: center;
 }
 
 #intro img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    block-size: 100%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  block-size: 100%;
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  color: rgb(162, 219, 221);
+}
+
+.profile-section {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.about-section {
+  flex: 2;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.profile-image {
+  display: block;
+  border: 12px double black;
+  border-radius: 5%;
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+
+/* Page header styles */
+.page-header {
+  position: relative;
+  z-index: 2;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 0;
+  color: rgb(162, 219, 221);
+  line-height: 0.8;
+  font-family: "Tangerine", cursive;
+  text-align: center;
+}
+
+/* Accomplishments section styles */
+.accomplishments-section {
+  position: relative;
+  z-index: 2;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 25px;
+  color: rgb(162, 219, 221);
+}
+
+.accomplishments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: "Crimson Text", serif;
+  list-style-position: inside;
+}
+
+.accomplishments-list li {
+  position: relative;
+  transition: transform 0.3s ease;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: rgba(162, 219, 221, 0.1);
+  padding: 15px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.accomplishments-list li:hover {
+  transform: translateY(-3px);
+}
+
+/* Project section styles */
+.project-section {
+  position: relative;
+  z-index: 2;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(162, 219, 221);
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-title {
+  margin: 10px 0;
+  font-weight: 700;
+  font-size: 56px;
+  font-family: "Tangerine", cursive;
+  text-align: center;
+}
+
+.project-description,
+.project-features,
+.project-problem-solution {
+  font-family: "Crimson Text", serif;
+  text-align: justify;
+}
+
+h4 {
+  font-family: "Gabriela", serif;
+}
+
+/* Contact page styles */
+.contact-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  color: rgb(162, 219, 221);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  color: rgb(162, 219, 221);
+  text-decoration: none;
+}
+
+.social-link img {
+  margin-bottom: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  border: 1px solid rgb(162, 219, 221);
+  background-color: rgba(162, 219, 221, 0.1);
+  padding: 10px;
+  width: 100%;
+  color: rgb(162, 219, 221);
+  font-family: "Crimson Text", serif;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(162, 219, 221, 0.7);
+}
+
+.contact-form button {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(162, 219, 221);
+  padding: 10px 20px;
+  color: black;
+  font-family: "Gabriela", serif;
+}
+
+.contact-form button:hover {
+  background-color: white;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
+
+  .profile-section,
+  .about-section {
+    flex: 100%;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .section-title {
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 2rem;
+  }
+
+  .accomplishments-list {
+    grid-template-columns: 1fr;
+  }
+
+  .accomplishments-list li {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .accomplishments-section {
+    margin: 5px;
+    padding: 15px;
+  }
+}

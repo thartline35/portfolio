@@ -1,1198 +1,995 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Tammy Hartline - Skills & Expertise</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        .navbar {
-            overflow: hidden;
-            background-color: rgb(162, 219, 221);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 3px dotted white;
-        }
-        
-        .nav-left {
-            display: flex;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            margin-left: 10px;
-            color: black;
-        }
-        
-        .social-icon img {
-            height: 24px;
-            width: 24px;
-            margin-right: 5px;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: wavy;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .navbar .hamburger {
-            display: none;
-        }
-
-        .navbar-links {
-            display: flex;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: rgb(162, 219, 221);
-            position: relative;
-            padding-top: 50px;
-        }
-        
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.9;
-        }
-        
-        .page-header {
-            font-family: 'Tangerine', cursive;     
-            color: rgb(162, 219, 221);   
-            text-align: center;
-            padding: 5px 0;
-            line-height: 0.8;
-            position: relative;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.6);
-            margin: 10px;
-            border-radius: 10px;
-        }
-        
-        /* Skills section styling */
-        .skills-section {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: rgb(162, 219, 221);
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .section-title {
-            font-family: 'Gabriela', serif;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        
-        .skills-column {
-            flex: 1;
-            min-width: 300px;
-            padding: 0 15px;
-            margin-bottom: 20px;
-        }
-        
-        .skill-item {
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .skill-name {
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
-            font-size: 18px;
-            max-width: 75%;
-        }
-        
-        .skill-rating {
-            color: #FFD700; /* Gold color for stars */
-        }
-        
-        .accomplishments-section {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: rgb(162, 219, 221);
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .accomplishments-list {
-            font-family: 'Crimson Text', serif;
-            padding-left: 20px;
-        }
-        
-        .accomplishments-list li {
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .skill-subitem {
-            margin-left: 20px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .skill-group-title {
-            font-family: 'Crimson Text', serif;
-            font-weight: 700;
-            font-size: 18px;
-            border-bottom: 1px solid rgb(162, 219, 221);
-            padding-bottom: 5px;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .skills-container {
-                flex-direction: column;
-            }
-            
-            .skills-column {
-                width: 100%;
-            }
-            
-            .social-icon {
-                margin-left: 5px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-left a:not(.hamburger) {
-                display: none;
-            }
-            
-            .navbar-links {
-                display: none;
-            }
-
-            .navbar a.hamburger {
-                float: right;
-                display: block;
-            }
-            
-            /* Keep social icons visible */
-            .nav-right {
-                display: flex;
-            }
-            
-            .social-icon img {
-                height: 18px;
-                width: 18px;
-                margin-right: 2px;
-            }
-
-            .navbar.responsive {
-                position: fixed;
-                flex-direction: column;
-            }
-
-            .navbar.responsive .hamburger {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-
-            .navbar.responsive .nav-left {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-left a:not(.hamburger) {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .navbar.responsive .navbar-links {
-                display: block;
-                width: 100%;
-            }
-            
-            .navbar.responsive .navbar-links a {
-                display: block;
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/skills.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="background-container">
-        <img src="images/background.jpg" class="background-image" alt="Background">
+      <img
+        src="images/background.jpg"
+        class="background-image"
+        alt="Background"
+      />
     </div>
 
-    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif;">
-        <div class="nav-left">
-            <a href="index.html">Home</a>
-            <div class="navbar-links">
-                <a href="skills.html" class="active">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">☰</a>
+    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif">
+      <div class="nav-left">
+        <a href="index.html">Home</a>
+        <div class="navbar-links">
+          <a href="skills.html" class="active">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
         </div>
-        
-        <div class="nav-right">
-            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
-            </a>
-            <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-icon" title="Facebook">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
-            </a>
-        </div>
+        <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()"
+          >☰</a
+        >
+      </div>
+
+      <div class="nav-right">
+        <a
+          href="https://www.linkedin.com/in/tammy-hartline-91981266/"
+          target="_blank"
+          class="social-icon"
+          title="LinkedIn"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg"
+            alt="LinkedIn"
+          />
+        </a>
+        <a
+          href="https://github.com/thartline35"
+          target="_blank"
+          class="social-icon"
+          title="GitHub"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg"
+            alt="GitHub"
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/tammyjean.hartline"
+          target="_blank"
+          class="social-icon"
+          title="Facebook"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg"
+            alt="Facebook"
+          />
+        </a>
+      </div>
     </div>
 
     <div class="page-header">
-        <h1 style="font-size: 56px; font-weight: 700; margin: 10px 0;">Skills & Expertise</h1>
-        
-        <hr style="
-            background-color: rgb(162, 219, 221);
-            border-color: black;
-            border-style: dotted;
-            line-height: 50%;
-            border-top-color: aliceblue;
-            border-bottom-color: black;
-            margin: 5px 0;
-        ">
-        
-        <h6 style="
-            font-family: 'Gabriela', serif;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 8px 0;
-            padding: 1%;
-        ">Technical Proficiency & Professional Accomplishments</h6>
+      <h1>Skills & Expertise</h1>
+      <hr />
+      <h6>Technical Proficiency & Professional Accomplishments</h6>
     </div>
 
     <!-- Software Development Fundamentals Section -->
     <section class="skills-section">
-        <h2 class="section-title">Software Development Fundamentals</h2>
-        
-        <div class="skills-container">
-            <!-- SDLC & Methodologies Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Development Lifecycle</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">SDLC (Software Development Lifecycle)</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Agile/Waterfall Methodologies</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">CRUD Operations</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">CI/CD Pipelines</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
+      <h2 class="section-title">Software Development Fundamentals</h2>
+
+      <div class="skills-container">
+        <!-- SDLC & Methodologies Column -->
+        <div class="skills-column">
+          <h3>Development Lifecycle</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">SDLC (Software Development Lifecycle)</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            
-            <!-- Testing & Quality Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Testing & Quality Assurance</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Unit Testing (JUnit, PyTest)</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Integration Testing</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Test-Driven Development</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Agile/Waterfall Methodologies</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            
-            <!-- Security Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Security & Best Practices</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">OWASP Security Standards</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">SSH/Secure Authentication</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">ESET Security Frameworks</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Code Review & Documentation</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">CRUD Operations</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">CI/CD Pipelines</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
         </div>
+
+        <!-- Testing & Quality Column -->
+        <div class="skills-column">
+          <h3>Testing & Quality Assurance</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Unit Testing (JUnit, PyTest)</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Integration Testing</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Test-Driven Development</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Column -->
+        <div class="skills-column">
+          <h3>Security & Best Practices</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">OWASP Security Standards</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">SSH/Secure Authentication</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">ESET Security Frameworks</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Code Review & Documentation</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
     <!-- Programming Languages Section -->
     <section class="skills-section">
-        <h2 class="section-title">Programming Languages</h2>
-        
-        <div class="skills-container">
-            <!-- Core Languages Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Core Languages</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Python</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">SQL</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">JavaScript</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Java</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">GraphQL</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Additional Languages Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Additional Languages</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">C/C++</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">HTML/CSS</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">React</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
+      <h2 class="section-title">Programming Languages</h2>
 
-                <div class="skill-item">
-                    <div class="skill-name">Node.js</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Shell/Bash Scripting</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+      <div class="skills-container">
+        <!-- Core Languages Column -->
+        <div class="skills-column">
+          <h3>Core Languages</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Python</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">SQL</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Java</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">GraphQL</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
         </div>
+
+        <!-- Additional Languages Column -->
+        <div class="skills-column">
+          <h3>Additional Languages</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">C/C++</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">HTML/CSS</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">React</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Node.js</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Shell/Bash Scripting</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Data Science & AI Section -->
     <section class="skills-section">
-        <h2 class="section-title">Data Science & AI</h2>
-        
-        <div class="skills-container">
-            <!-- Data Science Tools Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Data Science Environments</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Jupyter Notebook</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Jupyter Dash</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Data Visualization</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">ETL Development</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
+      <h2 class="section-title">Data Science & AI</h2>
+
+      <div class="skills-container">
+        <!-- Data Science Tools Column -->
+        <div class="skills-column">
+          <h3>Data Science Environments</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Jupyter Notebook</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            
-            <!-- AI & Machine Learning Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">AI & Machine Learning</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Keras</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">TensorFlow</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Natural Language Processing</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Predictive Analytics</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Jupyter Dash</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
             </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Data Visualization</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">ETL Development</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
         </div>
+
+        <!-- AI & Machine Learning Column -->
+        <div class="skills-column">
+          <h3>AI & Machine Learning</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Keras</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">TensorFlow</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Natural Language Processing</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Predictive Analytics</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
     <!-- Technology Ecosystems Section -->
     <section class="skills-section">
-        <h2 class="section-title">Technology Ecosystems</h2>
-        
-        <div class="skills-container">
-            <!-- Microsoft Ecosystem Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Microsoft Ecosystem</h3>
-                
-                <div class="skill-group-title">Power Platform</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Power BI</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Power Automate (Flow)</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Power Apps</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Development Tools</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Visual Studio</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Azure DevOps</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Microsoft SQL Server</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Office Suite</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Excel (Advanced)</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">SharePoint</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Google Ecosystem Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Google Ecosystem</h3>
-                
-                <div class="skill-group-title">Google Workspace</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Google Sheets (Advanced)</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Google Apps Script</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Google Drive/Docs/Slides</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Google Cloud Platform</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Firebase</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Google Cloud Functions</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
+      <h2 class="section-title">Technology Ecosystems</h2>
 
-                <div class="skill-subitem">
-                    <div class="skill-name">BigQuery/Firebase/IAM</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Operating Systems</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Windows</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">macOS</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Linux</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Other Tools Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Business & Project Tools</h3>
-                
-                <div class="skill-group-title">Project Management Tools</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Linear</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Jira</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Customer Management</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Zendesk</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Salesforce</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+      <div class="skills-container">
+        <!-- Microsoft Ecosystem Column -->
+        <div class="skills-column">
+          <h3>Microsoft Ecosystem</h3>
 
-                <div class="skill-subitem">
-                    <div class="skill-name">Service Now</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Databases & Data Tools</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">MongoDB</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Mongosh</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Dev Tools</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Git/Version Control</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Android Studio</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Docker</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-group-title">Network Administration</div>
-                <div class="skill-subitem">
-                    <div class="skill-name">Network Configuration</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-subitem">
-                    <div class="skill-name">Terminal Network Commands</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
+          <div class="skill-group-title">Power Platform</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Power BI</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Power Automate (Flow)</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Power Apps</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Development Tools</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Visual Studio</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Azure DevOps</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Microsoft SQL Server</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Office Suite</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Excel (Advanced)</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">SharePoint</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
         </div>
+
+        <!-- Google Ecosystem Column -->
+        <div class="skills-column">
+          <h3>Google Ecosystem</h3>
+
+          <div class="skill-group-title">Google Workspace</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Google Sheets (Advanced)</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Google Apps Script</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="skill-subitem">
+            <div class="skill-name">Google Drive/Docs/Slides</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Google Cloud Platform</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Firebase</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Google Cloud Functions</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">BigQuery/Firebase/IAM</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Operating Systems</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Windows</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">macOS</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Linux</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Tools Column -->
+        <div class="skills-column">
+          <h3>Business & Project Tools</h3>
+
+          <div class="skill-group-title">Project Management Tools</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Linear</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Jira</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Customer Management</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Zendesk</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Salesforce</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Service Now</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Databases & Data Tools</div>
+          <div class="skill-subitem">
+            <div class="skill-name">MongoDB</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Mongosh</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Dev Tools</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Git/Version Control</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Android Studio</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Docker</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-group-title">Network Administration</div>
+          <div class="skill-subitem">
+            <div class="skill-name">Network Configuration</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-subitem">
+            <div class="skill-name">Terminal Network Commands</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
     <!-- Professional Skills Section -->
     <section class="skills-section">
-        <h2 class="section-title">Professional Skills</h2>
-        
-        <div class="skills-container">
-            <!-- Management Skills Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Management</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Project Management</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Team Leadership</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Resource Allocation</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+      <h2 class="section-title">Professional Skills</h2>
+
+      <div class="skills-container">
+        <!-- Management Skills Column -->
+        <div class="skills-column">
+          <h3>Management</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Project Management</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            
-            <!-- Business Skills Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Business</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Client Relationship Management</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Strategic Planning</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Budgeting & Forecasting</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Team Leadership</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            
-            <!-- Communication Skills Column -->
-            <div class="skills-column">
-                <h3 style="font-family: 'Gabriela', serif;">Communication</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Technical Documentation</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Public Speaking</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-name">Cross-functional Collaboration</div>
-                    <div class="skill-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Resource Allocation</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
+          </div>
         </div>
+
+        <!-- Business Skills Column -->
+        <div class="skills-column">
+          <h3>Business</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Client Relationship Management</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Strategic Planning</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Budgeting & Forecasting</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Communication Skills Column -->
+        <div class="skills-column">
+          <h3>Communication</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Technical Documentation</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Public Speaking</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Cross-functional Collaboration</div>
+            <div class="skill-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
     <!-- Key Accomplishments Section -->
     <section class="accomplishments-section">
-        <h2 class="section-title">Key Accomplishments</h2>
-        
-        <ul class="accomplishments-list">
-            <li>Contributed to enterprise LLM data projects from conception through delivery, consistently meeting quality benchmarks, remaining within given budget, and timeline commitments for Fortune 500 clients</li>
-            <li>Orchestrated resource allocation across multiple AI development teams, creating a proprietary staff allocation system that increased team utilization by 35% and reduced bench time</li>
-            <li>Uncovered and resolved $800K in fraudulent payment issues through implementation of advanced pattern detection algorithms and verification processes</li>
-            <li>Served as SNHU's Data Reporting Coordinator, Project Manager, Report Developer, and Mapping SME, driving key initiatives</li>
-            <li>Contributed to the successful development and deployment of a comprehensive data warehouse dictionary, coordinating analytics personnel across multiple subdomains</li>
-            <li>Contributed to the development of integrating mapping data into Power BI with visuals showing the last refresh date/time, datatype details, UAT testing status, migration info, and data definitions</li>
-            <li>Established a version control system for the Office of Sustainability, integrating Visual Studio, SharePoint, onsite servers, and other sources</li>
-            <li>Successfully linked new report developments to user story IDs, creation dates, and authors with implementation of a Python script</li>
-            <li>Presented and discussed project impact at the 2023 Global AASHE conference</li>
-            <li>Developed over 40 custom data visual dashboards using Power BI, enhancing data visualization capabilities</li>
-        </ul>
+      <h2 class="section-title">Key Accomplishments</h2>
+
+      <ul class="accomplishments-list">
+        <li>
+          Contributed to enterprise LLM data projects from conception through
+          delivery, consistently meeting quality benchmarks, remaining within
+          given budget, and timeline commitments for Fortune 500 clients
+        </li>
+        <li>
+          Orchestrated resource allocation across multiple AI development teams,
+          creating a proprietary staff allocation system that increased team
+          utilization by 35% and reduced bench time
+        </li>
+        <li>
+          Uncovered and resolved $800K in fraudulent payment issues through
+          implementation of advanced pattern detection algorithms and
+          verification processes
+        </li>
+        <li>
+          Served as SNHU's Data Reporting Coordinator, Project Manager, Report
+          Developer, and Mapping SME, driving key initiatives
+        </li>
+        <li>
+          Contributed to the successful development and deployment of a
+          comprehensive data warehouse dictionary, coordinating analytics
+          personnel across multiple subdomains
+        </li>
+        <li>
+          Contributed to the development of integrating mapping data into Power
+          BI with visuals showing the last refresh date/time, datatype details,
+          UAT testing status, migration info, and data definitions
+        </li>
+        <li>
+          Established a version control system for the Office of Sustainability,
+          integrating Visual Studio, SharePoint, onsite servers, and other
+          sources
+        </li>
+        <li>
+          Successfully linked new report developments to user story IDs,
+          creation dates, and authors with implementation of a Python script
+        </li>
+        <li>
+          Presented and discussed project impact at the 2023 Global AASHE
+          conference
+        </li>
+        <li>
+          Developed over 40 custom data visual dashboards using Power BI,
+          enhancing data visualization capabilities
+        </li>
+      </ul>
     </section>
 
     <script>
-        function toggleMenu() {
-            var x = document.getElementById("myNavbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } else {
-                x.className = "navbar";
-            }
+      function toggleMenu() {
+        var x = document.getElementById("myNavbar");
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
         }
+      }
     </script>
-</body>
+  </body>
 </html>
