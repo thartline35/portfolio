@@ -1,0 +1,228 @@
+/* Common styles for Tammy Hartline's Portfolio
+   This file contains shared styles used across all pages */
+
+:root {
+  /* Color palette */
+  --primary-color: rgb(162, 219, 221);
+  --primary-color-light: rgba(162, 219, 221, 0.1);
+  --primary-color-medium: rgba(162, 219, 221, 0.5);
+  --background-color: black;
+  --container-bg: rgba(0, 0, 0, 0.7);
+  --header-bg: rgba(0, 0, 0, 0.6);
+  --text-color: rgb(162, 219, 221);
+  --text-dark: black;
+  --accent-color: white;
+  --star-color: #ffd700;
+
+  /* Typography */
+  --heading-font: "Tangerine", cursive;
+  --subheading-font: "Gabriela", serif;
+  --body-font: "Crimson Text", serif;
+
+  /* Font sizes */
+  --h1-size: 3.5rem;
+  --h2-size: 2.5rem;
+  --h3-size: 1.5rem;
+  --h4-size: 1.2rem;
+  --h6-size: 0.875rem;
+  --body-size: 1rem;
+  --small-size: 0.875rem;
+
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+
+  /* Border radius */
+  --border-radius: 10px;
+  --border-radius-sm: 5px;
+  --border-radius-lg: 12px;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background-color: var(--background-color);
+  padding: 0;
+  padding-top: 50px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  line-height: 1.6;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: var(--h1-size);
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-family: var(--subheading-font);
+  font-size: var(--h3-size);
+}
+
+h4 {
+  font-family: var(--subheading-font);
+  font-size: var(--h4-size);
+}
+
+h6 {
+  font-family: var(--subheading-font);
+  font-size: var(--h6-size);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  font-family: var(--body-font);
+  text-align: justify;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+ul,
+ol {
+  margin-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Background styles */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  background-color: var(--container-bg);
+  padding: var(--spacing-lg);
+  color: var(--text-color);
+}
+
+/* Page header styles */
+.page-header {
+  position: relative;
+  z-index: 2;
+  margin: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  background-color: var(--header-bg);
+  padding: var(--spacing-xs) 0;
+  color: var(--text-color);
+  line-height: 0.8;
+  font-family: var(--heading-font);
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: var(--spacing-sm) 0;
+  font-size: var(--h1-size);
+  font-weight: 700;
+}
+
+.page-header h6 {
+  margin: var(--spacing-sm) 0;
+  padding: 1%;
+  font-size: var(--h6-size);
+  font-weight: 600;
+}
+
+.page-header hr {
+  margin: var(--spacing-xs) 0;
+  border: none;
+  border-top: 2px dotted var(--text-color);
+  background-color: transparent;
+  height: 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  :root {
+    --h1-size: 3rem;
+    --h2-size: 2.2rem;
+    --h3-size: 1.3rem;
+    --h4-size: 1.1rem;
+    --body-size: 0.95rem;
+  }
+
+  .container {
+    padding: var(--spacing-md);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --h1-size: 2.5rem;
+    --h2-size: 1.8rem;
+    --h3-size: 1.2rem;
+    --h4-size: 1rem;
+    --body-size: 0.9rem;
+    --spacing-lg: 15px;
+    --spacing-md: 10px;
+  }
+
+  .container {
+    margin: var(--spacing-xs);
+    padding: var(--spacing-md);
+  }
+
+  .page-header {
+    margin: var(--spacing-xs);
+  }
+}

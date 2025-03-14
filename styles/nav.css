@@ -6,11 +6,11 @@
   justify-content: space-between;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  border-bottom: 3px dotted white;
-  background-color: rgb(162, 219, 221);
+  border-bottom: 3px dotted var(--accent-color);
+  background-color: var(--primary-color);
   width: 100%;
   overflow: hidden;
-  font-family: "Gabriela", serif;
+  font-family: var(--subheading-font);
 }
 
 .nav-left {
@@ -20,35 +20,43 @@
 .nav-right {
   display: flex;
   align-items: center;
-  margin-right: 15px;
+  margin-right: var(--spacing-md);
 }
 
 .social-icon {
   display: inline-flex;
   align-items: center;
-  margin-left: 10px;
-  color: black;
+  margin-left: var(--spacing-sm);
+  color: var(--text-dark);
 }
 
 .social-icon img {
-  margin-right: 5px;
+  margin-right: var(--spacing-xs);
   width: 24px;
   height: 24px;
+  filter: brightness(0);
+  transition: filter 0.3s ease;
+}
+
+.social-icon:hover img {
+  filter: brightness(0.7);
 }
 
 .navbar a {
   display: block;
   float: left;
   padding: 14px 16px;
-  color: black;
-  font-size: 18px;
+  color: var(--text-dark);
+  font-size: 1.125rem;
   text-align: center;
-  text-decoration: wavy;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar a:hover {
-  background-color: white;
-  color: black;
+.navbar a:hover,
+.navbar a.active {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
 }
 
 .navbar .hamburger {
@@ -62,7 +70,12 @@
 /* Responsive navigation styles */
 @media screen and (max-width: 768px) {
   .social-icon {
-    margin-left: 5px;
+    margin-left: var(--spacing-xs);
+  }
+
+  .navbar a {
+    padding: 12px 14px;
+    font-size: 1rem;
   }
 }
 
@@ -85,7 +98,7 @@
   }
 
   .social-icon img {
-    margin-right: 2px;
+    margin-right: var(--spacing-xs);
     width: 18px;
     height: 18px;
   }

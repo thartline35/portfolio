@@ -1,0 +1,56 @@
+/* Home page specific styles */
+
+/* Profile and about section */
+.profile-section {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg);
+  min-width: 300px;
+}
+
+.about-section {
+  flex: 2;
+  padding: var(--spacing-lg);
+  min-width: 300px;
+}
+
+.profile-image {
+  display: block;
+  border: 12px double var(--background-color);
+  border-radius: var(--border-radius);
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .profile-section,
+  .about-section {
+    flex: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .profile-section {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-section,
+  .about-section {
+    padding: var(--spacing-sm);
+  }
+}
