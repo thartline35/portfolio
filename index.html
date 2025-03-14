@@ -21,7 +21,7 @@
       />
     </div>
 
-    <div class="navbar" id="myNavbar">
+    <div class="navbar" id="navbar">
       <div class="nav-left">
         <a href="index.html" class="active">Home</a>
         <div class="navbar-links">
@@ -29,9 +29,11 @@
           <a href="projects.html">Projects</a>
           <a href="contact.html">Contact</a>
         </div>
-        <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()"
-          >☰</a
-        >
+        <a
+          href="javascript:void(0);"
+          id="hamburger"
+          onclick="toggleHamburgerMenu()"
+        ></a>
       </div>
 
       <div class="nav-right">
@@ -73,7 +75,6 @@
 
     <div class="page-header">
       <h1>Tammy Hartline</h1>
-      <hr />
       <h6>
         Technical Solutions Architect, Data Analyst, Software Developer &
         Engineer
@@ -137,13 +138,15 @@
     </div>
 
     <script>
-      function toggleMenu() {
-        var x = document.getElementById("myNavbar");
-        if (x.className === "navbar") {
-          x.className += " responsive";
-        } else {
-          x.className = "navbar";
-        }
+      function toggleHamburgerMenu() {
+        const hamburgerMenu = document.getElementById("hamburger");
+        hamburgerMenu.classList.toggle("open");
+
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("menu-open");
+
+        // Toggle no-scroll class on body
+        document.body.classList.toggle("no-scroll");
       }
     </script>
   </body>
