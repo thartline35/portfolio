@@ -2,17 +2,18 @@
    This file contains shared styles used across all pages */
 
 :root {
-  /* Color palette */
+  /* Color palette - updated for a more modern look */
   --primary-color: rgb(162, 219, 221);
   --primary-color-light: rgba(162, 219, 221, 0.1);
   --primary-color-medium: rgba(162, 219, 221, 0.5);
   --background-color: black;
-  --container-bg: rgba(0, 0, 0, 0.7);
-  --header-bg: rgba(0, 0, 0, 0.6);
+  --container-bg: rgba(0, 0, 0, 0.8);
+  --header-bg: rgba(0, 0, 0, 0.8);
   --text-color: rgb(162, 219, 221);
   --text-dark: black;
   --accent-color: white;
   --star-color: #ffd700;
+  --shadow-color: rgba(0, 0, 0, 0.2);
 
   /* Typography */
   --heading-font: "Tangerine", cursive;
@@ -35,10 +36,15 @@
   --spacing-lg: 20px;
   --spacing-xl: 30px;
 
-  /* Border radius */
-  --border-radius: 10px;
-  --border-radius-sm: 5px;
-  --border-radius-lg: 12px;
+  /* Border radius - updated for consistency */
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
 
 /* Base styles */
@@ -109,7 +115,7 @@ p {
 a {
   color: var(--text-color);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition-normal);
 }
 
 a:hover {
@@ -149,25 +155,36 @@ ol {
   position: relative;
   flex-wrap: wrap;
   z-index: 2;
-  margin: var(--spacing-sm);
+  margin: var(--spacing-md);
   border-radius: var(--border-radius);
   background-color: var(--container-bg);
   padding: var(--spacing-lg);
   color: var(--text-color);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  backdrop-filter: blur(5px);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 /* Page header styles */
 .page-header {
   position: relative;
   z-index: 2;
-  margin: var(--spacing-sm);
+  margin: var(--spacing-md);
   border-radius: var(--border-radius);
   background-color: var(--header-bg);
-  padding: var(--spacing-xs) 0;
+  padding: var(--spacing-sm) 0;
   color: var(--text-color);
   line-height: 0.8;
   font-family: var(--heading-font);
   text-align: center;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  backdrop-filter: blur(5px);
 }
 
 .page-header h1 {
@@ -184,10 +201,11 @@ ol {
 }
 
 .page-header hr {
-  margin: var(--spacing-xs) 0;
+  margin: var(--spacing-xs) auto;
   border: none;
   border-top: 2px dotted var(--text-color);
   background-color: transparent;
+  width: 80%;
   height: 0;
 }
 

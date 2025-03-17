@@ -4,10 +4,19 @@
 .project-section {
   position: relative;
   z-index: 2;
-  margin: var(--spacing-sm);
+  margin: var(--spacing-md);
   border-radius: var(--border-radius);
   background-color: var(--container-bg);
   color: var(--text-color);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  backdrop-filter: blur(5px);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.project-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 .project-content {
@@ -15,11 +24,24 @@
 }
 
 .project-title {
-  margin: var(--spacing-sm) 0;
+  margin: var(--spacing-sm) 0 var(--spacing-md);
   font-weight: 700;
   font-size: var(--h1-size);
   font-family: var(--heading-font);
   text-align: center;
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.project-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 2px;
+  background-color: var(--primary-color);
 }
 
 .project-description,
@@ -28,6 +50,7 @@
   font-family: var(--body-font);
   text-align: justify;
   margin-bottom: var(--spacing-md);
+  line-height: 1.6;
 }
 
 .project-features h4,
@@ -37,6 +60,20 @@
   color: var(--primary-color);
   font-family: var(--subheading-font);
   font-size: var(--h4-size);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--spacing-xs);
+}
+
+.project-features h4:after,
+.project-problem-solution h4:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary-color);
 }
 
 .project-features ul,
@@ -52,12 +89,20 @@
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
+  .project-section {
+    margin: var(--spacing-sm);
+  }
+
   .project-content {
     padding: var(--spacing-md);
   }
 }
 
 @media screen and (max-width: 480px) {
+  .project-section {
+    margin: var(--spacing-xs);
+  }
+
   .project-content {
     padding: var(--spacing-sm);
   }

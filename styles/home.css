@@ -18,17 +18,37 @@
 
 .profile-image {
   display: block;
-  border: 12px double var(--background-color);
+  border: 8px double var(--background-color);
   border-radius: var(--border-radius);
   max-width: 100%;
   height: auto;
   max-height: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+  filter: brightness(1.05);
 }
 
 .profile-image:hover {
   transform: scale(1.02);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.about-section h3 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+}
+
+.about-section h3:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary-color);
 }
 
 /* Responsive styles */
