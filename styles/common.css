@@ -187,13 +187,13 @@ ol {
   color: var(--text-color);
   box-shadow: 0 10px 30px -15px var(--shadow-color);
   backdrop-filter: blur(5px);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
   max-width: 1200px;
   border: 1px solid rgba(100, 255, 218, 0.1);
 }
 
 .container:hover {
-  transform: translateY(-5px);
   box-shadow: 0 20px 30px -15px var(--shadow-color);
 }
 
@@ -320,4 +320,3 @@ button:hover,
     margin: var(--spacing-sm);
   }
 }
-

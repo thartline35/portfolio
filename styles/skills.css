@@ -117,7 +117,8 @@
   cursor: default;
 }
 
-.skill-item:hover .skill-name {
+.skill-item:hover .skill-name,
+.skill-subitem:hover .skill-name {
   color: var(--accent-color);
   cursor: default;
 }
@@ -229,6 +230,7 @@
   border-left: 3px solid var(--primary-color);
   background-color: rgba(100, 255, 218, 0.05);
   cursor: default;
+  color: var(--accent-color);
 }
 
 /* Responsive styles */
