@@ -1,0 +1,322 @@
+/* Common styles for Tammy Hartline's Portfolio
+   Modern redesign with updated aesthetics */
+
+:root {
+  /* Modern color palette */
+  --primary-color: #64ffda;
+  --secondary-color: #0a192f;
+  --background-color: #0a192f;
+  --text-color: #ccd6f6;
+  --text-color-light: #8892b0;
+  --text-dark: #0a192f;
+  --accent-color: #f8f9fa;
+  --container-bg: rgba(10, 25, 47, 0.85);
+  --header-bg: rgba(10, 25, 47, 0.9);
+  --star-color: #64ffda;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+
+  /* Modern typography */
+  --heading-font: "Gabriela", serif;
+  --subheading-font: "Crimson Text", serif;
+  --body-font: "Crimson Text", serif;
+
+  /* Font sizes - slightly adjusted for better readability */
+  --h1-size: 3.75rem;
+  --h2-size: 2.5rem;
+  --h3-size: 1.5rem;
+  --h4-size: 1.25rem;
+  --h6-size: 1rem;
+  --body-size: 1.125rem;
+  --small-size: 0.875rem;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+
+  /* Border radius */
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background-color: var(--background-color);
+  padding: 0;
+  padding-top: 70px;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  line-height: 1.7;
+  font-size: var(--body-size);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: var(--h1-size);
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-family: var(--subheading-font);
+  font-size: var(--h3-size);
+}
+
+h4 {
+  font-family: var(--subheading-font);
+  font-size: var(--h4-size);
+}
+
+h6 {
+  font-family: var(--subheading-font);
+  font-size: var(--h6-size);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  font-family: var(--body-font);
+  text-align: justify;
+  color: var(--text-color-light);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+a:not(.social-icon):not(.social-link):not(.navbar a)::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width var(--transition-normal);
+}
+
+a:not(.social-icon):not(.social-link):not(.navbar a):hover::after {
+  width: 100%;
+}
+
+ul,
+ol {
+  margin-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-color-light);
+}
+
+/* Background styles */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.15;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.7);
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin: var(--spacing-md) auto;
+  border-radius: var(--border-radius);
+  background-color: var(--container-bg);
+  padding: var(--spacing-lg);
+  color: var(--text-color);
+  box-shadow: 0 10px 30px -15px var(--shadow-color);
+  backdrop-filter: blur(5px);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+  max-width: 1200px;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.container:hover {
+  box-shadow: 0 20px 30px -15px var(--shadow-color);
+}
+
+/* Page header styles */
+.page-header {
+  position: relative;
+  z-index: 2;
+  margin: var(--spacing-md) auto;
+  border-radius: var(--border-radius);
+  background-color: var(--header-bg);
+  padding: var(--spacing-lg) 0;
+  color: var(--text-color);
+  font-family: var(--heading-font);
+  text-align: center;
+  box-shadow: 0 10px 30px -15px var(--shadow-color);
+  backdrop-filter: blur(5px);
+  max-width: 1200px;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.page-header h1 {
+  margin: var(--spacing-sm) 0;
+  font-size: var(--h1-size);
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.page-header h6 {
+  margin: var(--spacing-sm) 0;
+  padding: 1%;
+  font-size: var(--h6-size);
+  font-weight: 600;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 255, 218, 0.8);
+}
+
+/* Highlight effect for text selection */
+::selection {
+  background-color: rgba(100, 255, 218, 0.3);
+  color: var(--text-color);
+}
+
+/* Modern button style */
+button,
+.button {
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-sm);
+  background-color: transparent;
+  padding: 12px 20px;
+  color: var(--primary-color);
+  font-family: var(--subheading-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+button:hover,
+.button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .container,
+  .page-header {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --h1-size: 3rem;
+    --h2-size: 2.2rem;
+    --h3-size: 1.3rem;
+    --h4-size: 1.1rem;
+    --body-size: 1rem;
+  }
+
+  .container {
+    padding: var(--spacing-md);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --h1-size: 2.5rem;
+    --h2-size: 1.8rem;
+    --h3-size: 1.2rem;
+    --h4-size: 1rem;
+    --body-size: 0.95rem;
+    --spacing-lg: 24px;
+    --spacing-md: 16px;
+  }
+
+  .container {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .page-header {
+    margin: var(--spacing-sm);
+  }
+}

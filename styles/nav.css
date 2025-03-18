@@ -1,0 +1,232 @@
+/* Modern navigation bar styles */
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background-color: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 70px;
+  font-family: var(--subheading-font);
+  padding: 0 var(--spacing-lg);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--spacing-sm);
+  color: var(--text-color);
+  transition: var(--transition-normal);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.social-icon i {
+  font-size: 18px;
+  transition: var(--transition-normal);
+}
+
+.social-icon:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  border: 1px solid var(--primary-color);
+}
+
+.social-icon:hover i {
+  transform: scale(1.1);
+}
+
+.navbar a:not(.social-icon) {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transition: color var(--transition-normal);
+  padding: 10px 15px;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navbar a:not(.social-icon):hover,
+.navbar a.active {
+  color: var(--primary-color);
+}
+
+.navbar a:not(.social-icon):after,
+#hamburger:not() {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width var(--transition-normal), left var(--transition-normal);
+}
+
+.navbar a:not(.social-icon):hover:after,
+.navbar a.active:after {
+  width: 70%;
+  left: 15%;
+}
+
+#hamburger {
+  display: none;
+  position: relative;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+/* Responsive navigation styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 var(--spacing-md);
+  }
+
+  .navbar .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .social-icon i {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar .nav-left a:not(#hamburger) {
+    display: none;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  #hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 1001;
+  }
+
+  #hamburger .fa-bars,
+  #hamburger .fa-times {
+    font-size: 24px;
+  }
+
+  /* Mobile menu styles when menu is open */
+  .navbar.menu-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    padding-top: var(--spacing-sm); /* Space for the hamburger */
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    border-radius: 0;
+    transform: none;
+    align-items: flex-start;
+  }
+
+  .navbar #hamburger .fa-bars {
+    display: block;
+  }
+
+  .navbar #hamburger .fa-times {
+    display: none;
+  }
+
+  .navbar.menu-open #hamburger .fa-times {
+    display: block;
+  }
+
+  .navbar.menu-open #hamburger .fa-bars {
+    display: none;
+  }
+
+  .navbar.menu-open .nav-left {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: var(--spacing-lg);
+  }
+
+  .navbar.menu-open .nav-left a:not(#hamburger) {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.25rem;
+    padding: var(--spacing-md);
+  }
+
+  .navbar.menu-open .navbar-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .navbar.menu-open .navbar-links a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.25rem;
+    padding: var(--spacing-md);
+  }
+
+  /* Adjust the nav-right position when menu is open */
+  .navbar.menu-open .nav-right {
+    justify-content: center;
+    margin: var(--spacing-xl) 0;
+    width: 100%;
+  }
+
+  .navbar.menu-open .nav-right .social-icon {
+    margin: 0 var(--spacing-sm);
+    width: 45px;
+    height: 45px;
+  }
+
+  .navbar.menu-open .nav-right .social-icon i {
+    font-size: 20px;
+  }
+
+  /* Class for when body should not scroll */
+  body.no-scroll {
+    overflow: hidden;
+  }
+}

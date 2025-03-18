@@ -1,309 +1,145 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tammy Hartline's Tech Portfolio</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        .navbar {
-            overflow: hidden;
-            background-color: rgb(162, 219, 221);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 3px dotted white;
-        }
-        
-        .nav-left {
-            display: flex;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            margin-left: 10px;
-            color: black;
-        }
-        
-        .social-icon img {
-            height: 24px;
-            width: 24px;
-            margin-right: 5px;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: wavy;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .navbar .hamburger {
-            display: none;
-        }
-
-        .navbar-links {
-            display: flex;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: rgb(162, 219, 221);
-            position: relative;
-            padding-top: 50px;
-        }
-        
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.9;
-        }
-        
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: rgb(162, 219, 221);
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-section {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .about-section {
-            flex: 2;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .profile-image {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-            border: 12px double black;
-            border-radius: 5%;
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .profile-section, .about-section {
-                flex: 100%;
-            }
-            
-            .social-icon {
-                margin-left: 5px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-left a:not(.hamburger) {
-                display: none;
-            }
-            
-            .navbar-links {
-                display: none;
-            }
-
-            .navbar a.hamburger {
-                float: right;
-                display: block;
-            }
-            
-            /* Keep social icons visible */
-            .nav-right {
-                display: flex;
-            }
-            
-            .social-icon img {
-                height: 18px;
-                width: 18px;
-                margin-right: 2px;
-            }
-
-            .navbar.responsive {
-                position: fixed;
-                flex-direction: column;
-            }
-
-            .navbar.responsive .hamburger {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-
-            .navbar.responsive .nav-left {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-left a:not(.hamburger) {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .navbar.responsive .navbar-links {
-                display: block;
-                width: 100%;
-            }
-            
-            .navbar.responsive .navbar-links a {
-                display: block;
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="background-container">
-        <img src="images/background.jpg" class="background-image" alt="Background">
+      <img
+        src="images/background.jpg"
+        class="background-image"
+        alt="Background"
+      />
     </div>
 
-    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif;">
-        <div class="nav-left">
-            <a href="index.html" class="active">Home</a>
-            <div class="navbar-links">
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">☰</a>
+    <div class="navbar" id="navbar">
+      <a
+        href="javascript:void(0);"
+        id="hamburger"
+        onclick="toggleHamburgerMenu()"
+        ><i class="fas fa-bars"></i><i class="fas fa-times"></i
+      ></a>
+      <div class="nav-left">
+        <a href="index.html" class="active">Home</a>
+        <div class="navbar-links">
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
         </div>
-        
-        <div class="nav-right">
-            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
-            </a>
-            <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-icon" title="Facebook">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
-            </a>
-        </div>
+      </div>
+
+      <div class="nav-right">
+        <a
+          href="https://www.linkedin.com/in/tammy-hartline-91981266/"
+          target="_blank"
+          class="social-icon"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/thartline35"
+          target="_blank"
+          class="social-icon"
+          title="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/tammyjean.hartline"
+          target="_blank"
+          class="social-icon"
+          title="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
     </div>
 
-    <div style="
-    font-family: 'Tangerine', cursive;     
-    color: rgb(162, 219, 221);   
-    text-align: center;
-    padding: 5px 0;
-    line-height: 0.8;
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 10px;
-    border-radius: 10px;
-    ">
-        <h1 style="
-            font-size: 56px;
-            font-weight: 700;
-            margin: 10px 0;
-        ">Tammy Hartline</h1>
-        
-        <hr style="
-            background-color: rgb(162, 219, 221);
-            border-color: black;
-            border-style: dotted;
-            line-height: 50%;
-            border-top-color: aliceblue;
-            border-bottom-color: black;
-            margin: 5px 0;
-        ">
-        
-        <h6 style="
-            font-family: 'Gabriela', serif;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 8px 0;
-            padding: 1%;
-        ">Technical Solutions Architect, Data Analyst, Software Developer & Engineer</h6>
+    <div class="page-header">
+      <h1>Tammy Hartline</h1>
+      <h6>
+        Technical Solutions Architect, Data Analyst, Software Developer &
+        Engineer
+      </h6>
     </div>
 
     <div class="container">
-        <div class="profile-section">
-            <img src="images/profile.jpg" class="profile-image" alt="Tammy Hartline">
-        </div>
-        
-        <div class="about-section">
-            <h1 style="font-family: 'Gabriela', serif;">About Me</h1>
-            <p style="font-family: 'Crimson Text', serif; text-align: justify;">
-                I'm a multifaceted technology professional with extensive experience spanning AI operations, data analytics, and software development, complemented by a Summa Cum Laude Bachelor of Science in Computer Science with a minor in Data Analysis. I earned this degree in just 27 months while working full-time and managing home responsibilities with my husband for our three daughters. Currently pursuing admission to top-ranked Masters programs in AI/ML Engineering at globally ranked public universities and Ivy League institutions. I've consistently delivered measurable business impact by combining technical expertise with strategic vision and an unending commitment to give 100% to everything I do.
-            </p>
-            <p style="font-family: 'Crimson Text', serif; text-align: justify;">
-                My diverse experience includes developing comprehensive data visualization systems that elevated SNHU's sustainability initiatives to Silver status, successfully delivering an innovative MVP during my internship with Girls Who Code Leadership Academy hosted by RTX (Raytheon Technologies), and orchestrating AI development teams at Scale AI. Throughout these roles, I've demonstrated a unique blend of programming proficiency and operational excellence.
-            </p>
-            <p style="font-family: 'Crimson Text', serif; text-align: justify;">
-                My technical toolkit includes advanced skills in Python, SQL, JavaScript, React, and the Microsoft Power Platform, complemented by expertise in Agile methodologies and cross-functional team leadership. I excel at translating complex technical concepts into understandable terms, allowing me to build strong relationships with stakeholders at all levels.
-            </p>
-            <p style="font-family: 'Crimson Text', serif; text-align: justify;">
-                What sets me apart is my ability to identify process inefficiencies and implement creative solutions—whether automating workflows, developing custom applications, or establishing data-driven decision frameworks. I approach challenges with a proactive mindset and hold myself accountable for delivering exceptional results.
-            </p>
-            <p style="font-family: 'Crimson Text', serif; text-align: justify;">
-                I'm passionate about leveraging technology to solve complex business problems and ready to bring my diverse expertise to drive innovation and operational excellence for forward-thinking organizations.
-            </p>
-        </div>
+      <div class="profile-section">
+        <img
+          src="images/profile.jpg"
+          class="profile-image"
+          alt="Tammy Hartline"
+        />
+      </div>
+
+      <div class="about-section">
+        <h3>About Me</h3>
+        <p>
+          I'm a multifaceted technology professional with extensive experience
+          spanning AI operations, data analytics, and software development,
+          complemented by a
+          <strong
+            >Summa Cum Laude Bachelor of Science in Computer Science</strong
+          >
+          with a minor in Data Analysis. I earned this degree in just 27 months
+          while working full-time and managing home responsibilities with my
+          husband for our three daughters.
+        </p>
+        <p>
+          My diverse experience includes developing comprehensive data
+          visualization systems that elevated SNHU's sustainability initiatives
+          to Silver status, successfully delivering an innovative MVP during my
+          internship with
+          <strong>Girls Who Code Leadership Academy</strong> hosted by RTX
+          (Raytheon Technologies), and orchestrating AI development teams at
+          <strong>Scale AI</strong>. Throughout these roles, I've demonstrated a
+          unique blend of programming proficiency and operational excellence.
+        </p>
+        <p>
+          My technical toolkit includes advanced skills in
+          <strong
+            >Python, SQL, JavaScript, Java, C/C++, React, and the Microsoft Power
+            Platform</strong
+          >, complemented by expertise in Agile methodologies and
+          cross-functional team leadership. I excel at translating complex
+          technical concepts into understandable terms, allowing me to build
+          strong relationships with stakeholders at all levels.
+        </p>
+        <p>
+          What sets me apart is my ability to identify process inefficiencies
+          and implement creative solutions—whether automating workflows,
+          developing custom applications, or establishing data-driven decision
+          frameworks. I approach challenges with a proactive mindset and hold
+          myself accountable for delivering exceptional results.
+        </p>
+      </div>
     </div>
 
     <script>
-        function toggleMenu() {
-            var x = document.getElementById("myNavbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } else {
-                x.className = "navbar";
-            }
-        }
+      function toggleHamburgerMenu() {
+        const hamburgerMenu = document.getElementById("hamburger");
+        hamburgerMenu.classList.toggle("open");
+
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("menu-open");
+
+        // Toggle no-scroll class on body
+        document.body.classList.toggle("no-scroll");
+      }
     </script>
-</body>
+  </body>
 </html>

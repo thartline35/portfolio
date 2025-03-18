@@ -1,277 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tammy Hartline's Projects</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Styles from index page */
-        .navbar {
-            overflow: hidden;
-            background-color: rgb(162, 219, 221);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 3px dotted white;
-        }
-        
-        .nav-left {
-            display: flex;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            margin-left: 10px;
-            color: black;
-        }
-        
-        .social-icon img {
-            height: 24px;
-            width: 24px;
-            margin-right: 5px;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: wavy;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .navbar .hamburger {
-            display: none;
-        }
-
-        .navbar-links {
-            display: flex;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: rgb(162, 219, 221);
-            position: relative;
-            padding-top: 50px;
-        }
-        
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.9;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: rgb(162, 219, 221);
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .social-icon {
-                margin-left: 5px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-left a:not(.hamburger) {
-                display: none;
-            }
-            
-            .navbar-links {
-                display: none;
-            }
-
-            .navbar a.hamburger {
-                float: right;
-                display: block;
-            }
-            
-            .nav-right {
-                display: flex;
-            }
-            
-            .social-icon img {
-                height: 18px;
-                width: 18px;
-                margin-right: 2px;
-            }
-
-            .navbar.responsive {
-                position: fixed;
-                flex-direction: column;
-            }
-
-            .navbar.responsive .hamburger {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-
-            .navbar.responsive .nav-left {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-left a:not(.hamburger) {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .navbar.responsive .navbar-links {
-                display: block;
-                width: 100%;
-            }
-            
-            .navbar.responsive .navbar-links a {
-                display: block;
-                width: 100%;
-            }
-        }
-
-        .project-section {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: rgb(162, 219, 221);
-            margin: 10px;
-            border-radius: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-family: 'Tangerine', cursive;
-            font-size: 56px;
-            text-align: center;
-            margin: 10px 0;
-            font-weight: 700;
-        }
-
-        .project-description, 
-        .project-features, 
-        .project-problem-solution {
-            font-family: 'Crimson Text', serif;
-            text-align: justify;
-        }
-
-        h4 {
-            font-family: 'Gabriela', serif;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
     <div class="background-container">
         <img src="images/background.jpg" class="background-image" alt="Background">
     </div>
 
-    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif;">
-        <div class="nav-left">
-            <a href="index.html" class="active">Home</a>
-            <div class="navbar-links">
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">☰</a>
+    <div class="navbar" id="navbar">
+      <a
+      href="javascript:void(0);"
+      id="hamburger"
+      onclick="toggleHamburgerMenu()"
+      ><i class="fas fa-bars"></i><i class="fas fa-times"></i
+    ></a>
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <div class="navbar-links">
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+          <a href="contact.html">Contact</a>
         </div>
-        
+      </div>
+
         <div class="nav-right">
             <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
+                <i class="fab fa-linkedin"></i>
             </a>
             <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
+                <i class="fab fa-github"></i>
             </a>
             <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-icon" title="Facebook">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
+                <i class="fab fa-facebook"></i>
             </a>
         </div>
     </div>
 
-    <div style="
-    font-family: 'Tangerine', cursive;     
-    color: rgb(162, 219, 221);   
-    text-align: center;
-    padding: 5px 0;
-    line-height: 0.8;
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 10px;
-    border-radius: 10px;
-    ">
-        <h1 style="
-            font-size: 56px;
-            font-weight: 700;
-            margin: 10px 0;
-        ">Tammy Hartline</h1>
-        
-        <hr style="
-            background-color: rgb(162, 219, 221);
-            border-color: black;
-            border-style: dotted;
-            line-height: 50%;
-            border-top-color: aliceblue;
-            border-bottom-color: black;
-            margin: 5px 0;
-        ">
-        
-        <h6 style="
-            font-family: 'Gabriela', serif;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 8px 0;
-            padding: 1%;
-        ">Technical Project Samples</h6>
+    <div class="page-header">
+        <h1>Tammy Hartline</h1>
+        <h6>Technical Project Samples</h6>
     </div>
 
     <div class="container project-section">
@@ -299,41 +74,39 @@
                 <h4>Problem Statement:</h4>
                 <p>Large remote and on-site global workforces face communication challenges due to:
                     <ul>
-                        <li>Different time zones</li>
-                        <li>Varied work schedules</li>
-                        <li>Inefficient communication methods</li>
-                        <li>Potential redundant work efforts</li>
+                        <li>Varying time zones and work schedules</li>
+                        <li>Lack of visibility into team member availability</li>
+                        <li>Inefficient coordination for meetings and collaborative work</li>
                     </ul>
                 </p>
                 
                 <h4>Solution:</h4>
-                <p>An intelligent availability tracking application that:
+                <p>Created a centralized platform that:
                     <ul>
-                        <li>Allows employees to set detailed weekly availability</li>
-                        <li>Provides automated reporting to team leads</li>
-                        <li>Reduces communication friction</li>
-                        <li>Minimizes time wasted on unsuccessful communication attempts</li>
+                        <li>Provides real-time visibility of team availability</li>
+                        <li>Simplifies scheduling across time zones</li>
+                        <li>Reduces communication overhead and improves team coordination</li>
+                        <li>Integrates with existing calendar systems</li>
                     </ul>
                 </p>
             </div>
-        </div>
-    </div>
-     <div class="project-links" style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-                <a href="https://availability-app-by-tammyhartline.web.app" target="_blank" class="btn btn-live" style="text-align: center;">
+            
+            <div class="project-links" style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px;">
+                <a href="https://availability-app-by-tammyhartline.web.app" target="_blank" class="btn btn-live" style="background-color: rgb(162, 219, 221); color: black; display: inline-block; padding: 10px 15px; text-decoration: none; text-align: center; border-radius: 5px; transition: background-color 0.3s ease; font-family: 'Gabriela', serif;">
                     Live Demo
                 </a>
             </div>
             
-            <div class="application-embed" style="text-align: center;">
-                <h4 style="text-align: center;">Live Application Preview</h4>
+            <div class="application-embed" style="text-align: center; margin-top: 25px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <h4 style="text-align: center; font-family: 'Gabriela', serif; color: rgb(162, 219, 221); margin-bottom: 15px;">Live Application Preview</h4>
                 <iframe 
                     src="https://availability-app-by-tammyhartline.web.app/" 
-                    width="100%" 
+                    width="90%" 
                     height="600px" 
                     frameborder="0" 
                     allowfullscreen 
                     class="app-iframe"
-                    style="margin: 0 auto;"
+                    style="margin: 0 auto; border: 2px solid rgb(162, 219, 221); border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
                 >
                     Your browser does not support iframes. 
                     <a href="https://availability-app-by-tammyhartline.web.app/" target="_blank">Open Application</a>
@@ -341,86 +114,54 @@
             </div>
         </div>
     </div>
-</div>
+    
+    <div class="container project-section">
+        <div class="project-content">
+            <h2 class="project-title">Sustainability Data Visualization System</h2>
+            
+            <div class="project-description">
+                <p>Designed and implemented a comprehensive data visualization system for Southern New Hampshire University's 
+                sustainability initiatives. The system transformed raw environmental data into actionable insights, 
+                contributing to the university achieving Silver status in sustainability rankings.</p>
+            </div>
+            
+            <div class="project-features">
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Interactive dashboards for energy consumption, waste management, and carbon footprint</li>
+                    <li>Automated data collection and processing pipeline</li>
+                    <li>Trend analysis and forecasting capabilities</li>
+                    <li>Customizable reporting for different stakeholders</li>
+                    <li>Integration with existing university systems</li>
+                </ul>
+            </div>
+            
+            <div class="project-problem-solution">
+                <h4>Technical Implementation:</h4>
+                <p>Utilized Python, SQL, and Power BI to create a robust data pipeline and visualization system that:
+                    <ul>
+                        <li>Consolidated data from multiple sources into a unified database</li>
+                        <li>Implemented data cleaning and transformation processes</li>
+                        <li>Created intuitive visualizations for technical and non-technical users</li>
+                        <li>Enabled data-driven decision making for sustainability initiatives</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
 
-<style>
-.project-section {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgb(162, 219, 221);
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-}
 
-.project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.project-technologies {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.tech-tag {
-    background-color: rgba(162, 219, 221, 0.2);
-    color: rgb(162, 219, 221);
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.project-details ul {
-    padding-left: 20px;
-}
-
-.project-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-github {
-    background-color: #24292e;
-    color: white;
-    text-align: center;
-}
-
-.btn-live {
-    background-color: rgb(162, 219, 221);
-    color: black;
-    text-align: center;
-}
-
-.application-embed {
-    margin-top: 20px;
-}
-
-.app-iframe {
-    border: 2px solid rgb(162, 219, 221);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-</style>
 
     <script>
-        function toggleMenu() {
-            var x = document.getElementById("myNavbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } else {
-                x.className = "navbar";
-            }
+        function toggleHamburgerMenu() {
+            const hamburgerMenu = document.getElementById("hamburger");
+            hamburgerMenu.classList.toggle("open");
+            
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("menu-open");
+            
+            // Toggle no-scroll class on body
+            document.body.classList.toggle("no-scroll");
         }
     </script>
 </body>

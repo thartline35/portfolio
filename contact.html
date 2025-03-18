@@ -1,348 +1,142 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tammy Hartline - Contact</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@formspree/all@0.1.7/dist/formspree.iife.min.js"></script>
-    <style>
-        .navbar {
-            overflow: hidden;
-            background-color: rgb(162, 219, 221);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 3px dotted white;
-        }
-        
-        .nav-left {
-            display: flex;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            margin-left: 10px;
-            color: black;
-        }
-        
-        .social-icon img {
-            height: 24px;
-            width: 24px;
-            margin-right: 5px;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: wavy;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .navbar .hamburger {
-            display: none;
-        }
-
-        .navbar-links {
-            display: flex;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: rgb(162, 219, 221);
-            position: relative;
-            padding-top: 50px;
-        }
-        
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.9;
-        }
-
-        /* Contact page specific styles */
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: rgb(162, 219, 221);
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: rgb(162, 219, 221);
-            transition: transform 0.3s ease;
-        }
-
-        .social-link img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-        }
-
-        .social-link:hover {
-            transform: scale(1.1);
-        }
-
-        .contact-form {
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .contact-form input, 
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            background-color: rgba(162, 219, 221, 0.1);
-            border: 1px solid rgb(162, 219, 221);
-            color: rgb(162, 219, 221);
-            font-family: 'Crimson Text', serif;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(162, 219, 221, 0.7);
-        }
-
-        .contact-form button {
-            background-color: rgb(162, 219, 221);
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            font-family: 'Gabriela', serif;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: white;
-        }
-
-        /* Responsive styles */
-        @media screen and (max-width: 768px) {
-            .social-links {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-            
-            .social-icon {
-                margin-left: 5px;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .navbar .nav-left a:not(.hamburger) {
-                display: none;
-            }
-            
-            .navbar-links {
-                display: none;
-            }
-
-            .navbar a.hamburger {
-                float: right;
-                display: block;
-            }
-            
-            /* Keep social icons visible */
-            .nav-right {
-                display: flex;
-            }
-            
-            .social-icon img {
-                height: 18px;
-                width: 18px;
-                margin-right: 2px;
-            }
-
-            .navbar.responsive {
-                position: fixed;
-                flex-direction: column;
-            }
-
-            .navbar.responsive .hamburger {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-
-            .navbar.responsive .nav-left {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-left a:not(.hamburger) {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .navbar.responsive .navbar-links {
-                display: block;
-                width: 100%;
-            }
-            
-            .navbar.responsive .navbar-links a {
-                display: block;
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="background-container">
-        <img src="images/background.jpg" class="background-image" alt="Background">
+      <img
+        src="images/background.jpg"
+        class="background-image"
+        alt="Background"
+      />
     </div>
 
-    <div class="navbar" id="myNavbar" style="font-family: 'Gabriela', serif;">
-        <div class="nav-left">
-            <a href="index.html">Home</a>
-            <div class="navbar-links">
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html" class="active">Contact</a>
-            </div>
-            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">☰</a>
+    <div class="navbar" id="navbar">
+      <a
+        href="javascript:void(0);"
+        id="hamburger"
+        onclick="toggleHamburgerMenu()"
+        ><i class="fas fa-bars"></i><i class="fas fa-times"></i
+      ></a>
+      <div class="nav-left">
+        <a href="index.html">Home</a>
+        <div class="navbar-links">
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html" class="active">Contact</a>
         </div>
-        
-        <div class="nav-right">
-            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
-            </a>
-            <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-icon" title="Facebook">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
-            </a>
-        </div>
+      </div>
+
+      <div class="nav-right">
+        <a
+          href="https://www.linkedin.com/in/tammy-hartline-91981266/"
+          target="_blank"
+          class="social-icon"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/thartline35"
+          target="_blank"
+          class="social-icon"
+          title="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/tammyjean.hartline"
+          target="_blank"
+          class="social-icon"
+          title="Facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
     </div>
 
-    <div style="
-    font-family: 'Tangerine', cursive;     
-    color: rgb(162, 219, 221);   
-    text-align: center;
-    padding: 5px 0;
-    line-height: 0.8;
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin: 10px;
-    border-radius: 10px;
-    ">
-        <h1 style="
-            font-size: 56px;
-            font-weight: 700;
-            margin: 10px 0;
-        ">Tammy Hartline</h1>
-        
-        <hr style="
-            background-color: rgb(162, 219, 221);
-            border-color: black;
-            border-style: dotted;
-            line-height: 50%;
-            border-top-color: aliceblue;
-            border-bottom-color: black;
-            margin: 5px 0;
-        ">
-        
-        <h6 style="
-            font-family: 'Gabriela', serif;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 8px 0;
-            padding: 1%;
-        ">Get in Touch</h6>
+    <div class="page-header">
+      <h1>Tammy Hartline</h1>
+      <h6>Get in Touch</h6>
     </div>
 
     <div class="contact-container">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-link">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/thartline35" target="_blank" class="social-link">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub">
-                <span>GitHub</span>
-            </a>
-            <a href="https://www.facebook.com/tammyjean.hartline" target="_blank" class="social-link">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/facebook.svg" alt="Facebook">
-                <span>Facebook</span>
-            </a>
-        </div>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/tammy-hartline-91981266/"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a
+          href="https://github.com/thartline35"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://www.facebook.com/tammyjean.hartline"
+          target="_blank"
+          class="social-link"
+        >
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </a>
+      </div>
 
-        <form id="contactForm" action="https://formspree.io/f/mjkyvape" method="POST" class="contact-form">
-            <input type="hidden" name="_next" value="https://yourdomain.com/index.html">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/mjkyvape"
+        method="POST"
+        class="contact-form"
+      >
+        <input
+          type="hidden"
+          name="_next"
+          value="https://yourdomain.com/index.html"
+        />
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
 
     <script>
-        function toggleMenu() {
-            var x = document.getElementById("myNavbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } else {
-                x.className = "navbar";
-            }
-        }
+      function toggleHamburgerMenu() {
+        const hamburgerMenu = document.getElementById("hamburger");
+        hamburgerMenu.classList.toggle("open");
+
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("menu-open");
+
+        // Toggle no-scroll class on body
+        document.body.classList.toggle("no-scroll");
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,39 +1,15 @@
-#header {
-    color: black;
-    background-color: rgb(162, 219, 221);
-    text-align: center;
-    font-size: 48px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 3px black;
-    border-radius: 5%;
-    border-style: groove;
-}
+/* Main stylesheet for Tammy Hartline's Portfolio
+   This file imports all component stylesheets */
 
+/* Import common styles and variables */
+@import "common.css";
 
-#b {
-    background-image: url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
+/* Import component styles */
+@import "nav.css";
+@import "home.css";
+@import "projects.css";
+@import "skills.css";
+@import "contact.css";
 
+/* Any additional global styles can be added here */
 
-hr {
-    border: 2px dotted cadetblue;
-    background-color: whitesmoke;
-    height: 5px;
-    margin: 20px 0;
-}
-
-#intro {
-    font-size: 48px;
-    text-align: center;
-    color: black;
-}
-
-#intro img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    block-size: 100%;
-  }
