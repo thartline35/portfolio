@@ -39,7 +39,8 @@
   border: 1px solid transparent;
 }
 
-.social-icon i {
+/* Styles for Unicode icons */
+.social-icon span {
   font-size: 18px;
   transition: var(--transition-normal);
 }
@@ -50,8 +51,26 @@
   border: 1px solid var(--primary-color);
 }
 
-.social-icon:hover i {
+.social-icon:hover span {
   transform: scale(1.1);
+}
+
+/* Star ratings */
+.star-rating, .star-half-rating, .star-empty {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.star-half-rating {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 0.5em;
+}
+
+.star-half-rating:before {
+  content: "★";
+  position: absolute;
 }
 
 .navbar a:not(.social-icon) {
@@ -102,6 +121,27 @@
   height: 20px;
 }
 
+/* Hamburger menu Unicode styles */
+#hamburger .menu-icon,
+#hamburger .close-icon {
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+#hamburger .close-icon {
+  display: none;
+}
+
+.navbar.menu-open #hamburger .close-icon {
+  display: block;
+}
+
+.navbar.menu-open #hamburger .menu-icon {
+  display: none;
+}
+
 .navbar-links {
   display: flex;
 }
@@ -117,8 +157,13 @@
     height: 24px;
   }
 
-  .social-icon i {
-    font-size: 18px;
+  .social-icon span {
+    font-size: 16px;
+  }
+  
+  /* Ensure Unicode icons are visible on mobile */
+  .star-rating, .star-half-rating, .star-empty {
+    font-size: 16px;
   }
 }
 
@@ -141,8 +186,8 @@
     z-index: 1001;
   }
 
-  #hamburger .fa-bars,
-  #hamburger .fa-times {
+  #hamburger .menu-icon,
+  #hamburger .close-icon {
     font-size: 24px;
   }
 
@@ -162,19 +207,19 @@
     align-items: flex-start;
   }
 
-  .navbar #hamburger .fa-bars {
+  .navbar #hamburger .menu-icon {
     display: block;
   }
 
-  .navbar #hamburger .fa-times {
+  .navbar #hamburger .close-icon {
     display: none;
   }
 
-  .navbar.menu-open #hamburger .fa-times {
+  .navbar.menu-open #hamburger .close-icon {
     display: block;
   }
 
-  .navbar.menu-open #hamburger .fa-bars {
+  .navbar.menu-open #hamburger .menu-icon {
     display: none;
   }
 
@@ -221,7 +266,7 @@
     height: 45px;
   }
 
-  .navbar.menu-open .nav-right .social-icon i {
+  .navbar.menu-open .nav-right .social-icon span {
     font-size: 20px;
   }
 
