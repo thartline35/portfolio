@@ -137,8 +137,30 @@
   display: flex;
 }
 
-.skill-rating i {
+/* Styles for Unicode star ratings */
+.skill-rating .star-rating,
+.skill-rating .star-half-rating,
+.skill-rating .star-empty {
   margin-left: 2px;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+.star-half-rating {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 0.5em;
+}
+
+.star-half-rating:before {
+  content: "★";
+  position: absolute;
+}
+
+.star-empty {
+  color: var(--primary-color);
+  opacity: 0.4;
 }
 
 .skill-group-title {
@@ -258,6 +280,14 @@
 
   .accomplishments-list {
     grid-template-columns: 1fr;
+  }
+  
+  /* Ensure Unicode stars display properly on mobile */
+  .skill-rating .star-rating,
+  .skill-rating .star-half-rating,
+  .skill-rating .star-empty {
+    font-size: 0.9rem;
+    display: inline-block;
   }
 }
 
