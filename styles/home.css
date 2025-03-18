@@ -64,7 +64,7 @@
 }
 
 .about-section h3:before {
-  content: "Learn More ";
+  content: "Professional Summary ";
   color: var(--primary-color);
   font-family: var(--subheading-font);
   font-size: 1.5rem;
