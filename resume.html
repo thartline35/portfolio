@@ -18,7 +18,7 @@
       crossorigin="anonymous" 
       referrerpolicy="no-referrer" 
     />  
-<style>
+    <style>
     .resume-preview-container {
         position: relative;
         width: 100%;
@@ -41,23 +41,19 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.3);
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         opacity: 0;
         transition: opacity 0.3s ease;
-        gap: 20px;
-        padding: 20px;
-        box-sizing: border-box;
     }
 
     .resume-preview-container:hover .resume-overlay {
         opacity: 1;
     }
 
-    .resume-action-btn {
+    .open-resume-btn {
         background-color: #0f5581;
         color: white;
         padding: 12px 24px;
@@ -66,36 +62,19 @@
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        margin: 10px;
-        min-width: 200px;
-        text-align: center;
     }
 
-    .resume-action-btn:hover {
+    .open-resume-btn:hover {
         background-color: #1a7ab3;
     }
 
-    .btn-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
     @media screen and (max-width: 768px) {
-        .resume-action-btn {
+        .open-resume-btn {
             padding: 10px 20px;
             font-size: 14px;
-            min-width: 150px;
-        }
-
-        .btn-container {
-            flex-direction: column;
         }
     }
-</style>
+    </style>
   </head>
   <body>
     <div class="background-container">
@@ -139,23 +118,15 @@
       </div>
     </div>
 
-   <div class="resume-preview-container">
-    <img src="images/resume-preview.jpg" alt="Resume Preview" class="resume-preview-image">
-    <div class="resume-overlay">
-        <div class="btn-container">
-            <a href="https://docs.google.com/document/d/e/2PACX-1vQkjcsVJuGXxIf2qn-g6lZVSBVAz9SQCB3F_R__ZzB3PQZiy5ZQmPUgaUvKHhxQi9T7Kz7F7cuCuUB9/pub" 
-   target="_blank" 
-   class="resume-action-btn">
-    View in Browser
-</a>
-            <a href="https://docs.google.com/document/d/e/2PACX-1vQkjcsVJuGXxIf2qn-g6lZVSBVAz9SQCB3F_R__ZzB3PQZiy5ZQmPUgaUvKHhxQi9T7Kz7F7cuCuUB9/export?format=pdf" 
-               target="_blank" 
-               class="resume-action-btn">
-                Download PDF
+    <div class="resume-preview-container">
+        <img src="images/resume-preview.jpg" alt="Resume Preview" class="resume-preview-image">
+        <div class="resume-overlay">
+            <a href="https://docs.google.com/document/d/2PACX-1vQkjcsVJuGXxIf2qn-g6lZVSBVAz9SQCB3F_R__ZzB3PQZiy5ZQmPUgaUvKHhxQi9T7Kz7F7cuCuUB9/edit?usp=sharing" target="_blank" class="open-resume-btn">
+                Open Full Resume
             </a>
         </div>
     </div>
-</div>
+
     <script>
       function toggleHamburgerMenu() {
         const navbar = document.getElementById("navbar");
