@@ -18,32 +18,84 @@
       crossorigin="anonymous" 
       referrerpolicy="no-referrer" 
     />  
-    <style>
-    .fullscreen-resume-iframe {
+<style>
+    .resume-preview-container {
+        position: relative;
         width: 100%;
-        height: 100vh; /* Full viewport height */
-        border: none;
-        margin: 0;
-        padding: 0;
+        max-width: 900px;
+        margin: 20px auto;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-radius: 8px;
         overflow: hidden;
-        display: block;
     }
 
-    /* Ensure no scrollbars or margins */
-    body, html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+    .resume-preview-image {
+        width: 100%;
+        height: auto;
+        transition: filter 0.3s ease;
+    }
+
+    .resume-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        gap: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .resume-preview-container:hover .resume-overlay {
+        opacity: 1;
+    }
+
+    .resume-action-btn {
+        background-color: #0f5581;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+        min-width: 200px;
+        text-align: center;
+    }
+
+    .resume-action-btn:hover {
+        background-color: #1a7ab3;
+    }
+
+    .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 
     @media screen and (max-width: 768px) {
-        .fullscreen-resume-iframe {
-            width: 100%;
-            height: 100vh;
+        .resume-action-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            min-width: 150px;
+        }
+
+        .btn-container {
+            flex-direction: column;
         }
     }
 </style>
-
   </head>
   <body>
     <div class="background-container">
@@ -87,13 +139,23 @@
       </div>
     </div>
 
-    <iframe 
-       class="fullscreen-resume-iframe" 
-       src="https://docs.google.com/document/d/e/2PACX-1vQkjcsVJuGXxIf2qn-g6lZVSBVAz9SQCB3F_R__ZzB3PQZiy5ZQmPUgaUvKHhxQi9T7Kz7F7cuCuUB9/pub?embedded=true"
-       allowfullscreen 
-       mozallowfullscreen 
-       webkitallowfullscreen>
-    </iframe>
+   <div class="resume-preview-container">
+    <img src="images/resume-preview.jpg" alt="Resume Preview" class="resume-preview-image">
+    <div class="resume-overlay">
+        <div class="btn-container">
+            <a href="https://docs.google.com/document/d/e/2PACX-1vQkjcsVJuGXxIf2qn-g6lZVSBVAz9SQCB3F_R__ZzB3PQZiy5ZQmPUgaUvKHhxQi9T7Kz7F7cuCuUB9/pub" 
+               target="_blank" 
+               class="resume-action-btn">
+                View in Browser
+            </a>
+            <a href="https://docs.google.com/document/d/e/2PACX-1vQkjcsVJuGXxIf2qn-g6lZVSBVAz9SQCB3F_R__ZzB3PQZiy5ZQmPUgaUvKHhxQi9T7Kz7F7cuCuUB9/export?format=pdf" 
+               target="_blank" 
+               class="resume-action-btn">
+                Download PDF
+            </a>
+        </div>
+    </div>
+</div>
     <script>
       function toggleHamburgerMenu() {
         const navbar = document.getElementById("navbar");
