@@ -19,27 +19,64 @@
       referrerpolicy="no-referrer" 
     />
     <style>
+      body {
+        background-color: #f4f4f4;
+      }
+
+      .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
       .resume-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.9);
+        max-width: 900px;
+        margin: 40px auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
       }
 
       .resume-content {
-        white-space: pre-wrap;
         font-family: 'Crimson Text', serif;
         line-height: 1.6;
+        color: #333;
+        font-size: 16px;
       }
 
-      @media screen and (max-width: 768px) {
-        .resume-container {
-          padding: 10px;
-        }
+      .resume-header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #2c3e50;
+        padding-bottom: 20px;
+      }
 
-        .resume-content {
-          white-space: normal;
-          word-wrap: break-word;
+      .resume-header h1 {
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+
+      .contact-info {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .section-header {
+        color: #2c3e50;
+        border-bottom: 1px solid #3498db;
+        padding-bottom: 10px;
+        margin: 30px 0 15px;
+      }
+
+      @media (max-width: 768px) {
+        .resume-container {
+          margin: 20px 10px;
+          padding: 20px;
         }
       }
     </style>
@@ -87,144 +124,141 @@
     </div>
 
     <div class="resume-container">
-      <pre class="resume-content">Tammy Hartline
+      <div class="resume-content">
+        <div class="resume-header">
+          <h1>Tammy Hartline</h1>
+          <div class="contact-info">
+            tammyhartline@gmail.com | (256) 486-8191 | Portfolio: https://tammyhartline.tech | Boaz, AL
+          </div>
+          <h2>Generative AI Operations/Technical Solutions Architect</h2>
+        </div>
 
-tammyhartline@gmail.com  | (256) 486-8191 | Portfolio: https://tammyhartline.tech  | Boaz, AL
+        <h2 class="section-header">Professional Summary</h2>
+        <p>Dynamic professional with extensive experience in developing and implementing business development strategies and driving planning processes. Proficient in combining meticulous planning, analytical rigor, and an obsessive focus on customer relationships and outcomes.</p>
 
-Generative AI Operations/Technical Solutions Architect
+        <p>Possess a robust combination of technical expertise, including proficiency in SQL, Python, and various development tools. Dynamic AI operations leader with proven expertise in directing LLM data projects, building high-performing teams, and implementing strategic business processes. Combines technical AI knowledge with strong client relationship management and operational excellence. Demonstrated success in leading cutting-edge AI initiatives, optimizing processes, and driving measurable business outcomes through data-driven decision-making. Experienced in managing cross-functional teams while maintaining exceptional delivery standards and client satisfaction. Well-known for critical thinking, proactive and innovative approach to solving issues in multiple areas of Gen AI business.</p>
 
+        <h2 class="section-header">Expertise</h2>
+        <ul>
+          <li>Agile/Waterfall</li>
+          <li>Data Visualization/Data Management</li>
+          <li>Strategic Planning</li>
+          <li>Software Development Lifecycle (SDLC)</li>
+          <li>Market Trend Analysis</li>
+          <li>Project/Product Management and Project Scope Evaluation</li>
+          <li>Client Relationship Management</li>
+          <li>Risk Mitigation</li>
+          <li>Key Performance Indicator Creation/Monitoring/Management</li>
+          <li>Data and Business Analysis (from conception to completion)</li>
+          <li>Operations Management</li>
+          <li>Full Stack (Front and Back end) Development</li>
+          <li>Contractor/Vendor/FTE Management</li>
+          <li>Software Development and Engineering</li>
+          <li>Proactive Problem Solving, Team Building, and Leadership</li>
+          <li>Security and Automation Engineering</li>
+        </ul>
 
+        <p>Tools and Technologies: Visual Studio | SharePoint | Power BI | Microsoft SQL Server – (SSMS) | MongoDB | Azure DevOps | Microsoft Power Automate (Flow) | SQL | Python | Version Control | Data Science | ETL Development, Management, and Migration | Java | C | C++ | JavaScript | Typescript | XML | Bootstrap | NoSQL | HTML | CSS | Markdown | DAX | M-Code | Android Studio | Flutter | Dart | Docker | Excel/Google Sheets, Pivot Tables, Macros, String Connections | PowerPoint/Google Slides | Microsoft Word/Google Docs | Command Prompt/Shell/Terminal Scripting and Network Configs | Ad Hoc Analysis | Project Charters | Spreadsheet Software | Mongosh | MATLAB | Pycharm | Pandas | GIT | R | GraphQL | Salesforce | Tensorflow | Keras | Kubernetes | Bash | Node.js | React (Please see my portfolio skills page (link listed in top right of resume) for full list of proficiencies and skill level.)</p>
 
+        <h2 class="section-header">Key Accomplishments</h2>
+        <ul>
+          <li>Served as SNHU's Data Reporting Coordinator, Project Manager, Report Developer, and Mapping SME, driving key initiatives.</li>
+          <li>Contributed to the successful development and deployment of a comprehensive data warehouse dictionary, coordinating analytics personnel across multiple subdomains to define data warehouses, databases, schemas, tables, and columns.</li>
+          <li>Contributed to the development of integrating mapping data into Power BI with visuals showing the last refresh date/time, datatype details, UAT testing status, migration info, and data definitions.</li>
+          <li>Established a version control system for the Office of Sustainability, integrating Visual Studio, SharePoint, onsite servers, and other sources, allowing multiple source checkouts and maintaining reverse capabilities based on permission levels.</li>
+          <li>Successfully linked new report developments to user story IDs, creation dates, and authors with the implementation of a Python script, which integrated Azure DevOps, SQL Server, and stored procedure comments.</li>
+          <li>Presented and discussed project impact at the 2023 Global AASHE conference.</li>
+        </ul>
 
-Dynamic professional with extensive experience in developing and implementing business development strategies and driving planning processes. Proficient in combining meticulous planning, analytical rigor, and an obsessive focus on customer relationships and outcomes.  
+        <h2 class="section-header">Career Experience</h2>
+        <h3>Scale AI | Remote | 11/22/2023 - Present</h3>
+        <h4>Gen AI Workforce Manager | 08/2024 – Present</h4>
+        <ul>
+          <li>Lead enterprise LLM data projects from conception through delivery, consistently meeting quality benchmarks and timeline commitments for Fortune 500 clients</li>
+          <li>Orchestrate resource allocation across multiple AI development teams, creating a proprietary staff allocation system that increased team utilization by 35% and reduced bench time</li>
+          <li>Develop and implement contractor availability and hour tracking system, providing real-time visibility into resource allocation and project status</li>
+          <li>Uncovered and resolved $800K in fraudulent payment issues through the implementation of advanced pattern detection algorithms and verification processes</li>
+          <li>Drive operational excellence by developing standardized processes that increased throughput by 42% while maintaining quality standards</li>
+          <li>Establish strategic client partnerships, resulting in a 78% expansion of existing engagements through a consultative approach</li>
+          <li>Coordinate cross-functionally between technical AI teams, project management, and client stakeholders to ensure alignment on LLM data initiatives</li>
+        </ul>
 
-Possess a robust combination of technical expertise, including proficiency in SQL, Python, and various development tools.  Dynamic AI operations leader with proven expertise in directing LLM data projects, building high-performing teams, and implementing strategic business processes. Combines technical AI knowledge with strong client relationship management and operational excellence. Demonstrated success in leading cutting-edge AI initiatives, optimizing processes, and driving measurable business outcomes through data-driven decision-making. Experienced in managing cross-functional teams while maintaining exceptional delivery standards and client satisfaction. Well-known for critical thinking, proactive and innovative approach to solving issues in multiple areas of Gen AI business.
+        <h4>Team Lead Coordinator – Code Teams - Senior Contributor Success and Queue Manager | 02/2024 – 08/2024</h4>
+        <ul>
+          <li>Direct team leads and queue/quality managers.</li>
+          <li>Coordinate with STOs and project team members to enhance quality, efficiency, throughput, and overall project success.</li>
+          <li>Trained, mentored, and managed all team members, ensuring full access to permissions and resources needed to succeed.</li>
+          <li>Craft queries for data-driven company decisions.</li>
+          <li>Manage performance, monitoring, and review processes.</li>
+          <li>Work during weekends and holidays to meet delivery deadlines and align customer goals with project objectives.</li>
+          <li>Boosted morale, retention, and efficiency with transparent project management practices using Agile methodology.</li>
+          <li>Authored proposals for systemic process improvements.</li>
+          <li>Collaborated across multiple departments to ensure stakeholder alignment.</li>
+        </ul>
 
+        <h4>Platinum Team Lead – Code Teams | Contributor Success Manager | 11/2023 – 02/2024</h4>
+        <ul>
+          <li>Supervised high-performing code contributors who were responsible for training AI models.</li>
+          <li>Audited tasks for quality and project comprehension.</li>
+          <li>Guided and trained both contributors and fellow Platinum Team Leads.</li>
+          <li>Monitored and managed team KPIs effectively.</li>
+          <li>Enhanced processes for the overall Platinum initiative and model.</li>
+          <li>Achieved the highest retention rates, lowest churn, highest activity and hours, and highest quality percentages across all teams during the tenure as Platinum Team Lead (PTL), surpassing KPI goals consistently.</li>
+        </ul>
+        <hr>
+        <h3>Girls Who Code 2023 Fall Leadership Academy Hosted by Rtx | Remote 08/2023 – 12/2023 | Intern/Fellow – SWE</h3>
+        <ul>
+          <li>Crafted and delivered a formal presentation to articulate the project's vision, goals, and technical aspects to organizational stakeholders.</li>
+          <li>Structured an Agile-style project timeline to ensure efficient development and adherence to milestones and deadlines.</li>
+          <li>Engaged with cross-functional teams to foster collaboration and streamline processes.</li>
+          <li>Conceptualized, planned, developed, and executed my project's MVP within the project's timeline.</li>
+          <li>Still developing the final product, as it requires manufacturing hardware, and a legal team to fully complete and deploy.</li>
+        </ul>
 
+        <h3>Remotasks - Subsidy of Scale AI | Remote 10/2023 – 11/2023 | Freelance Contractor – LLM Generalized AI Training Expert and Reviewer</h3>
+        <ul>
+          <li>Evaluated AI model responses for clarity, relevance, and accuracy.</li>
+          <li>Analyzed feedback from taskers to pinpoint common issues and areas for improvement.</li>
+          <li>Guided and trained taskers to improve the quality of feedback and annotations.</li>
+          <li>Maintained detailed records of response reviews and contributed to training documentation.</li>
+          <li>Improved processes for the feedback loop between reviewers and AI models.</li>
+        </ul>
 
+        <h3>Southern New Hampshire University | Remote 05/2022 – 11/2023 | Data Analytics Reporting Coordinator</h3>
+        <ul>
+          <li>Serve as an Azure DevOps and SQL system query developer, and data warehouse mapping subject matter expert. Proficient in SQL report stored procedure development, ensuring efficient data management and retrieval.</li>
+          <li>Utilized Excel Power Query and Pivot Tables for ad-hoc analysis, enabling quick and accurate data insights.</li>
+          <li>Nominated for the 2023 Student Worker of the Year award at SNHU, recognized among 23 out of over 700 student employees within six months of my employment.</li>
+          <li>Developed and implemented a process awarded the University Employee Impact Award at SNHU, integrating Azure DevOps, Microsoft SQL Server, and Python scripting to link user stories with associated reports.</li>
+          <li>Elevated SNHU's Office of Sustainability to Silver membership status by developing 8 Power BI visual dashboards and an integrated data storage and communication site.</li>
+          <li>Developed over 40 custom data visual dashboards using Power BI, enhancing data visualization capabilities.</li>
+        </ul>
 
-      
+        <h2 class="section-header">Education</h2>
+        <ul>
+          <li>Bachelor Of Science in Computer Science - Concentration in Data Analysis | Southern New Hampshire University | 2024
+            <ul>
+              <li>Maintained a 4.0 GPA in every course and completed over 120 university credits in 22 months.</li>
+            </ul>
+          </li>
+          <li>Bachelor of Business Administration in Accounting | Belford University (Non – Accredited) | 2007
+            <ul>
+              <li>3.275 GPA</li>
+            </ul>
+          </li>
+          <li>General Studies | Gadsden State Community College | 2005</li>
+        </ul>
 
-
-
-General Areas of Expertise
-
-Technical Expertise
-
-
-Agile/Waterfall
-
-Data Visualization/Data Management
-
-Strategic Planning
-
-Software Development Lifecycle (SDLC)
-
-Market Trend Analysis
-
-Project/Product Management and Project Scope Evaluation
-
-Client Relationship Management
-
-Risk Mitigation
-
-Key Performance Indicator Creation/Monitoring/Management
-
-Data and Business Analysis (from conception to completion)
-
-Operations Management
-
-Full Stack (Front and Back end) Development
-
-Contractor/Vendor/FTE Management
-
-Software Development and Engineering
-
-Proactive Problem Solving, Team Building, and Leadership
-
-Security and Automation Engineering
-
-
-Visual Studio | SharePoint | Power BI | Microsoft SQL Server – (SSMS) | MongoDB | Azure DevOps | Microsoft Power Automate  (Flow) | SQL | Python | Version Control | Data Science | ETL Development, Management, and Migration | Java | C | C++ |  JavaScript | Typescript | XML | Bootstrap | NoSQL | HTML | CSS | Markdown | DAX | M-Code | Android Studio | Flutter | Dart |  Docker | Excel/Google Sheets, Pivot Tables, Macros, String Connections | PowerPoint/Google Slides | Microsoft Word/Google  Docs | Command Prompt/Shell/Terminal Scripting and Network Configs | Ad Hoc Analysis | Project Charters | Spreadsheet  Software | Mongosh | MATLAB | Pycharm | Pandas | GIT | R | GraphQL | Salesforce | Tensorflow | Keras | Kubernetes | Bash | Node.js | React (Please see my portfolio skills page (link listed in top right of resume) for full list of proficiencies and skill level.)
-
-Key Accomplishments
-
-Served as SNHU's Data Reporting Coordinator, Project Manager, Report Developer, and Mapping SME, driving key initiatives.
-Contributed to the successful development and deployment of a comprehensive data warehouse dictionary, coordinating analytics personnel across multiple subdomains to define data warehouses, databases, schemas, tables, and columns.  
-Contributed to the development of integrating mapping data into Power BI with visuals showing the last refresh date/time, datatype details, UAT testing status, migration info, and data definitions.  
-Established a version control system for the Office of Sustainability, integrating Visual Studio, SharePoint, onsite servers,  and other sources, allowing multiple source checkouts and maintaining reverse capabilities based on permission levels.
-Successfully linked new report developments to user story IDs, creation dates, and authors with the implementation of a  Python script, which integrated Azure DevOps, SQL Server, and stored procedure comments.
-Presented and discussed project impact at the 2023 Global AASHE conference.  
-Career Experience
-
-
-Scale AI | Remote | 11/22/2023 - Present
-
-Gen AI Workforce Manager | 08/2024 – Present  
-
-Lead enterprise LLM data projects from conception through delivery, consistently meeting quality benchmarks and timeline commitments  for Fortune 500 clients
-Orchestrate resource allocation across multiple AI development teams, creating a proprietary staff allocation system that increased team  utilization by 35% and reduced bench time
-Develop and implement contractor availability and hour tracking system, providing real-time visibility into resource allocation and project  status
-Uncovered and resolved $800K in fraudulent payment issues through the implementation of advanced pattern detection algorithms and  verification processes
-Drive operational excellence by developing standardized processes that increased throughput by 42% while maintaining quality standards
-Establish strategic client partnerships, resulting in a 78% expansion of existing engagements through a consultative approach
-Coordinate cross-functionally between technical AI teams, project management, and client stakeholders to ensure alignment on LLM data  initiatives
-Team Lead Coordinator – Code Teams - Senior Contributor Success and Queue Manager | 02/2024 – 08/2024
-Direct team leads and queue/quality managers.
-Coordinate with STOs and project team members to enhance quality,  efficiency, throughput, and overall project success.
-Trained, mentored, and managed all team members, ensuring full access to permissions and resources needed to succeed.
-Craft queries for data-driven company decisions.
-Manage performance, monitoring, and review processes.
-Work during weekends and holidays to meet delivery deadlines and align customer goals with project objectives.
-Boosted morale, retention, and efficiency with transparent project management practices using Agile methodology.
-Authored proposals for systemic process improvements.
-Collaborated across multiple departments to ensure stakeholder alignment.
-Platinum Team Lead – Code Teams | Contributor Success Manager | 11/2023 – 02/2024
-Supervised high-performing code contributors who were responsible for training AI models.
-Audited tasks for quality and project comprehension.
-Guided and trained both contributors and fellow Platinum Team Leads.
-Monitored and managed team KPIs effectively.
-Enhanced processes for the overall Platinum initiative and model.
-Achieved the highest retention rates, lowest churn, highest activity and hours, and highest quality percentages across all teams during the tenure as Platinum Team Lead (PTL), surpassing KPI goals consistently.
-
-
-Girls Who Code 2023 Fall Leadership Academy Hosted by Rtx | Remote 08/2023 – 12/2023  Intern/Fellow – SWE
-
-Crafted and delivered a formal presentation to articulate the project's vision, goals, and technical aspects to organizational stakeholders.
-Structured an Agile-style project timeline to ensure efficient development and adherence to milestones and deadlines.
-Engaged with cross-functional teams to foster collaboration and streamline processes.
-Conceptualized, planned, developed, and executed my project's MVP within the project's timeline.
-Still developing the final product, as it requires manufacturing hardware, and a legal team to fully complete and deploy.
-
-Remotasks - Subsidy of Scale AI | Remote 10/2023 – 11/2023  Freelance Contractor – LLM Generalized AI Training Expert and Reviewer 
-
-Evaluated AI model responses for clarity, relevance, and accuracy.
-Analyzed feedback from taskers to pinpoint common issues and areas for improvement.
-Guided and trained taskers to improve the quality of feedback and annotations.
-Maintained detailed records of response reviews and contributed to training documentation.
- Improved processes for the feedback loop between reviewers and AI models.
-Southern New Hampshire University | Remote 05/2022 – 11/2023  Data Analytics Reporting Coordinator
-
-
-Serve as an Azure DevOps and SQL system query developer, and data warehouse mapping subject matter expert. Proficient in SQL report stored procedure development, ensuring efficient data management and retrieval.
-Utilized Excel Power Query and Pivot Tables for ad-hoc analysis, enabling quick and accurate data insights.  
-Nominated for the 2023 Student Worker of the Year award at SNHU, recognized among 23 out of over 700 student employees within six months of my employment.
-Developed and implemented a process awarded the University Employee Impact Award at SNHU, integrating Azure  DevOps, Microsoft SQL Server, and Python scripting to link user stories with associated reports.
-Elevated SNHU's Office of Sustainability to Silver membership status by developing 8 Power BI visual dashboards and an integrated data storage and communication site.
-Developed over 40 custom data visual dashboards using Power BI, enhancing data visualization capabilities.
-
-Education
-
-Bachelor Of Science in Computer Science - Concentration in Data Analysis | Southern New Hampshire University | 2024 Maintained a 4.0 GPA in every course and completed over 120 university credits in 22 months.  
-Bachelor of Business Administration in Accounting | 3.275 GPA | Belford University (Non – Accredited) | 2007  
-General Studies | Gadsden State Community College | General Studies | 2005  
-Certifications
-
-Google Data Analytics Professional Certificate | May 2023  
-Mastery Level Comprehension in Data Analytics Tools and Platforms Including SQL, Tableau, and R
-
-
-Google Foundations in Project Management Certificate | July 2024</pre>
+        <h2 class="section-header">Certifications</h2>
+        <ul>
+          <li>Google Data Analytics Professional Certificate | May 2023
+            <ul>
+              <li>Mastery Level Comprehension in Data Analytics Tools and Platforms Including SQL, Tableau, and R</li>
+            </ul>
+          </li>
+          <li>Google Foundations in Project Management Certificate | July 2024</li>
+        </ul>
+      </div>
     </div>
 
     <script>
