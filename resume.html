@@ -18,7 +18,7 @@
       crossorigin="anonymous" 
       referrerpolicy="no-referrer" 
     />
-    <style>
+  <style>
       :root {
         --container-bg: rgba(10, 25, 47, 0.7);
         --text-color: rgba(204, 214, 246, 1);
@@ -91,6 +91,7 @@
       strong {
         color: var(--primary-color);
       }
+
       .section-header {
         color: var(--primary-color);
         border-bottom: 1px solid var(--primary-color);
@@ -99,6 +100,15 @@
       }
 
       .sub-header {
+        color: var(--primary-color);
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .sub-header::before {
+        content: '➤';
+        position: absolute;
+        left: 0;
         color: var(--primary-color);
       }
 
