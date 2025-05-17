@@ -164,18 +164,26 @@
         margin-right: 8px;
       }
 
+      /* For PDF printing - this class will be added to body when generating PDF */
       .pdf-mode {
-        background-color: white;
-        color: #333;
+        background-color: white !important;
       }
 
       .pdf-mode .resume-container {
-        background-color: white;
-        border: none;
-        box-shadow: none;
-        max-width: 100%;
-        margin: 0;
-        padding: 20px;
+        background-color: white !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+      }
+      
+      /* Ensure strong contrast for PDF */
+      .pdf-mode .resume-content,
+      .pdf-mode p,
+      .pdf-mode li,
+      .pdf-mode ul {
+        color: #000000 !important;
       }
 
       .pdf-mode .resume-header h1,
@@ -183,21 +191,25 @@
       .pdf-mode .header,
       .pdf-mode .sub-header,
       .pdf-mode strong {
-        color: #0a192f;
+        color: #000000 !important;
+        font-weight: bold !important;
+      }
+
+      .pdf-mode h2, 
+      .pdf-mode h3, 
+      .pdf-mode h4 {
+        color: #000000 !important;
+        font-weight: bold !important;
       }
 
       .pdf-mode .contact-info {
-        color: #555;
-      }
-
-      .pdf-mode ul {
-        color: #333;
+        color: #000000 !important;
       }
 
       .pdf-mode .sub-header::before {
-        color: #0a192f;
+        color: #000000 !important;
       }
-    
+
       @media (max-width: 768px) {
         .resume-container {
           margin: 20px 10px;
@@ -416,21 +428,26 @@
         button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
         button.disabled = true;
 
-        // Hide elements to exclude from the PDF
-        const navbar = document.getElementById('navbar');
-        const downloadBtn = document.querySelector('.download-container');
-        const backgroundContainer = document.querySelector('.background-container');
+        // Create a clone of the resume content to modify for PDF
+        const resumeContent = document.getElementById('resume-content').cloneNode(true);
+        const tempContainer = document.createElement('div');
+        tempContainer.appendChild(resumeContent);
         
-        navbar.style.display = 'none';
-        downloadBtn.style.display = 'none';
-        backgroundContainer.style.display = 'none';
+        // Apply PDF styling to the clone
+        resumeContent.style.backgroundColor = 'white';
+        resumeContent.style.color = 'black';
+        resumeContent.style.padding = '20px';
+        resumeContent.style.margin = '0';
+        resumeContent.style.maxWidth = '100%';
+        resumeContent.style.boxShadow = 'none';
+        resumeContent.style.border = 'none';
         
-        // Add PDF mode class for better formatting
-        document.body.classList.add('pdf-mode');
-        
-        // Get resume content
-        const resumeElement = document.getElementById('resume-content');
-        
+        // Ensure all text is black for good contrast
+        const allElements = resumeContent.querySelectorAll('p, li, h1, h2, h3, h4, ul, strong, .contact-info');
+        allElements.forEach(function(element) {
+          element.style.color = 'black';
+        });
+
         // Configure PDF options
         const opt = {
           margin: [10, 10, 10, 10],
@@ -439,23 +456,24 @@
           html2canvas: { 
             scale: 2,
             useCORS: true,
-            logging: false
+            logging: true
           },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         
         // Generate PDF
-        html2pdf().from(resumeElement).set(opt).save().then(function() {
-          // Reset the page after PDF is generated
-          navbar.style.display = '';
-          downloadBtn.style.display = '';
-          backgroundContainer.style.display = '';
-          document.body.classList.remove('pdf-mode');
-          
-          // Reset button
-          button.innerHTML = originalText;
-          button.disabled = false;
-        });
+        html2pdf().from(resumeContent).set(opt).save()
+          .then(function() {
+            // Reset button
+            button.innerHTML = originalText;
+            button.disabled = false;
+          })
+          .catch(function(error) {
+            console.error('PDF generation error:', error);
+            button.innerHTML = 'Error - Try Again';
+            button.disabled = false;
+            alert('There was an error generating the PDF. Please try again.');
+          });
       });
     </script>
   </body>
