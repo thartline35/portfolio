@@ -421,101 +421,120 @@
       }
 
       // PDF download functionality
-      document.getElementById('download-pdf').addEventListener('click', function() {
-      // Show loading state on button
-      const button = this;
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-      button.disabled = true;
+document.getElementById('download-pdf').addEventListener('click', function() {
+  // Show loading state on button
+  const button = this;
+  const originalText = button.innerHTML;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+  button.disabled = true;
 
-      // Get the resume container
-      const resumeContainer = document.querySelector('.resume-container');
+  // Hide elements we don't want in the PDF
+  const elementsToHide = [
+    document.getElementById('navbar'),
+    document.querySelector('.download-container'),
+    document.querySelector('.background-container')
+  ];
   
-      if (!resumeContainer) {
-        console.error('Could not find resume container');
-        button.innerHTML = 'Error - Try Again';
-        button.disabled = false;
-      return;
+  // Remember original display values
+  const originalDisplays = [];
+  elementsToHide.forEach(el => {
+    if (el) {
+      originalDisplays.push(el.style.display);
+      el.style.display = 'none';
     }
-
-    // Create a temporary element for PDF generation
-    const pdfElement = document.createElement('div');
-    pdfElement.innerHTML = resumeContainer.innerHTML;
-    pdfElement.style.backgroundColor = 'white';
-    pdfElement.style.padding = '20px';
-    pdfElement.style.margin = '20px';
-    pdfElement.style.color = 'black';
+  });
   
-    // Apply styles to all elements for good PDF contrast
-    const elementsToStyle = pdfElement.querySelectorAll('h1, h2, h3, h4, p, li, ul, .section-header, .header, .sub-header, strong, .contact-info');
-    elementsToStyle.forEach(function(el) {
-      el.style.color = 'black';
-      if (el.tagName.startsWith('H') || el.classList.contains('section-header') || 
-          el.classList.contains('header') || el.classList.contains('sub-header')) {
-        el.style.fontWeight = 'bold';
-      }
-    });
+  // Add temporary styles for PDF generation
+  const tempStyle = document.createElement('style');
+  tempStyle.id = 'pdf-styles';
+  tempStyle.innerHTML = `
+    body {
+      background-color: white !important;
+    }
+    .resume-container {
+      background-color: white !important;
+      color: black !important;
+      border: none !important;
+      box-shadow: none !important;
+      max-width: 100% !important;
+    }
+    .resume-container * {
+      color: black !important;
+    }
+    h1, h2, h3, h4, .section-header, .header, .sub-header, strong {
+      color: black !important;
+      font-weight: bold !important;
+    }
+    p, li, ul {
+      color: black !important;
+    }
+    .contact-info {
+      color: black !important;
+    }
+  `;
+  document.head.appendChild(tempStyle);
+  
+  // Get the resume container directly
+  const element = document.querySelector('.resume-container');
+  
+  // Configure PDF options
+  const opt = {
+    margin: 10,
+    filename: 'Tammy_Hartline_Resume.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { 
+      scale: 2, 
+      useCORS: true,
+      backgroundColor: '#ffffff',
+      logging: true
+    },
+    jsPDF: { 
+      unit: 'mm', 
+      format: 'a4', 
+      orientation: 'portrait'
+    }
+  };
 
-    // Remove any elements to exclude from download in PDF
-    const elementsToRemove = pdfElement.querySelectorAll('a:not([href^="http"])');
-    elementsToRemove.forEach(function(el) {
-      if (el.textContent.includes('skills page')) {
-        // Keep this link but make it plain text
-        const text = document.createTextNode(el.textContent);
-        el.parentNode.replaceChild(text, el);
-      }
-    });
-
-    // Add the element to the body temporarily but hide it
-    pdfElement.style.position = 'absolute';
-    pdfElement.style.left = '-9999px';
-    document.body.appendChild(pdfElement);
-
-    // Configure PDF options
-    const opt = {
-      margin: [10, 10, 10, 10],
-      filename: 'Tammy_Hartline_Resume.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { 
-        scale: 2, 
-        useCORS: true, 
-        logging: true,
-        backgroundColor: '#ffffff'
-      },
-      jsPDF: { 
-        unit: 'mm', 
-        format: 'a4', 
-        orientation: 'portrait',
-        putOnlyUsedFonts: true
-      }
-    };
-
-    // Generate PDF
+  // Generate PDF after a small delay to ensure styles are applied
+  setTimeout(() => {
     html2pdf()
-      .from(pdfElement)
+      .from(element)
       .set(opt)
       .save()
-      .then(function() {
+      .then(() => {
         // Clean up
-        document.body.removeChild(pdfElement);
-      
+        document.head.removeChild(tempStyle);
+        
+        // Restore hidden elements
+        elementsToHide.forEach((el, index) => {
+          if (el) {
+            el.style.display = originalDisplays[index] || '';
+          }
+        });
+        
         // Reset button
         button.innerHTML = originalText;
         button.disabled = false;
       })
-      .catch(function(error) {
+      .catch((error) => {
         console.error('PDF generation error:', error);
-      
+        
         // Clean up
-        if (document.body.contains(pdfElement)) {
-          document.body.removeChild(pdfElement);
-        }
-      
+        document.head.removeChild(tempStyle);
+        
+        // Restore hidden elements
+        elementsToHide.forEach((el, index) => {
+          if (el) {
+            el.style.display = originalDisplays[index] || '';
+          }
+        });
+        
         button.innerHTML = 'Error - Try Again';
         button.disabled = false;
         alert('There was an error generating the PDF. Please try again.');
       });
-    });
+  }, 100);
+});
     </script>
   </body>
 </html>
