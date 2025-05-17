@@ -18,6 +18,9 @@
       crossorigin="anonymous" 
       referrerpolicy="no-referrer" 
     />
+    <!-- Convert html to pdf for resume download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <style>
       :root {
         --container-bg: rgba(10, 25, 47, 0.7);
@@ -129,6 +132,72 @@
         color: var(--text-color);
       }
 
+      .download-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .download-btn {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        font-weight: bold;
+        padding: 12px 25px;
+        border: none;
+        border-radius: var(--border-radius-sm);
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: all var(--transition-normal);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .download-btn:hover {
+        background-color: rgba(100, 255, 218, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .download-btn i {
+        margin-right: 8px;
+      }
+
+      .pdf-mode {
+        background-color: white;
+        color: #333;
+      }
+
+      .pdf-mode .resume-container {
+        background-color: white;
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .pdf-mode .resume-header h1,
+      .pdf-mode .section-header,
+      .pdf-mode .header,
+      .pdf-mode .sub-header,
+      .pdf-mode strong {
+        color: #0a192f;
+      }
+
+      .pdf-mode .contact-info {
+        color: #555;
+      }
+
+      .pdf-mode ul {
+        color: #333;
+      }
+
+      .pdf-mode .sub-header::before {
+        color: #0a192f;
+      }
+    
       @media (max-width: 768px) {
         .resume-container {
           margin: 20px 10px;
@@ -177,6 +246,12 @@
           </svg>
         </a>
       </div>
+    </div>
+    <!-- Download Button -->
+    <div class="download-container">
+      <button id="download-pdf" class="download-btn">
+        <i class="fas fa-file-pdf"></i> Download Resume as PDF
+      </button>
     </div>
 
     <div class="resume-container">
@@ -332,6 +407,56 @@
         // Toggle no-scroll class on body
         document.body.classList.toggle("no-scroll");
       }
+
+      // PDF download functionality
+      document.getElementById('download-pdf').addEventListener('click', function() {
+        // Show loading state on button
+        const button = this;
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+        button.disabled = true;
+
+        // Hide elements to exclude from the PDF
+        const navbar = document.getElementById('navbar');
+        const downloadBtn = document.querySelector('.download-container');
+        const backgroundContainer = document.querySelector('.background-container');
+        
+        navbar.style.display = 'none';
+        downloadBtn.style.display = 'none';
+        backgroundContainer.style.display = 'none';
+        
+        // Add PDF mode class for better formatting
+        document.body.classList.add('pdf-mode');
+        
+        // Get resume content
+        const resumeElement = document.getElementById('resume-content');
+        
+        // Configure PDF options
+        const opt = {
+          margin: [10, 10, 10, 10],
+          filename: 'Tammy_Hartline_Resume.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { 
+            scale: 2,
+            useCORS: true,
+            logging: false
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        
+        // Generate PDF
+        html2pdf().from(resumeElement).set(opt).save().then(function() {
+          // Reset the page after PDF is generated
+          navbar.style.display = '';
+          downloadBtn.style.display = '';
+          backgroundContainer.style.display = '';
+          document.body.classList.remove('pdf-mode');
+          
+          // Reset button
+          button.innerHTML = originalText;
+          button.disabled = false;
+        });
+      });
     </script>
   </body>
 </html>
