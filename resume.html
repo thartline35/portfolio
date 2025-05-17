@@ -457,19 +457,140 @@ document.getElementById('download-pdf').addEventListener('click', function() {
       border: none !important;
       box-shadow: none !important;
       max-width: 100% !important;
+      padding: 10px !important; /* Reduced padding */
+      margin: 0 !important;
+      font-size: 10pt !important; /* Base font size reduced */
+      line-height: 1.3 !important; /* Tighter line height */
     }
     .resume-container * {
       color: black !important;
     }
-    h1, h2, h3, h4, .section-header, .header, .sub-header, strong {
-      color: black !important;
-      font-weight: bold !important;
+    
+    /* Header styling */
+    .resume-header {
+      margin-bottom: 10px !important;
+      padding-bottom: 10px !important;
     }
-    p, li, ul {
-      color: black !important;
+    
+    .resume-header h1 {
+      margin-bottom: 0px !important;
+      font-size: 18pt !important;
     }
+    
+    .resume-header h2 {
+      margin-top: 5px !important;
+      margin-bottom: 0 !important;
+      font-size: 14pt !important;
+    }
+    
     .contact-info {
       color: black !important;
+      margin-bottom: 5px !important;
+      font-size: 9pt !important;
+    }
+    
+    /* Section headers */
+    .section-header {
+      color: black !important;
+      font-weight: bold !important;
+      margin: 12px 0 5px !important;
+      padding-bottom: 3px !important;
+      font-size: 14pt !important;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    
+    /* Sub headers */
+    .header {
+      color: black !important;
+      font-weight: bold !important;
+      margin: 8px 0 2px !important;
+      font-size: 12pt !important;
+    }
+    
+    .sub-header {
+      color: black !important;
+      font-weight: bold !important;
+      margin: 5px 0 2px !important;
+      font-size: 10pt !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    .sub-header::before {
+      color: black !important;
+      margin-right: 5px !important;
+    }
+    
+    /* Text elements */
+    p {
+      margin: 4px 0 !important;
+      font-size: 10pt !important;
+    }
+    
+    /* List styling */
+    ul {
+      margin: 4px 0 !important;
+      padding-left: 20px !important;
+    }
+    
+    li {
+      margin-bottom: 2px !important;
+      font-size: 10pt !important;
+    }
+    
+    /* Nested lists */
+    li ul {
+      margin: 2px 0 !important;
+    }
+    
+    li ul li {
+      font-size: 9pt !important;
+    }
+    
+    /* Page break control */
+    h2, h3, h4, .header, .sub-header {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      break-after: avoid !important;
+      page-break-after: avoid !important;
+    }
+    
+    ul, li {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    
+    /* Optimize space for Tools and Technologies section */
+    p strong + span, p strong + text {
+      font-size: 9pt !important;
+      line-height: 1.2 !important;
+    }
+    
+    /* Special formatting for the HR */
+    hr {
+      margin: 5px 0 !important;
+      break-before: auto !important;
+      page-break-before: auto !important;
+    }
+    
+    /* Reduce space after each job description */
+    .sub-header + ul {
+      margin-bottom: 5px !important;
+    }
+    
+    /* More compact education section */
+    .section-header + ul {
+      margin-top: 2px !important;
+    }
+    
+    strong {
+      color: black !important;
+    }
+    
+    /* Added for compactness */
+    br {
+      display: none !important;
     }
   `;
   document.head.appendChild(tempStyle);
@@ -477,21 +598,25 @@ document.getElementById('download-pdf').addEventListener('click', function() {
   // Get the resume container directly
   const element = document.querySelector('.resume-container');
   
-  // Configure PDF options
+  // Configure PDF options with compact settings
   const opt = {
-    margin: 10,
+    margin: [10, 10, 10, 10], // Minimal margins
     filename: 'Tammy_Hartline_Resume.pdf',
     image: { type: 'jpeg', quality: 1 },
     html2canvas: { 
       scale: 2, 
       useCORS: true,
-      backgroundColor: '#ffffff',
-      logging: true
+      backgroundColor: '#ffffff'
     },
     jsPDF: { 
       unit: 'mm', 
       format: 'a4', 
-      orientation: 'portrait'
+      orientation: 'portrait',
+      compress: true
+    },
+    pagebreak: {
+      mode: ['avoid-all', 'css', 'legacy'],
+      avoid: ['h3', 'h4', '.sub-header', 'li', '.header']
     }
   };
 
@@ -535,6 +660,7 @@ document.getElementById('download-pdf').addEventListener('click', function() {
       });
   }, 100);
 });
+      
     </script>
   </body>
 </html>
