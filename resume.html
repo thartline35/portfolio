@@ -88,7 +88,27 @@
 
       .contact-info {
         color: var(--text-color-light);
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .contact-info a {
+        display: inline-flex;
+        align-items: center;
+        color: var(--text-color-light);
+        text-decoration: none;
+        transition: color var(--transition-normal);
+      }
+
+      .contact-info a:hover {
+        color: var(--primary-color);
+      }
+
+      .contact-info i {
+        margin-right: 5px;
       }
 
       strong {
@@ -133,10 +153,17 @@
       }
 
       .download-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        position: sticky;
+        top: 20px;
+        z-index: 100;
+        background-color: rgba(10, 25, 47, 0.8);
+        padding: 15px;
+        border-radius: var(--border-radius);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        margin: 20px auto;
+        max-width: 300px;
+        text-align: center;
       }
 
       .download-btn {
@@ -150,6 +177,8 @@
         font-size: 16px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        width: 100%;
         transition: all var(--transition-normal);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
@@ -162,6 +191,56 @@
 
       .download-btn i {
         margin-right: 8px;
+      }
+      
+      .format-options {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 10px;
+      }
+      
+      .format-btn {
+        background-color: transparent;
+        border: 1px solid var(--primary-color);
+        color: var(--text-color-light);
+        padding: 5px 10px;
+        border-radius: var(--border-radius-sm);
+        cursor: pointer;
+        font-size: 12px;
+        transition: all var(--transition-normal);
+      }
+      
+      .format-btn.active {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
+      /* Skills Grid Layout */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 15px 0;
+      }
+      
+      .skill-category {
+        background-color: rgba(100, 255, 218, 0.05);
+        border-radius: var(--border-radius-sm);
+        padding: 10px 15px;
+        border: 1px solid rgba(100, 255, 218, 0.1);
+      }
+      
+      .skill-category h5 {
+        color: var(--primary-color);
+        margin: 0 0 8px 0;
+        font-size: 16px;
+      }
+      
+      .skill-category p {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
       }
 
       /* For PDF printing - this class will be added to body when generating PDF */
@@ -176,6 +255,17 @@
         max-width: 100% !important;
         margin: 0 !important;
         padding: 20px !important;
+      }
+      
+      /* Two column layout for PDF */
+      .two-column-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .column {
+        width: 48%;
       }
       
       /* Ensure strong contrast for PDF */
@@ -209,11 +299,21 @@
       .pdf-mode .sub-header::before {
         color: #000000 !important;
       }
+      
+      /* Page metadata */
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
 
       @media (max-width: 768px) {
         .resume-container {
           margin: 20px 10px;
           padding: 20px;
+        }
+        
+        .skills-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -262,16 +362,23 @@
     <!-- Download Button -->
     <div class="download-container">
       <button id="download-pdf" class="download-btn">
-        <i class="fas fa-file-pdf"></i> Download Resume as PDF
+        <i class="fas fa-file-pdf"></i> Download Resume
       </button>
+      <div class="format-options">
+        <button class="format-btn active" data-format="standard">Standard</button>
+        <button class="format-btn" data-format="ats">ATS-Friendly</button>
+      </div>
     </div>
 
-    <div class="resume-container">
+    <div class="resume-container" id="resume-content">
       <div class="resume-content">
         <div class="resume-header">
           <h1>Tammy Hartline</h1>
           <div class="contact-info">
-            tammyhartline@gmail.com | (256) 486-8191 | Portfolio: https://tammyhartline.tech | Boaz, AL
+            <a href="mailto:tammyhartline@gmail.com"><i class="fas fa-envelope"></i> tammyhartline@gmail.com</a>
+            <a href="tel:2564868191"><i class="fas fa-phone"></i> (256) 486-8191</a>
+            <a href="https://tammyhartline.tech"><i class="fas fa-globe"></i> tammyhartline.tech</a>
+            <a href="https://www.google.com/maps/place/Boaz,+AL"><i class="fas fa-map-marker-alt"></i> Boaz, AL</a>
           </div>
           <h2>Generative AI Operations/Technical Solutions Architect</h2>
         </div>
@@ -282,26 +389,61 @@
         <p>Possess a robust combination of technical expertise, including proficiency in SQL, Python, and various development tools. Dynamic AI operations leader with proven expertise in directing LLM data projects, building high-performing teams, and implementing strategic business processes. Combines technical AI knowledge with strong client relationship management and operational excellence. Demonstrated success in leading cutting-edge AI initiatives, optimizing processes, and driving measurable business outcomes through data-driven decision-making. Experienced in managing cross-functional teams while maintaining exceptional delivery standards and client satisfaction. Well-known for critical thinking, proactive and innovative approach to solving issues in multiple areas of Gen AI business.</p>
 
         <h2 class="section-header">Expertise</h2>
-        <ul>
-          <li>Agile/Waterfall</li>
-          <li>Data Visualization/Data Management</li>
-          <li>Strategic Planning</li>
-          <li>Software Development Lifecycle (SDLC)</li>
-          <li>Market Trend Analysis</li>
-          <li>Project/Product Management and Project Scope Evaluation</li>
-          <li>Client Relationship Management</li>
-          <li>Risk Mitigation</li>
-          <li>Key Performance Indicator Creation/Monitoring/Management</li>
-          <li>Data and Business Analysis (from conception to completion)</li>
-          <li>Operations Management</li>
-          <li>Full Stack (Front and Back end) Development</li>
-          <li>Contractor/Vendor/FTE Management</li>
-          <li>Software Development and Engineering</li>
-          <li>Proactive Problem Solving, Team Building, and Leadership</li>
-          <li>Security and Automation Engineering</li>
-        </ul>
+        <div class="two-column-section">
+          <div class="column">
+            <ul>
+              <li>Agile/Waterfall</li>
+              <li>Data Visualization/Data Management</li>
+              <li>Strategic Planning</li>
+              <li>Software Development Lifecycle (SDLC)</li>
+              <li>Market Trend Analysis</li>
+              <li>Project/Product Management</li>
+              <li>Client Relationship Management</li>
+              <li>Risk Mitigation</li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li>Key Performance Indicator Management</li>
+              <li>Data and Business Analysis</li>
+              <li>Operations Management</li>
+              <li>Full Stack Development</li>
+              <li>Contractor/Vendor/FTE Management</li>
+              <li>Software Development and Engineering</li>
+              <li>Team Building and Leadership</li>
+              <li>Security and Automation Engineering</li>
+            </ul>
+          </div>
+        </div>
 
-        <p><strong>Tools and Technologies:</strong> Visual Studio | SharePoint | Power BI | Microsoft SQL Server – (SSMS) | MongoDB | Azure DevOps | Microsoft Power Automate (Flow) | SQL | Python | Version Control | Data Science | ETL Development, Management, and Migration | Java | C | C++ | JavaScript | Typescript | XML | Bootstrap | NoSQL | HTML | CSS | Markdown | DAX | M-Code | Android Studio | Flutter | Dart | Docker | Excel/Google Sheets, Pivot Tables, Macros, String Connections | PowerPoint/Google Slides | Microsoft Word/Google Docs | Command Prompt/Shell/Terminal Scripting and Network Configs | Ad Hoc Analysis | Project Charters | Spreadsheet Software | Mongosh | MATLAB | Pycharm | Pandas | GIT | R | GraphQL | Salesforce | Tensorflow | Keras | Kubernetes | Bash | Node.js | React <p class="sub-header"><em>To explore a comprehensive breakdown of my technical proficiencies and skill levels, please visit <a href="https://tammyhartline.tech/skills">https://tammyhartline.tech/skills</a></em></p>
+        <h2 class="section-header">Tools and Technologies</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h5>Programming Languages</h5>
+            <p>SQL | Python | Java | C | C++ | JavaScript | TypeScript | Dart | XML | HTML | CSS | Markdown | DAX | M-Code | R</p>
+          </div>
+          <div class="skill-category">
+            <h5>Frameworks & Libraries</h5>
+            <p>React | Bootstrap | Flutter | Node.js | Tensorflow | Keras</p>
+          </div>
+          <div class="skill-category">
+            <h5>Databases & Data Tools</h5>
+            <p>Microsoft SQL Server | MongoDB | NoSQL | Power BI | Pandas</p>
+          </div>
+          <div class="skill-category">
+            <h5>Development Tools</h5>
+            <p>Visual Studio | Azure DevOps | Git | Android Studio | Docker | Kubernetes</p>
+          </div>
+          <div class="skill-category">
+            <h5>Microsoft Ecosystem</h5>
+            <p>Power BI | Power Automate | SharePoint | Excel | PowerPoint | Word</p>
+          </div>
+          <div class="skill-category">
+            <h5>Cloud & DevOps</h5>
+            <p>Azure DevOps | Docker | Kubernetes | Bash | Command Line</p>
+          </div>
+        </div>
+        <p class="sub-header"><em>To explore a comprehensive breakdown of my technical proficiencies and skill levels, please visit <a href="https://tammyhartline.tech/skills">https://tammyhartline.tech/skills</a></em></p>
 
         <h2 class="section-header">Key Accomplishments</h2>
         <ul>
@@ -421,6 +563,18 @@
     </div>
 
     <script>
+      // Format selection
+      const formatButtons = document.querySelectorAll('.format-btn');
+      let currentFormat = 'standard';
+      
+      formatButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          formatButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentFormat = this.dataset.format;
+        });
+      });
+      
       function toggleHamburgerMenu() {
         const hamburgerMenu = document.getElementById("hamburger");
         hamburgerMenu.classList.toggle("open");
@@ -433,246 +587,363 @@
       }
 
       // PDF download functionality
-document.getElementById('download-pdf').addEventListener('click', function() {
-  // Show loading state on button
-  const button = this;
-  const originalText = button.innerHTML;
-  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-  button.disabled = true;
+      document.getElementById('download-pdf').addEventListener('click', function() {
+        // Show loading state on button
+        const button = this;
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+        button.disabled = true;
 
-  // Hide elements we don't want in the PDF
-  const elementsToHide = [
-    document.getElementById('navbar'),
-    document.querySelector('.download-container'),
-    document.querySelector('.background-container')
-  ];
-  
-  // Remember original display values
-  const originalDisplays = [];
-  elementsToHide.forEach(el => {
-    if (el) {
-      originalDisplays.push(el.style.display);
-      el.style.display = 'none';
-    }
-  });
-  
-  // Add temporary styles for PDF generation
-  const tempStyle = document.createElement('style');
-  tempStyle.id = 'pdf-styles';
-  tempStyle.innerHTML = `
-    body {
-      background-color: white !important;
-    }
-    .resume-container {
-      background-color: white !important;
-      color: black !important;
-      border: none !important;
-      box-shadow: none !important;
-      max-width: 100% !important;
-      padding: 10px !important; /* Reduced padding */
-      margin: 0 !important;
-      font-size: 10pt !important; /* Base font size reduced */
-      line-height: 1.3 !important; /* Tighter line height */
-    }
-    .resume-container * {
-      color: black !important;
-    }
-    
-    /* Header styling */
-    .resume-header {
-      margin-bottom: 10px !important;
-      padding-bottom: 10px !important;
-    }
-    
-    .resume-header h1 {
-      margin-bottom: 0px !important;
-      font-size: 18pt !important;
-    }
-    
-    .resume-header h2 {
-      margin-top: 5px !important;
-      margin-bottom: 0 !important;
-      font-size: 14pt !important;
-    }
-    
-    .contact-info {
-      color: black !important;
-      margin-bottom: 5px !important;
-      font-size: 9pt !important;
-    }
-    
-    /* Section headers */
-    .section-header {
-      color: black !important;
-      font-weight: bold !important;
-      margin: 12px 0 5px !important;
-      padding-bottom: 3px !important;
-      font-size: 14pt !important;
-      break-inside: avoid !important;
-      page-break-inside: avoid !important;
-    }
-    
-    /* Sub headers */
-    .header {
-      color: black !important;
-      font-weight: bold !important;
-      margin: 8px 0 2px !important;
-      font-size: 12pt !important;
-    }
-    
-    .sub-header {
-      color: black !important;
-      font-weight: bold !important;
-      margin: 5px 0 2px !important;
-      font-size: 10pt !important;
-      display: flex !important;
-      align-items: center !important;
-    }
-    
-    .sub-header::before {
-      color: black !important;
-      margin-right: 5px !important;
-    }
-    
-    /* Text elements */
-    p {
-      margin: 4px 0 !important;
-      font-size: 10pt !important;
-    }
-    
-    /* List styling */
-    ul {
-      margin: 4px 0 !important;
-      padding-left: 20px !important;
-    }
-    
-    li {
-      margin-bottom: 2px !important;
-      font-size: 10pt !important;
-    }
-    
-    /* Nested lists */
-    li ul {
-      margin: 2px 0 !important;
-    }
-    
-    li ul li {
-      font-size: 9pt !important;
-    }
-    
-    /* Page break control */
-    h2, h3, h4, .header, .sub-header {
-      break-inside: avoid !important;
-      page-break-inside: avoid !important;
-      break-after: avoid !important;
-      page-break-after: avoid !important;
-    }
-    
-    ul, li {
-      break-inside: avoid !important;
-      page-break-inside: avoid !important;
-    }
-    
-    /* Optimize space for Tools and Technologies section */
-    p strong + span, p strong + text {
-      font-size: 9pt !important;
-      line-height: 1.2 !important;
-    }
-    
-    /* Special formatting for the HR */
-    hr {
-      margin: 5px 0 !important;
-      break-before: auto !important;
-      page-break-before: auto !important;
-    }
-    
-    /* Reduce space after each job description */
-    .sub-header + ul {
-      margin-bottom: 5px !important;
-    }
-    
-    /* More compact education section */
-    .section-header + ul {
-      margin-top: 2px !important;
-    }
-    
-    strong {
-      color: black !important;
-    }
-    
-    /* Added for compactness */
-    br {
-      display: none !important;
-    }
-  `;
-  document.head.appendChild(tempStyle);
-  
-  // Get the resume container directly
-  const element = document.querySelector('.resume-container');
-  
-  // Configure PDF options with compact settings
-  const opt = {
-    margin: [10, 10, 10, 10], // Minimal margins
-    filename: 'Tammy_Hartline_Resume.pdf',
-    image: { type: 'jpeg', quality: 1 },
-    html2canvas: { 
-      scale: 2, 
-      useCORS: true,
-      backgroundColor: '#ffffff'
-    },
-    jsPDF: { 
-      unit: 'mm', 
-      format: 'a4', 
-      orientation: 'portrait',
-      compress: true
-    },
-    pagebreak: {
-      mode: ['avoid-all', 'css', 'legacy'],
-      avoid: ['h3', 'h4', '.sub-header', 'li', '.header']
-    }
-  };
-
-  // Generate PDF after a small delay to ensure styles are applied
-  setTimeout(() => {
-    html2pdf()
-      .from(element)
-      .set(opt)
-      .save()
-      .then(() => {
-        // Clean up
-        document.head.removeChild(tempStyle);
+        // Get format type
+        const isAtsFormat = currentFormat === 'ats';
         
-        // Restore hidden elements
-        elementsToHide.forEach((el, index) => {
+        // Hide elements we don't want in the PDF
+        const elementsToHide = [
+          document.getElementById('navbar'),
+          document.querySelector('.download-container'),
+          document.querySelector('.background-container')
+        ];
+        
+        // Remember original display values
+        const originalDisplays = [];
+        elementsToHide.forEach(el => {
           if (el) {
-            el.style.display = originalDisplays[index] || '';
+            originalDisplays.push(el.style.display);
+            el.style.display = 'none';
           }
         });
         
-        // Reset button
-        button.innerHTML = originalText;
-        button.disabled = false;
-      })
-      .catch((error) => {
-        console.error('PDF generation error:', error);
+        // Add temporary styles for PDF generation
+        const tempStyle = document.createElement('style');
+        tempStyle.id = 'pdf-styles';
         
-        // Clean up
-        document.head.removeChild(tempStyle);
+        if (isAtsFormat) {
+          // ATS-friendly version styles
+          tempStyle.innerHTML = `
+            body {
+              background-color: white !important;
+              font-family: Arial, sans-serif !important;
+            }
+            .resume-container {
+              background-color: white !important;
+              color: black !important;
+              border: none !important;
+              box-shadow: none !important;
+              max-width: 100% !important;
+              padding: 15px !important;
+              margin: 0 !important;
+              font-size: 11pt !important;
+              line-height: 1.3 !important;
+            }
+            .resume-container * {
+              color: black !important;
+              font-family: Arial, sans-serif !important;
+            }
+            
+            .skills-grid {
+              display: block !important;
+            }
+            
+            .skill-category {
+              margin-bottom: 10px !important;
+              padding: 0 !important;
+              background: none !important;
+              border: none !important;
+            }
+            
+            .two-column-section {
+              display: block !important;
+            }
+            
+            .column {
+              width: 100% !important;
+            }
+            
+            /* Basic formatting */
+            h1, h2, h3, h4, h5 {
+              margin-top: 10px !important;
+              margin-bottom: 5px !important;
+            }
+            
+            p, li {
+              margin-bottom: 5px !important;
+            }
+            
+            .sub-header::before {
+              content: '' !important;
+            }
+          `;
+        } else {
+          // Standard version styles
+          tempStyle.innerHTML = `
+            body {
+              background-color: white !important;
+            }
+            .resume-container {
+              background-color: white !important;
+              color: black !important;
+              border: none !important;
+              box-shadow: none !important;
+              max-width: 100% !important;
+              padding: 15mm !important;
+              margin: 0 !important;
+              font-size: 10pt !important;
+              line-height: 1.3 !important;
+            }
+            .resume-container * {
+              color: black !important;
+            }
+            
+            /* Header styling */
+            .resume-header {
+              margin-bottom: 15px !important;
+              padding-bottom: 10px !important;
+              border-bottom: 1px solid #000 !important;
+            }
+            
+            .resume-header h1 {
+              margin-bottom: 0px !important;
+              font-size: 18pt !important;
+              color: #000 !important;
+            }
+            
+            .resume-header h2 {
+              margin-top: 5px !important;
+              margin-bottom: 0 !important;
+              font-size: 14pt !important;
+              color: #000 !important;
+            }
+            
+            .contact-info {
+              margin-bottom: 5px !important;
+              font-size: 9pt !important;
+              justify-content: center !important;
+            }
+            
+            .contact-info a {
+              color: #000 !important;
+              text-decoration: none !important;
+            }
+            
+            /* Section headers */
+            .section-header {
+              color: #000 !important;
+              font-weight: bold !important;
+              margin: 12px 0 5px !important;
+              padding-bottom: 3px !important;
+              font-size: 12pt !important;
+              border-bottom: 1px solid #000 !important;
+              break-inside: avoid !important;
+              page-break-inside: avoid !important;
+            }
+            
+            /* Sub headers */
+            .header {
+              color: #000 !important;
+              font-weight: bold !important;
+              margin: 8px 0 2px !important;
+              font-size: 11pt !important;
+            }
+            
+            .sub-header {
+              color: #000 !important;
+              font-weight: bold !important;
+              margin: 5px 0 2px !important;
+              font-size: 10pt !important;
+              display: flex !important;
+              align-items: center !important;
+            }
+            
+            .sub-header::before {
+              color: #000 !important;
+              margin-right: 5px !important;
+            }
+            
+            /* Text elements */
+            p {
+              margin: 4px 0 !important;
+              font-size: 10pt !important;
+            }
+            
+            /* List styling */
+            ul {
+              margin: 4px 0 !important;
+              padding-left: 20px !important;
+            }
+            
+            li {
+              margin-bottom: 2px !important;
+              font-size: 10pt !important;
+            }
+            
+            /* Nested lists */
+            li ul {
+              margin: 2px 0 !important;
+            }
+            
+            li ul li {
+              font-size: 9pt !important;
+            }
+            
+            /* Skills grid */
+            .skills-grid {
+              display: grid !important;
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 8px !important;
+              margin: 8px 0 !important;
+            }
+            
+            .skill-category {
+              background-color: #f9f9f9 !important;
+              border: 1px solid #ddd !important;
+              border-radius: 4px !important;
+              padding: 8px !important;
+            }
+            
+            .skill-category h5 {
+              margin: 0 0 4px 0 !important;
+              font-size: 10pt !important;
+              color: #000 !important;
+              font-weight: bold !important;
+            }
+            
+            .skill-category p {
+              margin: 0 !important;
+              font-size: 9pt !important;
+            }
+            
+            /* Two column layout */
+            .two-column-section {
+              display: flex !important;
+              flex-wrap: wrap !important;
+              justify-content: space-between !important;
+              margin: 10px 0 !important;
+            }
+            
+            .column {
+              width: 48% !important;
+            }
+            
+            /* Page break control */
+            h2, h3, h4, .header, .sub-header {
+              break-inside: avoid !important;
+              page-break-inside: avoid !important;
+              break-after: avoid !important;
+              page-break-after: avoid !important;
+            }
+            
+            ul, li {
+              break-inside: avoid !important;
+              page-break-inside: avoid !important;
+            }
+            
+            hr {
+              margin: 5px 0 !important;
+              break-before: auto !important;
+              page-break-before: auto !important;
+              border: 0.5px solid #ddd !important;
+            }
+            
+            strong {
+              color: #000 !important;
+              font-weight: bold !important;
+            }
+          `;
+        }
         
-        // Restore hidden elements
-        elementsToHide.forEach((el, index) => {
-          if (el) {
-            el.style.display = originalDisplays[index] || '';
+        document.head.appendChild(tempStyle);
+        
+        // Get the resume container
+        const element = document.querySelector('.resume-container');
+        
+        // Configure PDF options
+        const opt = {
+          margin: isAtsFormat ? [10, 10, 10, 10] : [15, 15, 15, 15],
+          filename: isAtsFormat ? 'Tammy_Hartline_Resume_ATS.pdf' : 'Tammy_Hartline_Resume.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { 
+            scale: 2, 
+            useCORS: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            letterRendering: true
+          },
+          jsPDF: { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait',
+            compress: true,
+            putOnlyUsedFonts: true,
+            precision: 16
+          },
+          pagebreak: {
+            mode: ['avoid-all', 'css', 'legacy'],
+            before: ['.section-header'],
+            avoid: ['h3', 'h4', '.sub-header', 'li', '.header']
           }
-        });
-        
-        button.innerHTML = 'Error - Try Again';
-        button.disabled = false;
-        alert('There was an error generating the PDF. Please try again.');
+        };
+
+        // Only add footer for standard version
+        if (!isAtsFormat) {
+          opt.footer = {
+            height: '10mm',
+            contents: {
+              default: '<div style="text-align: center; font-size: 8pt; color: #777;">Page {{page}} of {{pages}} | tammyhartline.tech</div>'
+            }
+          };
+        }
+
+        // Generate PDF after a small delay to ensure styles are applied
+        setTimeout(() => {
+          const pdfInstance = html2pdf().from(element).set(opt);
+          
+          // Add metadata to the PDF
+          pdfInstance.toPdf().get('pdf').then((pdf) => {
+            pdf.setProperties({
+              title: 'Tammy Hartline - Resume',
+              subject: 'Technical Solutions Architect Resume',
+              author: 'Tammy Hartline',
+              keywords: 'AI Operations, Data Analysis, Software Development, Technical Solutions',
+              creator: 'tammyhartline.tech'
+            });
+          });
+          
+          // Save the PDF
+          pdfInstance.save()
+            .then(() => {
+              // Clean up
+              document.head.removeChild(tempStyle);
+              
+              // Restore hidden elements
+              elementsToHide.forEach((el, index) => {
+                if (el) {
+                  el.style.display = originalDisplays[index] || '';
+                }
+              });
+              
+              // Reset button
+              button.innerHTML = originalText;
+              button.disabled = false;
+            })
+            .catch((error) => {
+              console.error('PDF generation error:', error);
+              
+              // Clean up
+              document.head.removeChild(tempStyle);
+              
+              // Restore hidden elements
+              elementsToHide.forEach((el, index) => {
+                if (el) {
+                  el.style.display = originalDisplays[index] || '';
+                }
+              });
+              
+              button.innerHTML = 'Error - Try Again';
+              button.disabled = false;
+              alert('There was an error generating the PDF. Please try again.');
+            });
+        }, 100);
       });
-  }, 100);
-});
-      
     </script>
   </body>
 </html>
