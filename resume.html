@@ -192,29 +192,6 @@
       .download-btn i {
         margin-right: 8px;
       }
-      
-      .format-options {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        gap: 10px;
-      }
-      
-      .format-btn {
-        background-color: transparent;
-        border: 1px solid var(--primary-color);
-        color: var(--text-color-light);
-        padding: 5px 10px;
-        border-radius: var(--border-radius-sm);
-        cursor: pointer;
-        font-size: 12px;
-        transition: all var(--transition-normal);
-      }
-      
-      .format-btn.active {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
-      }
 
       /* Skills Grid Layout */
       .skills-grid {
@@ -243,21 +220,7 @@
         margin: 0;
       }
 
-      /* For PDF printing - this class will be added to body when generating PDF */
-      .pdf-mode {
-        background-color: white !important;
-      }
-
-      .pdf-mode .resume-container {
-        background-color: white !important;
-        border: none !important;
-        box-shadow: none !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 20px !important;
-      }
-      
-      /* Two column layout for PDF */
+      /* Two column layout */
       .two-column-section {
         display: flex;
         flex-wrap: wrap;
@@ -266,44 +229,6 @@
 
       .column {
         width: 48%;
-      }
-      
-      /* Ensure strong contrast for PDF */
-      .pdf-mode .resume-content,
-      .pdf-mode p,
-      .pdf-mode li,
-      .pdf-mode ul {
-        color: #000000 !important;
-      }
-
-      .pdf-mode .resume-header h1,
-      .pdf-mode .section-header,
-      .pdf-mode .header,
-      .pdf-mode .sub-header,
-      .pdf-mode strong {
-        color: #000000 !important;
-        font-weight: bold !important;
-      }
-
-      .pdf-mode h2, 
-      .pdf-mode h3, 
-      .pdf-mode h4 {
-        color: #000000 !important;
-        font-weight: bold !important;
-      }
-
-      .pdf-mode .contact-info {
-        color: #000000 !important;
-      }
-
-      .pdf-mode .sub-header::before {
-        color: #000000 !important;
-      }
-      
-      /* Page metadata */
-      @page {
-        size: A4;
-        margin: 15mm;
       }
 
       @media (max-width: 768px) {
@@ -314,6 +239,10 @@
         
         .skills-grid {
           grid-template-columns: 1fr;
+        }
+        
+        .two-column-section .column {
+          width: 100%;
         }
       }
     </style>
@@ -328,7 +257,7 @@
     </div>
 
     <div class="navbar" id="navbar">
-      <a
+      
         href="javascript:void(0);"
         id="hamburger"
         onclick="toggleHamburgerMenu()"
@@ -362,12 +291,8 @@
     <!-- Download Button -->
     <div class="download-container">
       <button id="download-pdf" class="download-btn">
-        <i class="fas fa-file-pdf"></i> Download Resume
+        <i class="fas fa-file-pdf"></i> Download Resume as PDF
       </button>
-      <div class="format-options">
-        <button class="format-btn active" data-format="standard">Standard</button>
-        <button class="format-btn" data-format="ats">ATS-Friendly</button>
-      </div>
     </div>
 
     <div class="resume-container" id="resume-content">
@@ -563,18 +488,6 @@
     </div>
 
     <script>
-      // Format selection
-      const formatButtons = document.querySelectorAll('.format-btn');
-      let currentFormat = 'standard';
-      
-      formatButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          formatButtons.forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-          currentFormat = this.dataset.format;
-        });
-      });
-      
       function toggleHamburgerMenu() {
         const hamburgerMenu = document.getElementById("hamburger");
         hamburgerMenu.classList.toggle("open");
@@ -586,152 +499,91 @@
         document.body.classList.toggle("no-scroll");
       }
 
-      // PDF download functionality - Fixed version
-document.getElementById('download-pdf').addEventListener('click', function() {
-  // Show loading state on button
-  const button = this;
-  const originalText = button.innerHTML;
-  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-  button.disabled = true;
-
-  // Get format type
-  const isAtsFormat = currentFormat === 'ats';
-  
-  // Hide elements we don't want in the PDF
-  const elementsToHide = [
-    document.getElementById('navbar'),
-    document.querySelector('.download-container'),
-    document.querySelector('.background-container')
-  ];
-  
-  // Remember original display values
-  const originalDisplays = [];
-  elementsToHide.forEach(el => {
-    if (el) {
-      originalDisplays.push(el.style.display);
-      el.style.display = 'none';
-    }
-  });
-  
-  // Add temporary styles for PDF generation - Simplified but still visually effective
-  const tempStyle = document.createElement('style');
-  tempStyle.id = 'pdf-styles';
-  
-  tempStyle.innerHTML = `
-    body {
-      background-color: white !important;
-    }
-    .resume-container {
-      background-color: white !important;
-      color: black !important;
-      border: none !important;
-      box-shadow: none !important;
-      max-width: 100% !important;
-      padding: 15mm !important;
-      margin: 0 !important;
-    }
-    .resume-container * {
-      color: black !important;
-    }
-    
-    /* Header styling */
-    .resume-header {
-      margin-bottom: 15px !important;
-      padding-bottom: 10px !important;
-      border-bottom: 1px solid #000 !important;
-    }
-    
-    /* Skills grid for ATS format */
-    ${isAtsFormat ? `
-      .skills-grid {
-        display: block !important;
-      }
-      
-      .skill-category {
-        margin-bottom: 10px !important;
-        padding: 0 !important;
-        background: none !important;
-        border: none !important;
-      }
-      
-      .two-column-section {
-        display: block !important;
-      }
-      
-      .column {
-        width: 100% !important;
-      }
-    ` : ''}
-  `;
-  
-  document.head.appendChild(tempStyle);
-  
-  // Get the resume container
-  const element = document.querySelector('.resume-container');
-  
-  // Configure PDF options - Simplified but effective
-  const opt = {
-    margin: [15, 15, 15, 15],
-    filename: isAtsFormat ? 'Tammy_Hartline_Resume_ATS.pdf' : 'Tammy_Hartline_Resume.pdf',
-    image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { 
-      scale: 2,
-      useCORS: true,
-      backgroundColor: '#ffffff'
-    },
-    jsPDF: { 
-      unit: 'mm', 
-      format: 'a4', 
-      orientation: 'portrait'
-    },
-    pagebreak: {
-      mode: ['avoid-all'],
-      avoid: ['h3', 'h4', '.sub-header']
-    }
-  };
-
-  // Generate PDF - Simplified promise chain
-  html2pdf()
-    .from(element)
-    .set(opt)
-    .save()
-    .then(function() {
-      // Clean up
-      if (tempStyle.parentNode) {
-        document.head.removeChild(tempStyle);
-      }
-      
-      // Restore hidden elements
-      elementsToHide.forEach((el, index) => {
-        if (el) {
-          el.style.display = originalDisplays[index] || '';
-        }
+      // Simple PDF download functionality
+      document.getElementById('download-pdf').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const button = this;
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+        button.disabled = true;
+        
+        // Temporarily modify contact links to prevent them from being clickable in the PDF
+        const contactLinks = document.querySelectorAll('.contact-info a');
+        const originalHrefs = [];
+        
+        contactLinks.forEach(link => {
+          // Save original href
+          originalHrefs.push(link.getAttribute('href'));
+          
+          // Replace href with a placeholder
+          link.setAttribute('data-original-href', link.getAttribute('href'));
+          link.removeAttribute('href');
+        });
+        
+        // Hide elements we don't want in the PDF
+        const navbar = document.getElementById('navbar');
+        const downloadBtn = document.querySelector('.download-container');
+        const background = document.querySelector('.background-container');
+        
+        if (navbar) navbar.style.display = 'none';
+        if (downloadBtn) downloadBtn.style.display = 'none';
+        if (background) background.style.display = 'none';
+        
+        // Add simple white background style
+        const tempStyle = document.createElement('style');
+        tempStyle.innerHTML = `
+          body {
+            background-color: white !important;
+          }
+          .resume-container {
+            background-color: white !important;
+            color: black !important;
+            border: none !important;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 20px !important;
+          }
+          .resume-container * {
+            color: black !important;
+          }
+        `;
+        document.head.appendChild(tempStyle);
+        
+        // Get the resume container
+        const element = document.querySelector('.resume-container');
+        
+        // Use the simplest version of html2pdf
+        html2pdf(element, {
+          margin: 10,
+          filename: 'Tammy_Hartline_Resume.pdf',
+          image: { type: 'jpeg', quality: 0.95 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        });
+        
+        // Restore everything after a delay
+        setTimeout(function() {
+          // Restore contact links
+          contactLinks.forEach((link, index) => {
+            link.setAttribute('href', originalHrefs[index]);
+          });
+          
+          // Restore hidden elements
+          if (navbar) navbar.style.display = '';
+          if (downloadBtn) downloadBtn.style.display = '';
+          if (background) background.style.display = '';
+          
+          // Remove temp style
+          document.head.removeChild(tempStyle);
+          
+          // Reset button
+          button.innerHTML = originalText;
+          button.disabled = false;
+        }, 3000);
       });
-      
-      // Reset button
-      button.innerHTML = originalText;
-      button.disabled = false;
-    })
-    .catch(function(error) {
-      console.error('PDF generation error:', error);
-      
-      // Clean up
-      if (tempStyle.parentNode) {
-        document.head.removeChild(tempStyle);
-      }
-      
-      // Restore hidden elements
-      elementsToHide.forEach((el, index) => {
-        if (el) {
-          el.style.display = originalDisplays[index] || '';
-        }
-      });
-      
-      button.innerHTML = originalText;
-      button.disabled = false;
-      alert('There was an error generating the PDF. Please check the console for details.');
-    });
-});
     </script>
   </body>
 </html>
