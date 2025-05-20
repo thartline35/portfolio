@@ -18,8 +18,9 @@
       crossorigin="anonymous" 
       referrerpolicy="no-referrer" 
     />
-    <!-- Convert html to pdf for resume download -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
       :root {
@@ -230,19 +231,23 @@
       .column {
         width: 48%;
       }
-      
-      /* Fix for hamburger menu text being visible */
-      #hamburger .menu-icon,
-      #hamburger .close-icon {
-        display: inline-block;
+
+      /* Menu Icon Styles */
+      #hamburger .menu-icon {
+        font-size: 16px;
       }
       
-      #hamburger {
-        text-decoration: none;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      #hamburger .close-icon {
+        font-size: 16px;
+        display: none;
+      }
+      
+      #hamburger.open .menu-icon {
+        display: none;
+      }
+      
+      #hamburger.open .close-icon {
+        display: inline-block;
       }
 
       @media (max-width: 768px) {
@@ -271,11 +276,13 @@
     </div>
 
     <div class="navbar" id="navbar">
+      <!-- Fixed hamburger menu -->
       
         href="javascript:void(0);"
         id="hamburger"
         onclick="toggleHamburgerMenu()"
-        ><span class="menu-icon">☰</span><span class="close-icon">✕</span
+        style="font-size: 0; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 10px;"
+        ><span class="menu-icon" style="font-size: 16px;">☰</span><span class="close-icon" style="font-size: 16px;">✕</span
       ></a>
       <div class="nav-left">
         <a href="/">Home</a>
@@ -314,47 +321,38 @@
         <div class="resume-header">
           <h1>Tammy Hartline</h1>
           <div class="contact-info">
-            <a href="mailto:tammyhartline@gmail.com"><i class="fas fa-envelope"></i> tammyhartline@gmail.com</a>
-            <a href="tel:2564868191"><i class="fas fa-phone"></i> (256) 486-8191</a>
-            <a href="https://tammyhartline.tech"><i class="fas fa-globe"></i> tammyhartline.tech</a>
-            <a href="https://www.google.com/maps/place/Boaz,+AL"><i class="fas fa-map-marker-alt"></i> Boaz, AL</a>
+            <span><i class="fas fa-envelope"></i> tammyhartline@gmail.com</span>
+            <span><i class="fas fa-phone"></i> (256) 486-8191</span>
+            <span><i class="fas fa-globe"></i> tammyhartline.tech</span>
+            <span><i class="fas fa-map-marker-alt"></i> Boaz, AL</span>
           </div>
           <h2>Generative AI Operations/Technical Solutions Architect</h2>
         </div>
 
         <h2 class="section-header">Professional Summary</h2>
-        <p>Dynamic professional with extensive experience in developing and implementing business development strategies and driving planning processes. Proficient in combining meticulous planning, analytical rigor, and an obsessive focus on customer relationships and outcomes.</p>
-
-        <p>Possess a robust combination of technical expertise, including proficiency in SQL, Python, and various development tools. Dynamic AI operations leader with proven expertise in directing LLM data projects, building high-performing teams, and implementing strategic business processes. Combines technical AI knowledge with strong client relationship management and operational excellence. Demonstrated success in leading cutting-edge AI initiatives, optimizing processes, and driving measurable business outcomes through data-driven decision-making.</p>
+        <p>Dynamic technology professional with experience in AI operations, data analytics, and software development. Proficient in combining meticulous planning, analytical rigor, and an obsessive focus on customer relationships and outcomes. Dynamic AI operations leader with proven expertise in directing LLM data projects, building high-performing teams, and implementing strategic business processes.</p>
 
         <h2 class="section-header">Expertise</h2>
         <div class="two-column-section">
           <div class="column">
             <ul>
-              <li>Agile/Waterfall</li>
-              <li>Data Visualization/Data Management</li>
-              <li>Strategic Planning</li>
-              <li>Software Development Lifecycle (SDLC)</li>
-              <li>Market Trend Analysis</li>
+              <li>Agile/Waterfall Methodologies</li>
+              <li>Data Visualization & Management</li>
+              <li>Software Development Lifecycle</li>
               <li>Project/Product Management</li>
-              <li>Client Relationship Management</li>
-              <li>Risk Mitigation</li>
             </ul>
           </div>
           <div class="column">
             <ul>
-              <li>Key Performance Indicator Management</li>
-              <li>Data and Business Analysis</li>
-              <li>Operations Management</li>
+              <li>AI Operations & Implementation</li>
+              <li>Data & Business Analysis</li>
+              <li>Team Building & Leadership</li>
               <li>Full Stack Development</li>
-              <li>Software Development and Engineering</li>
-              <li>Team Building and Leadership</li>
-              <li>Security and Automation Engineering</li>
             </ul>
           </div>
         </div>
 
-        <h2 class="section-header">Tools and Technologies</h2>
+        <h2 class="section-header">Technical Skills</h2>
         <div class="skills-grid">
           <div class="skill-category">
             <h5>Programming Languages</h5>
@@ -375,58 +373,52 @@
         </div>
 
         <h2 class="section-header">Career Experience</h2>
-        <h3 class="header">Scale AI | Remote | 11/22/2023 - Present</h3>
+        <h3 class="header">Scale AI | Remote | 11/2023 - Present</h3>
         
         <h4 class="sub-header">Coding AI Training Consultant | 03/2025 – Present</h4>
         <ul>
-          <li>Lead delivery operations for diverse coding projects, specializing in Gen AI implementation, front-end sites/apps, and complex data initiatives</li>
-          <li>Manage specialized coding professionals across 10-person teams to optimize project delivery and quality</li>
-          <li>Implement growth strategies and pipeline management processes that increased project throughput by 30%</li>
-          <li>Create project instructions and technical training courses that reduced onboarding time by 40%</li>
-          <li>Serve as technical escalation point for complex AI coding challenges</li>
+          <li>Lead delivery operations for diverse coding projects, specializing in Gen AI implementation</li>
+          <li>Manage specialized coding teams to optimize project delivery and quality</li>
+          <li>Implement growth strategies that increased project throughput by 30%</li>
+          <li>Create technical training courses that reduced onboarding time by 40%</li>
         </ul>  
         <h4 class="sub-header">Gen AI Workforce Manager | 08/2024 – 03/2025</h4>
         <ul>
-          <li>Lead enterprise LLM data projects staffing needs from conception through delivery for Fortune 500 clients</li>
-          <li>Created a proprietary staff allocation system that increased team utilization by 35%</li>
-          <li>Uncovered and resolved $800K in fraudulent payment issues through pattern detection algorithms</li>
-          <li>Developed standardized processes that increased throughput by 42% while maintaining quality</li>
-          <li>Established client partnerships resulting in 78% expansion of existing engagements</li>
+          <li>Lead enterprise LLM data projects for Fortune 500 clients</li>
+          <li>Created a staff allocation system that increased team utilization by 35%</li>
+          <li>Uncovered and resolved $800K in fraudulent payment issues</li>
+          <li>Developed processes that increased throughput by 42% while maintaining quality</li>
         </ul>
 
-        <h4 class="sub-header">Team Lead Coordinator – Code Teams | 02/2024 – 08/2024</h4>
+        <h4 class="sub-header">Team Lead Coordinator | 02/2024 – 08/2024</h4>
         <ul>
           <li>Directed team leads and quality managers for AI training initiatives</li>
-          <li>Coordinated with stakeholders to enhance quality, efficiency, throughput, and project success</li>
           <li>Crafted queries for data-driven company decisions</li>
-          <li>Boosted morale, retention, and efficiency with transparent project management using Agile methodology</li>
+          <li>Boosted morale and efficiency using Agile methodology</li>
         </ul>
 
-        <h3 class="header">Girls Who Code 2023 Fall Leadership Academy Hosted by Rtx | 08/2023 – 12/2023</h3>
+        <h3 class="header">Girls Who Code Leadership Academy (RTX) | 08/2023 – 12/2023</h3>
         <h4 class="sub-header">Intern/Fellow – Software Engineer</h4>
         <ul>
-          <li>Delivered formal presentations articulating project vision, goals, and technical aspects to stakeholders</li>
-          <li>Structured Agile-style project timeline ensuring efficient development and adherence to milestones</li>
-          <li>Conceptualized, planned, developed, and executed project MVP within timeline constraints</li>
+          <li>Delivered presentations to stakeholders on project vision and technical aspects</li>
+          <li>Structured Agile-style project timeline ensuring adherence to milestones</li>
+          <li>Developed and executed project MVP within timeline constraints</li>
         </ul>
 
         <h3 class="header">Southern New Hampshire University | 05/2022 – 11/2023</h3>
         <h4 class="sub-header">Data Analytics Reporting Coordinator</h4>
         <ul>
-          <li>Served as Azure DevOps and SQL developer, and data warehouse mapping subject matter expert</li>
-          <li>Nominated for the 2023 Student Worker of the Year award, recognized among 23 out of 700+ student employees</li>
-          <li>Received the University Employee Impact Award for integrating Azure DevOps, SQL Server, and Python scripting</li>
-          <li>Elevated SNHU's Office of Sustainability to Silver status by developing 8 Power BI dashboards</li>
-          <li>Created over 40 custom data visualization dashboards using Power BI</li>
+          <li>Served as Azure DevOps and SQL developer, and data warehouse mapping SME</li>
+          <li>Nominated for Student Worker of the Year award (top 23 of 700+ students)</li>
+          <li>Received University Employee Impact Award for Azure/SQL/Python integration</li>
+          <li>Elevated SNHU's Office of Sustainability to Silver status with Power BI dashboards</li>
         </ul>
 
-        <h2 class="section-header">Education</h2>
+        <h2 class="section-header">Education & Certifications</h2>
         <ul>
-          <li><strong>Bachelor Of Science in Computer Science - Concentration in Data Analysis</strong> | Southern New Hampshire University | 2024 
-            <ul>
-              <li>4.0 GPA, completed over 120 credits in 22 months while working full-time</li>
-            </ul>
-          </li>
+          <li><strong>Bachelor Of Science in Computer Science - Concentration in Data Analysis</strong>
+            <br>Southern New Hampshire University | 2024 | 4.0 GPA
+            <br>Completed 120+ credits in 22 months while working full-time</li>
           <li><strong>Google Data Analytics Professional Certificate</strong> | 2023</li>
           <li><strong>Google Foundations in Project Management Certificate</strong> | 2024</li>
         </ul>
@@ -445,7 +437,7 @@
         document.body.classList.toggle("no-scroll");
       }
 
-      // Improved PDF download functionality
+      // Modern PDF generation using jsPDF
       document.getElementById('download-pdf').addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -455,109 +447,183 @@
         button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
         button.disabled = true;
         
-        // Temporarily modify contact links to prevent them from being clickable in the PDF
-        const contactLinks = document.querySelectorAll('.contact-info a');
-        const originalHrefs = [];
+        // Elements to hide
+        const elementsToHide = [
+          document.getElementById('navbar'),
+          document.querySelector('.download-container'),
+          document.querySelector('.background-container')
+        ];
         
-        contactLinks.forEach(link => {
-          // Save original href
-          originalHrefs.push(link.getAttribute('href'));
-          
-          // Replace href with a placeholder
-          link.setAttribute('data-original-href', link.getAttribute('href'));
-          link.removeAttribute('href');
+        // Remember original display values
+        const originalDisplays = [];
+        elementsToHide.forEach(el => {
+          if (el) {
+            originalDisplays.push(el.style.display);
+            el.style.display = 'none';
+          }
         });
         
-        // Create a clone of the resume content for PDF generation
-        const originalElement = document.querySelector('.resume-container');
-        const clonedElement = originalElement.cloneNode(true);
+        // Get the element to capture
+        const element = document.getElementById('resume-content');
         
-        // Style the cloned element for PDF
-        clonedElement.style.background = 'white';
-        clonedElement.style.padding = '15mm';
-        clonedElement.style.margin = '0';
-        clonedElement.style.maxWidth = '100%';
-        clonedElement.style.boxShadow = 'none';
-        clonedElement.style.border = 'none';
+        // Apply temporary styles for PDF capture
+        element.style.backgroundColor = 'white';
+        element.style.color = 'black';
+        element.style.padding = '20px';
+        element.style.borderRadius = '0';
+        element.style.border = 'none';
+        element.style.boxShadow = 'none';
         
-        // Apply PDF specific styles to all elements in the clone
-        const allElements = clonedElement.querySelectorAll('*');
+        // Make all text black
+        const allElements = element.querySelectorAll('*');
+        const originalStyles = [];
+        
         allElements.forEach(el => {
-          el.style.color = 'black';
-          
-          // More compact spacing
-          if (el.tagName === 'P') {
-            el.style.marginBottom = '8px';
-            el.style.marginTop = '8px';
-            el.style.fontSize = '10pt';
-            el.style.lineHeight = '1.3';
-          }
-          
-          if (el.tagName === 'UL') {
-            el.style.marginTop = '5px';
-            el.style.marginBottom = '5px';
-          }
-          
-          if (el.tagName === 'LI') {
-            el.style.marginBottom = '3px';
-            el.style.fontSize = '10pt';
-            el.style.lineHeight = '1.3';
-          }
-          
-          if (el.tagName === 'H2') {
-            el.style.marginTop = '12px';
-            el.style.marginBottom = '8px';
-            el.style.fontSize = '12pt';
-            el.style.pageBreakAfter = 'avoid';
-          }
-          
-          if (el.tagName === 'H3' || el.tagName === 'H4') {
-            el.style.marginTop = '10px';
-            el.style.marginBottom = '5px';
-            el.style.fontSize = '11pt';
-            el.style.pageBreakAfter = 'avoid';
-          }
-        });
-        
-        // Temporarily add the cloned element to the body but hidden
-        clonedElement.style.position = 'absolute';
-        clonedElement.style.left = '-9999px';
-        document.body.appendChild(clonedElement);
-        
-        // Generate the PDF from the hidden clone
-        const opt = {
-          margin: [10, 10, 10, 10],
-          filename: 'Tammy_Hartline_Resume.pdf',
-          image: { type: 'jpeg', quality: 0.95 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['avoid-all'], before: ['.section-header'] }
-        };
-        
-        // Use the cloned element for PDF generation
-        html2pdf().from(clonedElement).set(opt).save().then(function() {
-          // Remove the cloned element when done
-          document.body.removeChild(clonedElement);
-          
-          // Restore contact links
-          contactLinks.forEach((link, index) => {
-            link.setAttribute('href', originalHrefs[index]);
+          originalStyles.push({
+            element: el,
+            color: el.style.color,
+            backgroundColor: el.style.backgroundColor
           });
           
-          // Reset button
-          button.innerHTML = originalText;
-          button.disabled = false;
-        }).catch(function(error) {
-          console.error('PDF generation error:', error);
-          
-          // Remove the cloned element on error too
-          if (document.body.contains(clonedElement)) {
-            document.body.removeChild(clonedElement);
+          el.style.color = 'black';
+          el.style.backgroundColor = 'white';
+        });
+        
+        // Add more compact styles for PDF
+        const tempStyleElement = document.createElement('style');
+        tempStyleElement.textContent = `
+          #resume-content h1, #resume-content h2, #resume-content h3, #resume-content h4 {
+            margin-top: 10px;
+            margin-bottom: 5px;
           }
+          #resume-content p {
+            margin: 5px 0;
+          }
+          #resume-content ul {
+            margin: 5px 0;
+            padding-left: 20px;
+          }
+          #resume-content li {
+            margin-bottom: 3px;
+          }
+          #resume-content .resume-header {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+          }
+          #resume-content .section-header {
+            margin: 15px 0 5px 0;
+            padding-bottom: 5px;
+          }
+        `;
+        document.head.appendChild(tempStyleElement);
+        
+        try {
+          // Use html2canvas to capture the content
+          html2canvas(element, {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff'
+          }).then(function(canvas) {
+            // Create PDF with jsPDF
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            
+            // Calculate dimensions to fit on A4 page
+            const imgData = canvas.toDataURL('image/jpeg', 1.0);
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight() - 20; // margin
+            const canvasWidth = canvas.width;
+            const canvasHeight = canvas.height;
+            
+            // If resume is longer than one page, split it
+            if (canvasHeight > canvasWidth * (pageHeight / pageWidth)) {
+              // Content is too tall for one page, need to split
+              const ratio = pageWidth / canvasWidth;
+              const totalPages = Math.ceil(canvasHeight * ratio / pageHeight);
+              
+              for (let i = 0; i < totalPages; i++) {
+                if (i > 0) {
+                  pdf.addPage();
+                }
+                
+                // Calculate which portion of the image to use for this page
+                const sourceY = (pageHeight / ratio) * i;
+                const sourceHeight = Math.min((pageHeight / ratio), canvasHeight - sourceY);
+                
+                pdf.addImage(
+                  imgData, 'JPEG', 
+                  0, 0, // position on PDF page
+                  pageWidth, sourceHeight * ratio, // dimensions on PDF page
+                  null, null, // alias
+                  null, // rotation
+                  'FAST', // compression
+                  0, sourceY, canvasWidth, sourceHeight // source dimensions
+                );
+              }
+            } else {
+              // Content fits on one page
+              const ratio = Math.min(pageWidth / canvasWidth, pageHeight / canvasHeight);
+              const x = (pageWidth - canvasWidth * ratio) / 2;
+              const y = 10; // top margin
+              
+              pdf.addImage(imgData, 'JPEG', x, y, canvasWidth * ratio, canvasHeight * ratio);
+            }
+            
+            // Save the PDF
+            pdf.save('Tammy_Hartline_Resume.pdf');
+            
+            // Clean up
+            document.head.removeChild(tempStyleElement);
+            
+            // Restore original styles
+            element.style.backgroundColor = '';
+            element.style.color = '';
+            element.style.padding = '';
+            element.style.borderRadius = '';
+            element.style.border = '';
+            element.style.boxShadow = '';
+            
+            originalStyles.forEach(item => {
+              item.element.style.color = item.color;
+              item.element.style.backgroundColor = item.backgroundColor;
+            });
+            
+            // Show hidden elements again
+            elementsToHide.forEach((el, index) => {
+              if (el) {
+                el.style.display = originalDisplays[index] || '';
+              }
+            });
+            
+            // Reset button
+            button.innerHTML = originalText;
+            button.disabled = false;
+          });
+        } catch (error) {
+          console.error('PDF generation failed:', error);
           
-          // Restore contact links
-          contactLinks.forEach((link, index) => {
-            link.setAttribute('href', originalHrefs[index]);
+          // Clean up on error too
+          document.head.removeChild(tempStyleElement);
+          
+          // Restore original styles
+          element.style.backgroundColor = '';
+          element.style.color = '';
+          element.style.padding = '';
+          element.style.borderRadius = '';
+          element.style.border = '';
+          element.style.boxShadow = '';
+          
+          originalStyles.forEach(item => {
+            item.element.style.color = item.color;
+            item.element.style.backgroundColor = item.backgroundColor;
+          });
+          
+          // Show hidden elements again
+          elementsToHide.forEach((el, index) => {
+            if (el) {
+              el.style.display = originalDisplays[index] || '';
+            }
           });
           
           // Reset button
@@ -565,7 +631,7 @@
           button.disabled = false;
           
           alert('There was an error generating the PDF. Please try again.');
-        });
+        }
       });
     </script>
   </body>
