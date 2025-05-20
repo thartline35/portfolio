@@ -586,364 +586,152 @@
         document.body.classList.toggle("no-scroll");
       }
 
-      // PDF download functionality
-      document.getElementById('download-pdf').addEventListener('click', function() {
-        // Show loading state on button
-        const button = this;
-        const originalText = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-        button.disabled = true;
+      // PDF download functionality - Fixed version
+document.getElementById('download-pdf').addEventListener('click', function() {
+  // Show loading state on button
+  const button = this;
+  const originalText = button.innerHTML;
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+  button.disabled = true;
 
-        // Get format type
-        const isAtsFormat = currentFormat === 'ats';
-        
-        // Hide elements we don't want in the PDF
-        const elementsToHide = [
-          document.getElementById('navbar'),
-          document.querySelector('.download-container'),
-          document.querySelector('.background-container')
-        ];
-        
-        // Remember original display values
-        const originalDisplays = [];
-        elementsToHide.forEach(el => {
-          if (el) {
-            originalDisplays.push(el.style.display);
-            el.style.display = 'none';
-          }
-        });
-        
-        // Add temporary styles for PDF generation
-        const tempStyle = document.createElement('style');
-        tempStyle.id = 'pdf-styles';
-        
-        if (isAtsFormat) {
-          // ATS-friendly version styles
-          tempStyle.innerHTML = `
-            body {
-              background-color: white !important;
-              font-family: Arial, sans-serif !important;
-            }
-            .resume-container {
-              background-color: white !important;
-              color: black !important;
-              border: none !important;
-              box-shadow: none !important;
-              max-width: 100% !important;
-              padding: 15px !important;
-              margin: 0 !important;
-              font-size: 11pt !important;
-              line-height: 1.3 !important;
-            }
-            .resume-container * {
-              color: black !important;
-              font-family: Arial, sans-serif !important;
-            }
-            
-            .skills-grid {
-              display: block !important;
-            }
-            
-            .skill-category {
-              margin-bottom: 10px !important;
-              padding: 0 !important;
-              background: none !important;
-              border: none !important;
-            }
-            
-            .two-column-section {
-              display: block !important;
-            }
-            
-            .column {
-              width: 100% !important;
-            }
-            
-            /* Basic formatting */
-            h1, h2, h3, h4, h5 {
-              margin-top: 10px !important;
-              margin-bottom: 5px !important;
-            }
-            
-            p, li {
-              margin-bottom: 5px !important;
-            }
-            
-            .sub-header::before {
-              content: '' !important;
-            }
-          `;
-        } else {
-          // Standard version styles
-          tempStyle.innerHTML = `
-            body {
-              background-color: white !important;
-            }
-            .resume-container {
-              background-color: white !important;
-              color: black !important;
-              border: none !important;
-              box-shadow: none !important;
-              max-width: 100% !important;
-              padding: 15mm !important;
-              margin: 0 !important;
-              font-size: 10pt !important;
-              line-height: 1.3 !important;
-            }
-            .resume-container * {
-              color: black !important;
-            }
-            
-            /* Header styling */
-            .resume-header {
-              margin-bottom: 15px !important;
-              padding-bottom: 10px !important;
-              border-bottom: 1px solid #000 !important;
-            }
-            
-            .resume-header h1 {
-              margin-bottom: 0px !important;
-              font-size: 18pt !important;
-              color: #000 !important;
-            }
-            
-            .resume-header h2 {
-              margin-top: 5px !important;
-              margin-bottom: 0 !important;
-              font-size: 14pt !important;
-              color: #000 !important;
-            }
-            
-            .contact-info {
-              margin-bottom: 5px !important;
-              font-size: 9pt !important;
-              justify-content: center !important;
-            }
-            
-            .contact-info a {
-              color: #000 !important;
-              text-decoration: none !important;
-            }
-            
-            /* Section headers */
-            .section-header {
-              color: #000 !important;
-              font-weight: bold !important;
-              margin: 12px 0 5px !important;
-              padding-bottom: 3px !important;
-              font-size: 12pt !important;
-              border-bottom: 1px solid #000 !important;
-              break-inside: avoid !important;
-              page-break-inside: avoid !important;
-            }
-            
-            /* Sub headers */
-            .header {
-              color: #000 !important;
-              font-weight: bold !important;
-              margin: 8px 0 2px !important;
-              font-size: 11pt !important;
-            }
-            
-            .sub-header {
-              color: #000 !important;
-              font-weight: bold !important;
-              margin: 5px 0 2px !important;
-              font-size: 10pt !important;
-              display: flex !important;
-              align-items: center !important;
-            }
-            
-            .sub-header::before {
-              color: #000 !important;
-              margin-right: 5px !important;
-            }
-            
-            /* Text elements */
-            p {
-              margin: 4px 0 !important;
-              font-size: 10pt !important;
-            }
-            
-            /* List styling */
-            ul {
-              margin: 4px 0 !important;
-              padding-left: 20px !important;
-            }
-            
-            li {
-              margin-bottom: 2px !important;
-              font-size: 10pt !important;
-            }
-            
-            /* Nested lists */
-            li ul {
-              margin: 2px 0 !important;
-            }
-            
-            li ul li {
-              font-size: 9pt !important;
-            }
-            
-            /* Skills grid */
-            .skills-grid {
-              display: grid !important;
-              grid-template-columns: repeat(2, 1fr) !important;
-              gap: 8px !important;
-              margin: 8px 0 !important;
-            }
-            
-            .skill-category {
-              background-color: #f9f9f9 !important;
-              border: 1px solid #ddd !important;
-              border-radius: 4px !important;
-              padding: 8px !important;
-            }
-            
-            .skill-category h5 {
-              margin: 0 0 4px 0 !important;
-              font-size: 10pt !important;
-              color: #000 !important;
-              font-weight: bold !important;
-            }
-            
-            .skill-category p {
-              margin: 0 !important;
-              font-size: 9pt !important;
-            }
-            
-            /* Two column layout */
-            .two-column-section {
-              display: flex !important;
-              flex-wrap: wrap !important;
-              justify-content: space-between !important;
-              margin: 10px 0 !important;
-            }
-            
-            .column {
-              width: 48% !important;
-            }
-            
-            /* Page break control */
-            h2, h3, h4, .header, .sub-header {
-              break-inside: avoid !important;
-              page-break-inside: avoid !important;
-              break-after: avoid !important;
-              page-break-after: avoid !important;
-            }
-            
-            ul, li {
-              break-inside: avoid !important;
-              page-break-inside: avoid !important;
-            }
-            
-            hr {
-              margin: 5px 0 !important;
-              break-before: auto !important;
-              page-break-before: auto !important;
-              border: 0.5px solid #ddd !important;
-            }
-            
-            strong {
-              color: #000 !important;
-              font-weight: bold !important;
-            }
-          `;
+  // Get format type
+  const isAtsFormat = currentFormat === 'ats';
+  
+  // Hide elements we don't want in the PDF
+  const elementsToHide = [
+    document.getElementById('navbar'),
+    document.querySelector('.download-container'),
+    document.querySelector('.background-container')
+  ];
+  
+  // Remember original display values
+  const originalDisplays = [];
+  elementsToHide.forEach(el => {
+    if (el) {
+      originalDisplays.push(el.style.display);
+      el.style.display = 'none';
+    }
+  });
+  
+  // Add temporary styles for PDF generation - Simplified but still visually effective
+  const tempStyle = document.createElement('style');
+  tempStyle.id = 'pdf-styles';
+  
+  tempStyle.innerHTML = `
+    body {
+      background-color: white !important;
+    }
+    .resume-container {
+      background-color: white !important;
+      color: black !important;
+      border: none !important;
+      box-shadow: none !important;
+      max-width: 100% !important;
+      padding: 15mm !important;
+      margin: 0 !important;
+    }
+    .resume-container * {
+      color: black !important;
+    }
+    
+    /* Header styling */
+    .resume-header {
+      margin-bottom: 15px !important;
+      padding-bottom: 10px !important;
+      border-bottom: 1px solid #000 !important;
+    }
+    
+    /* Skills grid for ATS format */
+    ${isAtsFormat ? `
+      .skills-grid {
+        display: block !important;
+      }
+      
+      .skill-category {
+        margin-bottom: 10px !important;
+        padding: 0 !important;
+        background: none !important;
+        border: none !important;
+      }
+      
+      .two-column-section {
+        display: block !important;
+      }
+      
+      .column {
+        width: 100% !important;
+      }
+    ` : ''}
+  `;
+  
+  document.head.appendChild(tempStyle);
+  
+  // Get the resume container
+  const element = document.querySelector('.resume-container');
+  
+  // Configure PDF options - Simplified but effective
+  const opt = {
+    margin: [15, 15, 15, 15],
+    filename: isAtsFormat ? 'Tammy_Hartline_Resume_ATS.pdf' : 'Tammy_Hartline_Resume.pdf',
+    image: { type: 'jpeg', quality: 0.95 },
+    html2canvas: { 
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#ffffff'
+    },
+    jsPDF: { 
+      unit: 'mm', 
+      format: 'a4', 
+      orientation: 'portrait'
+    },
+    pagebreak: {
+      mode: ['avoid-all'],
+      avoid: ['h3', 'h4', '.sub-header']
+    }
+  };
+
+  // Generate PDF - Simplified promise chain
+  html2pdf()
+    .from(element)
+    .set(opt)
+    .save()
+    .then(function() {
+      // Clean up
+      if (tempStyle.parentNode) {
+        document.head.removeChild(tempStyle);
+      }
+      
+      // Restore hidden elements
+      elementsToHide.forEach((el, index) => {
+        if (el) {
+          el.style.display = originalDisplays[index] || '';
         }
-        
-        document.head.appendChild(tempStyle);
-        
-        // Get the resume container
-        const element = document.querySelector('.resume-container');
-        
-        // Configure PDF options
-        const opt = {
-          margin: isAtsFormat ? [10, 10, 10, 10] : [15, 15, 15, 15],
-          filename: isAtsFormat ? 'Tammy_Hartline_Resume_ATS.pdf' : 'Tammy_Hartline_Resume.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { 
-            scale: 2, 
-            useCORS: true,
-            backgroundColor: '#ffffff',
-            logging: false,
-            letterRendering: true
-          },
-          jsPDF: { 
-            unit: 'mm', 
-            format: 'a4', 
-            orientation: 'portrait',
-            compress: true,
-            putOnlyUsedFonts: true,
-            precision: 16
-          },
-          pagebreak: {
-            mode: ['avoid-all', 'css', 'legacy'],
-            before: ['.section-header'],
-            avoid: ['h3', 'h4', '.sub-header', 'li', '.header']
-          }
-        };
-
-        // Only add footer for standard version
-        if (!isAtsFormat) {
-          opt.footer = {
-            height: '10mm',
-            contents: {
-              default: '<div style="text-align: center; font-size: 8pt; color: #777;">Page {{page}} of {{pages}} | tammyhartline.tech</div>'
-            }
-          };
-        }
-
-        // Generate PDF after a small delay to ensure styles are applied
-        setTimeout(() => {
-          const pdfInstance = html2pdf().from(element).set(opt);
-          
-          // Add metadata to the PDF
-          pdfInstance.toPdf().get('pdf').then((pdf) => {
-            pdf.setProperties({
-              title: 'Tammy Hartline - Resume',
-              subject: 'Technical Solutions Architect Resume',
-              author: 'Tammy Hartline',
-              keywords: 'AI Operations, Data Analysis, Software Development, Technical Solutions',
-              creator: 'tammyhartline.tech'
-            });
-          });
-          
-          // Save the PDF
-          pdfInstance.save()
-            .then(() => {
-              // Clean up
-              document.head.removeChild(tempStyle);
-              
-              // Restore hidden elements
-              elementsToHide.forEach((el, index) => {
-                if (el) {
-                  el.style.display = originalDisplays[index] || '';
-                }
-              });
-              
-              // Reset button
-              button.innerHTML = originalText;
-              button.disabled = false;
-            })
-            .catch((error) => {
-              console.error('PDF generation error:', error);
-              
-              // Clean up
-              document.head.removeChild(tempStyle);
-              
-              // Restore hidden elements
-              elementsToHide.forEach((el, index) => {
-                if (el) {
-                  el.style.display = originalDisplays[index] || '';
-                }
-              });
-              
-              button.innerHTML = 'Error - Try Again';
-              button.disabled = false;
-              alert('There was an error generating the PDF. Please try again.');
-            });
-        }, 100);
       });
+      
+      // Reset button
+      button.innerHTML = originalText;
+      button.disabled = false;
+    })
+    .catch(function(error) {
+      console.error('PDF generation error:', error);
+      
+      // Clean up
+      if (tempStyle.parentNode) {
+        document.head.removeChild(tempStyle);
+      }
+      
+      // Restore hidden elements
+      elementsToHide.forEach((el, index) => {
+        if (el) {
+          el.style.display = originalDisplays[index] || '';
+        }
+      });
+      
+      button.innerHTML = originalText;
+      button.disabled = false;
+      alert('There was an error generating the PDF. Please check the console for details.');
+    });
+});
     </script>
   </body>
 </html>
