@@ -609,6 +609,16 @@ document.getElementById('download-pdf').addEventListener('click', function() {
 
   // Generate PDF after a small delay to ensure styles are applied
   setTimeout(() => {
+    // Temporarily modify contact info for PDF
+    const contactInfo = document.querySelector('.contact-info');
+    const originalContactHTML = contactInfo.innerHTML;
+    
+    // Reformat contact info specifically for PDF
+    contactInfo.innerHTML = `
+      Email: tammyhartline@gmail.com | Phone: (256) 486-8191 | Location: Boaz, AL | Portfolio: <a href="https://tammyhartline.tech">https://tammyhartline.tech</a><br>
+      GitHub: <a href="https://github.com/thartline35">https://github.com/thartline35</a> | LinkedIn: <a href="https://www.linkedin.com/in/tammy-hartline-91981266/">https://www.linkedin.com/in/tammy-hartline-91981266/</a>
+    `;
+    
     html2pdf()
       .from(element)
       .set(opt)
@@ -616,6 +626,9 @@ document.getElementById('download-pdf').addEventListener('click', function() {
       .then(() => {
         // Clean up
         document.head.removeChild(tempStyle);
+        
+        // Restore original contact info
+        contactInfo.innerHTML = originalContactHTML;
         
         // Restore hidden elements
         elementsToHide.forEach((el, index) => {
@@ -633,6 +646,9 @@ document.getElementById('download-pdf').addEventListener('click', function() {
         
         // Clean up
         document.head.removeChild(tempStyle);
+        
+        // Restore original contact info
+        contactInfo.innerHTML = originalContactHTML;
         
         // Restore hidden elements
         elementsToHide.forEach((el, index) => {
