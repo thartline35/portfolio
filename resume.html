@@ -1,318 +1,889 @@
-<div class="resume-container">
-  <div class="resume-content">
-    <div class="resume-header">
-      <h1>Tammy Hartline</h1>
-      <div class="contact-info">
-        Email: tammyhartline@gmail.com | Phone: (256) 486-8191 | Location:
-        Boaz, AL | Portfolio:
-        <a href="https://tammyhartline.tech">tammyhartline.tech</a> | GitHub:
-        <a href="https://github.com/thartline35">github.com/thartline35</a> |
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/tammy-hartline-91981266/"
-          >linkedin.com/in/tammy-hartline-91981266</a
-        >
-      </div>
-      <h2>AI/ML Engineering Manager</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tammy Hartline's Tech Portfolio - CV/Resume</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Convert html to pdf for resume download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+      :root {
+        --container-bg: rgba(10, 25, 47, 0.7);
+        --text-color: rgba(204, 214, 246, 1);
+        --text-color-light: rgba(204, 214, 246, 0.7);
+        --primary-color: rgba(100, 255, 218, 1);
+        --secondary-color: rgba(10, 25, 47, 1);
+        --shadow-color: rgba(0, 0, 0, 0.7);
+        --border-radius: 10px;
+        --border-radius-sm: 5px;
+        --spacing-sm: 10px;
+        --spacing-md: 15px;
+        --spacing-lg: 20px;
+        --spacing-xl: 30px;
+        --transition-normal: 0.3s ease;
+      }
+
+      body {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      .resume-container {
+        max-width: 900px;
+        margin: 40px auto;
+        background-color: var(--container-bg);
+        padding: 40px;
+        box-shadow: 0 10px 30px -15px var(--shadow-color);
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(100, 255, 218, 0.1);
+        backdrop-filter: blur(5px);
+      }
+
+      .resume-container:hover {
+        border-color: var(--primary-color);
+      }
+
+      .resume-content {
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      .resume-header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 20px;
+      }
+
+      .resume-header h1 {
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      .contact-info {
+        color: var(--text-color-light);
+        margin-bottom: 10px;
+      }
+
+      strong {
+        color: var(--primary-color);
+      }
+
+      .section-header {
+        color: var(--primary-color);
+        border-bottom: 1px solid var(--primary-color);
+        padding-bottom: 10px;
+        margin: 30px 0 15px;
+      }
+
+      .sub-header {
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+      }
+
+      .header {
+        color: var(--primary-color);
+      }
+
+      .sub-header::before {
+        content: '➤';
+        margin-right: 10px;
+        color: var(--primary-color);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-normal);
+      }
+
+      a:hover {
+        color: var(--text-color);
+      }
+
+      ul {
+        color: var(--text-color);
+      }
+
+      .download-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .download-btn {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        font-weight: bold;
+        padding: 12px 25px;
+        border: none;
+        border-radius: var(--border-radius-sm);
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        transition: all var(--transition-normal);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .download-btn:hover {
+        background-color: rgba(100, 255, 218, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .download-btn i {
+        margin-right: 8px;
+      }
+
+      /* For PDF printing - this class will be added to body when generating PDF */
+      .pdf-mode {
+        background-color: white !important;
+      }
+
+      .pdf-mode .resume-container {
+        background-color: white !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+      }
+
+      /* Ensure strong contrast for PDF */
+      .pdf-mode .resume-content,
+      .pdf-mode p,
+      .pdf-mode li,
+      .pdf-mode ul {
+        color: #000000 !important;
+      }
+
+      .pdf-mode .resume-header h1,
+      .pdf-mode .section-header,
+      .pdf-mode .header,
+      .pdf-mode .sub-header,
+      .pdf-mode strong {
+        color: #000000 !important;
+        font-weight: bold !important;
+      }
+
+      .pdf-mode h2,
+      .pdf-mode h3,
+      .pdf-mode h4 {
+        color: #000000 !important;
+        font-weight: bold !important;
+      }
+
+      .pdf-mode .contact-info {
+        color: #000000 !important;
+      }
+
+      .pdf-mode .sub-header::before {
+        color: #000000 !important;
+      }
+
+      @media (max-width: 768px) {
+        .resume-container {
+          margin: 20px 10px;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-container">
+      <img
+        src="images/background.jpg"
+        class="background-image"
+        alt="Background"
+      />
     </div>
 
-    <h2 class="section-header">Professional Profile</h2>
-<p>
-  A results-driven AI/ML Engineering Manager with a unique background blending
-  deep technical expertise with over a decade of leadership in business
-  operations and management. Proven ability to build, scale, and mentor
-  high-performing teams of senior engineers, driving the end-to-end delivery
-  lifecycle for complex Generative AI systems for Fortune 500 clients. This
-  leadership is grounded in a strong hands-on technical foundation and an
-  aptitude for rapidly mastering new domains to guide teams effectively—a skill
-  demonstrated when learning a modern UI/UX stack from the ground up to create
-  an entire team's training curriculum. Excels at performing deep root cause
-  analysis, developing rigorous quality qualification processes, and translating
-  complex requirements into actionable engineering plans to deliver
-  high-quality, scalable solutions.
-</p>
+    <div class="navbar" id="navbar">
+      <a
+        href="javascript:void(0);"
+        id="hamburger"
+        onclick="toggleHamburgerMenu()"
+        ><span class="menu-icon">☰</span><span class="close-icon">✕</span
+      ></a>
+      <div class="nav-left">
+        <a href="/">Home</a>
+        <div class="navbar-links">
+          <a href="/skills">Skills</a>
+          <a href="/projects">Projects</a>
+          <a href="/resume" class="active">Resume</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
 
-    <h2 class="section-header">Core Competencies</h2>
-    <p>
-      <strong>AI & Machine Learning:</strong> Natural Language Processing
-      (NLP/NLU), Generative AI Model Development, Machine Learning Frameworks
-      (TensorFlow, PyTorch, Keras), AI Ethics and Governance, LLM Training and
-      Fine-tuning, RAG, GraphRAG Implementation, Knowledge Graph Development
-    </p>
-    <p>
-      <strong>Programming & Development:</strong> Python, PySpark, SQL,
-      JavaScript, Java, C, C++, React, TypeScript, HTML, CSS, XML, Bootstrap,
-      Node.js, R, MATLAB, API Development and Integration, Flutter, Dart,
-      Android Studio, GraphQL, Solidity
-    </p>
-    <p>
-      <strong>Cloud & Infrastructure:</strong> AWS, Microsoft Azure, Google
-      Cloud Platform, Docker, Kubernetes, SharePoint, Microsoft Power Platform,
-      Power Automate (Flow), Salesforce, System Architecture Design, Networking
-      and Infrastructure Basics
-    </p>
-    <p>
-      <strong>Data & Analytics:</strong> Power BI, Tableau, Excel Power Query,
-      Pivot Tables, DAX, M-Code, Pandas, Data Visualization, ETL Development,
-      Data Warehouse Management, Ad Hoc Analysis, Business Intelligence, Data
-      Analysis and Visualization, Impact Assessment and Reporting
-    </p>
-    <p>
-      <strong>Database & Storage:</strong> SQL Server (SSMS), MongoDB, NoSQL,
-      Database Management, Data Privacy Regulations (GDPR, CCPA), Performance
-      Tuning and Optimization
-    </p>
-    <p>
-      <strong>DevOps & Automation:</strong> Git, GitHub, Azure DevOps, Version
-      Control Systems, Docker, Kubernetes, CI/CD Pipelines, Bash, PowerShell,
-      Automation and Scripting, DevOps Practices and Tools
-    </p>
-    <p>
-      <strong>Methodologies & Management:</strong> Agile, Scrum, Waterfall,
-      SDLC, Project Management, Product Management, Operations Management,
-      Stakeholder Communication, Technical Documentation, Problem Solving and
-      Analytical Skills
-    </p>
+      <div class="nav-right">
+        <!-- LinkedIn Icon -->
+        <a
+          href="https://www.linkedin.com/in/tammy-hartline-91981266/"
+          target="_blank"
+          class="social-icon"
+          title="LinkedIn"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+            />
+          </svg>
+        </a>
+        <!-- GitHub Icon -->
+        <a
+          href="https://github.com/thartline35"
+          target="_blank"
+          class="social-icon"
+          title="GitHub"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- Download Button -->
+    <div class="download-container">
+      <button id="download-pdf" class="download-btn">
+        <i class="fas fa-file-pdf"></i> Download Resume as PDF
+      </button>
+    </div>
 
-    <h2 class="section-header">Professional Experience</h2>
+    <div class="resume-container">
+      <div class="resume-content">
+        <div class="resume-header">
+          <h1>Tammy Hartline</h1>
+          <div class="contact-info">
+            Email: tammyhartline@gmail.com | Phone: (256) 486-8191 | Location:
+            Boaz, AL | Portfolio:
+            <a href="https://tammyhartline.tech">tammyhartline.tech</a> |
+            GitHub:
+            <a href="https://github.com/thartline35">github.com/thartline35</a>
+            | LinkedIn:
+            <a href="https://www.linkedin.com/in/tammy-hartline-91981266/"
+              >linkedin.com/in/tammy-hartline-91981266</a
+            >
+          </div>
+          <h2>AI/ML Engineering Manager</h2>
+        </div>
 
-    <h3 class="header">Mercor | Remote</h3>
-    <h4 class="sub-header">
-      Independent Contractor - Software Engineer | August 2025 – Present
-    </h4>
-    <ul>
-      <li>
-        Perform technical code reviews and architect engineering tasks designed
-        to train code-generating AI models.
-      </li>
-      <li>
-        Define quality standards and review GitHub issues to ensure data
-        integrity for model training, focusing on improving the AI's proficiency
-        as an engineering assistant.
-      </li>
-    </ul>
+        <h2 class="section-header">Professional Profile</h2>
+        <p>
+          A results-driven AI/ML Engineering Manager with a unique background
+          blending deep technical expertise with over a decade of leadership in
+          business operations and management. Proven ability to build, scale,
+          and mentor high-performing teams of senior engineers, driving the
+          end-to-end delivery lifecycle for complex Generative AI systems for
+          Fortune 500 clients. This leadership is grounded in a strong hands-on
+          technical foundation and an aptitude for rapidly mastering new domains
+          to guide teams effectively—a skill demonstrated when learning a modern
+          UI/UX stack from the ground up to create an entire team's training
+          curriculum. Excels at performing deep root cause analysis, developing
+          rigorous quality qualification processes, and translating complex
+          requirements into actionable engineering plans to deliver
+          high-quality, scalable solutions.
+        </p>
 
-    <h3 class="header">Scale AI | Remote</h3>
-    <h4 class="sub-header">
-      Senior Manager, AI Engineering & Quality Operations | November 2023 – July
-      2025
-    </h4>
-    <p>
-      <em
-        >Progressed rapidly through four promotions in under two years,
-        culminating in a senior role leading the quality, integration, and
-        delivery for large-scale Generative AI systems. Built and directed a
-        technical leadership team of over 150 senior engineers and AI
-        consultants responsible for a 2,500-person global workforce.</em
-      >
-    </p>
-    <ul>
-      <li>
-        <strong>Team Leadership & Mentorship:</strong> Built a high-performing
-        management team of 150+ senior software engineers and quality managers.
-        Achieved a 96% promotion rate for this cohort into leadership roles
-        through continuous mentorship, upskilling, and fostering a culture of
-        technical excellence.
-      </li>
-      <li>
-        <strong>End-to-End Scenario & Quality Management:</strong> Designed and
-        executed functional, performance, and scale quality scenarios for
-        complex AI data projects. Improved overall delivery efficiency by 38%
-        and increased project throughput by 42% through rigorous process
-        standardization.
-      </li>
-      <li>
-        <strong>Root Cause Analysis & Debugging:</strong> Demonstrated strong
-        analytical skills by uncovering and resolving a systemic $800,000
-        fraudulent payment issue, performing root cause analysis on complex data
-        patterns and implementing a fix that protected program integrity.
-      </li>
-      <li>
-        <strong>Technical Qualification & Enablement:</strong> Authored the
-        definitive technical qualification and training programs for a complex
-        UI/UX project. Reduced engineer onboarding time by 40% and enhanced team
-        performance by 90%, enabling teams to meet aggressive quality and
-        delivery targets.
-      </li>
-    </ul>
+        <h2 class="section-header">Core Competencies</h2>
+        <p>
+          <strong>AI & Machine Learning:</strong> Natural Language Processing
+          (NLP/NLU), Generative AI Model Development, Machine Learning
+          Frameworks (TensorFlow, PyTorch, Keras), AI Ethics and Governance, LLM
+          Training and Fine-tuning, RAG, GraphRAG Implementation, Knowledge
+          Graph Development
+        </p>
+        <p>
+          <strong>Programming & Development:</strong> Python, PySpark, SQL,
+          JavaScript, Java, C, C++, React, TypeScript, HTML, CSS, XML,
+          Bootstrap, Node.js, R, MATLAB, API Development and Integration,
+          Flutter, Dart, Android Studio, GraphQL, Solidity
+        </p>
+        <p>
+          <strong>Cloud & Infrastructure:</strong> AWS, Microsoft Azure, Google
+          Cloud Platform, Docker, Kubernetes, SharePoint, Microsoft Power
+          Platform, Power Automate (Flow), Salesforce, System Architecture
+          Design, Networking and Infrastructure Basics
+        </p>
+        <p>
+          <strong>Data & Analytics:</strong> Power BI, Tableau, Excel Power
+          Query, Pivot Tables, DAX, M-Code, Pandas, Data Visualization, ETL
+          Development, Data Warehouse Management, Ad Hoc Analysis, Business
+          Intelligence, Data Analysis and Visualization, Impact Assessment and
+          Reporting
+        </p>
+        <p>
+          <strong>Database & Storage:</strong> SQL Server (SSMS), MongoDB,
+          NoSQL, Database Management, Data Privacy Regulations (GDPR, CCPA),
+          Performance Tuning and Optimization
+        </p>
+        <p>
+          <strong>DevOps & Automation:</strong> Git, GitHub, Azure DevOps,
+          Version Control Systems, Docker, Kubernetes, CI/CD Pipelines, Bash,
+          PowerShell, Automation and Scripting, DevOps Practices and Tools
+        </p>
+        <p>
+          <strong>Methodologies & Management:</strong> Agile, Scrum, Waterfall,
+          SDLC, Project Management, Product Management, Operations Management,
+          Stakeholder Communication, Technical Documentation, Problem Solving
+          and Analytical Skills
+        </p>
 
-    <h3 class="header">Remotasks (Subsidiary of Scale AI) | Remote</h3>
-    <h4 class="sub-header">
-      AI Safety & Red Teaming Specialist (Contract) | October 2023 – November
-      2023
-    </h4>
-    <ul>
-      <li>
-        Selected for a specialized red teaming project to test AI model safety
-        and security. Demonstrated exceptional aptitude, resulting in a direct
-        recruitment into a full-time management-track role at parent company
-        Scale AI within 30 days.
-      </li>
-    </ul>
+        <h2 class="section-header">Professional Experience</h2>
 
-    <h3 class="header">
-      RTX (Raytheon Technologies) + Girls Who Code | Remote
-    </h3>
-    <h4 class="sub-header">
-      Software Engineering Fellow | August 2023 – December 2023
-    </h4>
-    <ul>
-      <li>
-        Conceptualized, developed, and presented the Narcolepsy Early Warning
-        System, a full-stack application that achieved 98% predictability
-        accuracy in enhancing clinician-patient communication.
-      </li>
-      <li>
-        Structured the project using an Agile timeline, delivered technical
-        presentations to stakeholders, and achieved a 100% score for effective
-        time and project management.
-      </li>
-    </ul>
+        <h3 class="header">Mercor | Remote</h3>
+        <h4 class="sub-header">
+          Independent Contractor - Software Engineer | August 2025 – Present
+        </h4>
+        <ul>
+          <li>
+            Perform technical code reviews and architect engineering tasks
+            designed to train code-generating AI models.
+          </li>
+          <li>
+            Define quality standards and review GitHub issues to ensure data
+            integrity for model training, focusing on improving the AI's
+            proficiency as an engineering assistant.
+          </li>
+        </ul>
 
-    <h3 class="header">Southern New Hampshire University | Remote</h3>
-    <h4 class="sub-header">
-      Data Analytics & Database Specialist | August 2023 – December 2023
-    </h4>
-    <ul>
-      <li>
-        <strong>Critical Security Discovery:</strong> Within 90 days of hire,
-        discovered and reported a critical security vulnerability in the
-        university's new hybrid-cloud data warehouse, preventing a catastrophic
-        breach of sensitive student PII (FAFSA, SSNs) and initiating a
-        full-scale security investigation.
-      </li>
-      <li>
-        <strong>Recognition for Rapid Impact:</strong> This discovery, combined
-        with process architecture improvements, led to a nomination for 2023
-        Student Worker of the Year (top 3% of 700+ employees) within six months
-        of hire.
-      </li>
-      <li>
-        <strong>Database Optimization:</strong> Engineered and optimized the
-        data backend, reducing query execution time by 45% through T-SQL stored
-        procedure optimization and strategic indexing.
-      </li>
-    </ul>
+        <h3 class="header">Scale AI | Remote</h3>
+        <h4 class="sub-header">
+          Senior Manager, AI Engineering & Quality Operations | November 2023 –
+          July 2025
+        </h4>
+        <p>
+          <em
+            >Progressed rapidly through four promotions in under two years,
+            culminating in a senior role leading the quality, integration, and
+            delivery for large-scale Generative AI systems. Built and directed a
+            technical leadership team of over 150 senior engineers and AI
+            consultants responsible for a 2,500-person global workforce.</em
+          >
+        </p>
+        <ul>
+          <li>
+            <strong>Team Leadership & Mentorship:</strong> Built a
+            high-performing management team of 150+ senior software engineers
+            and quality managers. Achieved a 96% promotion rate for this cohort
+            into leadership roles through continuous mentorship, upskilling, and
+            fostering a culture of technical excellence.
+          </li>
+          <li>
+            <strong>End-to-End Scenario & Quality Management:</strong> Designed
+            and executed functional, performance, and scale quality scenarios
+            for complex AI data projects. Improved overall delivery efficiency
+            by 38% and increased project throughput by 42% through rigorous
+            process standardization.
+          </li>
+          <li>
+            <strong>Root Cause Analysis & Debugging:</strong> Demonstrated
+            strong analytical skills by uncovering and resolving a systemic
+            $800,000 fraudulent payment issue, performing root cause analysis on
+            complex data patterns and implementing a fix that protected program
+            integrity.
+          </li>
+          <li>
+            <strong>Technical Qualification & Enablement:</strong> Authored the
+            definitive technical qualification and training programs for a
+            complex UI/UX project. Reduced engineer onboarding time by 40% and
+            enhanced team performance by 90%, enabling teams to meet aggressive
+            quality and delivery targets.
+          </li>
+        </ul>
 
-    <h2 class="section-header">Additional Professional Experience</h2>
+        <h3 class="header">Remotasks (Subsidiary of Scale AI) | Remote</h3>
+        <h4 class="sub-header">
+          AI Safety & Red Teaming Specialist (Contract) | October 2023 –
+          November 2023
+        </h4>
+        <ul>
+          <li>
+            Selected for a specialized red teaming project to test AI model
+            safety and security. Demonstrated exceptional aptitude, resulting in
+            a direct recruitment into a full-time management-track role at
+            parent company Scale AI within 30 days.
+          </li>
+        </ul>
 
-    <h3 class="header">
-      Sardis Youth Cheerleading and Football Organization - President & Coach |
-      2010 - 2022
-    </h3>
-    <ul>
-      <li>
-        Led and optimized operations for over 125 participants, managing annual
-        budgets exceeding $20,000 and negotiating all vendor contracts.
-      </li>
-    </ul>
+        <h3 class="header">
+          RTX (Raytheon Technologies) + Girls Who Code | Remote
+        </h3>
+        <h4 class="sub-header">
+          Software Engineering Fellow | August 2023 – December 2023
+        </h4>
+        <ul>
+          <li>
+            Conceptualized, developed, and presented the Narcolepsy Early
+            Warning System, a full-stack application that achieved 98%
+            predictability accuracy in enhancing clinician-patient
+            communication.
+          </li>
+          <li>
+            Structured the project using an Agile timeline, delivered technical
+            presentations to stakeholders, and achieved a 100% score for
+            effective time and project management.
+          </li>
+        </ul>
 
-    <h3 class="header">Jackson Hewitt - Tax Specialist (Seasonal) | 2018 - 2019</h3>
-    <ul>
-      <li>
-        Provided expert tax preparation services, ensuring compliance and
-        maximizing client refunds.
-      </li>
-    </ul>
+        <h3 class="header">Southern New Hampshire University | Remote</h3>
+        <h4 class="sub-header">
+          Data Analytics & Database Specialist | August 2023 – December 2023
+        </h4>
+        <ul>
+          <li>
+            <strong>Critical Security Discovery:</strong> Within 90 days of
+            hire, discovered and reported a critical security vulnerability in
+            the university's new hybrid-cloud data warehouse, preventing a
+            catastrophic breach of sensitive student PII (FAFSA, SSNs) and
+            initiating a full-scale security investigation.
+          </li>
+          <li>
+            <strong>Recognition for Rapid Impact:</strong> This discovery,
+            combined with process architecture improvements, led to a nomination
+            for 2023 Student Worker of the Year (top 3% of 700+ employees)
+            within six months of hire.
+          </li>
+          <li>
+            <strong>Database Optimization:</strong> Engineered and optimized the
+            data backend, reducing query execution time by 45% through T-SQL
+            stored procedure optimization and strategic indexing.
+          </li>
+        </ul>
 
-    <h3 class="header">
-      The Tackle Trap - Bookkeeper and Accounting Specialist | 2012 - 2019
-    </h3>
-    <ul>
-      <li>
-        Successfully managed financial records for a portfolio valued at $1.4
-        million, enhancing data accuracy by 30% through meticulous audits and
-        reconciliations.
-      </li>
-    </ul>
+        <h2 class="section-header">Additional Professional Experience</h2>
 
-    <h3 class="header">
-      Primemax Mortgage - Mortgage Loan Origination Specialist | 2009 - 2012
-    </h3>
-    <ul>
-      <li>
-        Oversaw the processing of 100+ complex loan applications, ensuring 100%
-        regulatory compliance and reducing processing time by 15%.
-      </li>
-    </ul>
+        <h3 class="header">
+          Sardis Youth Cheerleading and Football Organization - President &
+          Coach | 2010 - 2022
+        </h3>
+        <ul>
+          <li>
+            Led and optimized operations for over 125 participants, managing
+            annual budgets exceeding $20,000 and negotiating all vendor
+            contracts.
+          </li>
+        </ul>
 
-    <h3 class="header">
-      1st Community Credit, Citi Finance, The Cash Store - Loan Officer, Branch
-      Manager | 2005 - 2009
-    </h3>
-    <ul>
-      <li>
-        Led multi-site operations with full P&L responsibility, increasing
-        branch efficiency by 25% through streamlined processing and team
-        management.
-      </li>
-    </ul>
+        <h3 class="header">
+          Jackson Hewitt - Tax Specialist (Seasonal) | 2018 - 2019
+        </h3>
+        <ul>
+          <li>
+            Provided expert tax preparation services, ensuring compliance and
+            maximizing client refunds.
+          </li>
+        </ul>
 
-    <h2 class="section-header">Education</h2>
-    <p>
-      <strong
-        >Master of Science in Engineering, Artificial Intelligence
-        (MSE-AI)</strong
-      ><br />
-      University of Pennsylvania, School of Engineering | (Pursuing - Awaiting
-      Application Decision)
-    </p>
-    <p>
-      <strong
-        >Bachelor of Science in Computer Science - Concentration in Data
-        Analysis</strong
-      ><br />
-      Southern New Hampshire University, 2024<br />
-      <em>Achievements: Summa Cum Laude, GPA: 4.0</em>
-    </p>
+        <h3 class="header">
+          The Tackle Trap - Bookkeeper and Accounting Specialist | 2012 - 2019
+        </h3>
+        <ul>
+          <li>
+            Successfully managed financial records for a portfolio valued at
+            $1.4 million, enhancing data accuracy by 30% through meticulous
+            audits and reconciliations.
+          </li>
+        </ul>
 
-    <h2 class="section-header">Certifications</h2>
-    <ul>
-      <li>
-        <strong>IBM Generative AI Models for Natural Language (NLP & NLU)</strong>
-        - August 2025
-      </li>
-      <li><strong>Python Developer Certificate: SoloLearn</strong> - July 2025</li>
-      <li>
-        <strong>Google Data Analytics Professional Certificate</strong> - May 2023
-      </li>
-      <li>
-        <strong>Google Foundations in Project Management Certificate</strong> -
-        July 2024
-      </li>
-    </ul>
+        <h3 class="header">
+          Primemax Mortgage - Mortgage Loan Origination Specialist | 2009 - 2012
+        </h3>
+        <ul>
+          <li>
+            Oversaw the processing of 100+ complex loan applications, ensuring
+            100% regulatory compliance and reducing processing time by 15%.
+          </li>
+        </ul>
 
-    <h2 class="section-header">Key Projects & Achievements</h2>
-    <ul>
-      <li>
-        <strong>Engineering Talent Development & Promotion (Scale AI):</strong>
-        Engineered a career development framework for a team of 150+ senior
-        engineers and AI consultants, providing continuous mentorship and
-        upskilling that resulted in a 96% promotion rate for the cohort into
-        advanced leadership and specialized technical roles.
-      </li>
-      <li>
-        <strong>Critical Data Warehouse Security Discovery (SNHU):</strong>
-        Identified a critical vulnerability in a new hybrid-cloud system during
-        a self-initiated server setup, preventing a potential breach of the
-        entire student body's PII and FAFSA data.
-      </li>
-      <li>
-        <strong>Narcolepsy Early Warning System (RTX Fellowship):</strong> Led
-        the full-cycle development of a HIPAA-compliant application to improve
-        clinician-patient communication for narcolepsy diagnosis, achieving 98%
-        predictability accuracy.
-      </li>
-      <li>
-        <strong>University Employee Impact Award (SNHU):</strong> Received a
-        university-wide award for architecting a new process integration using
-        Azure DevOps, SQL, and Python that automated tracking capabilities and
-        decreased data search time by 60%.
-      </li>
-      <li>
-        <strong>Systemic Fraud Detection & Resolution (Scale AI):</strong>
-        Uncovered and resolved an $800,000 fraudulent payment scheme by
-        designing and implementing advanced pattern-detection algorithms.
-      </li>
-    </ul>
-  </div>
-</div>
+        <h3 class="header">
+          1st Community Credit, Citi Finance, The Cash Store - Loan Officer,
+          Branch Manager | 2005 - 2009
+        </h3>
+        <ul>
+          <li>
+            Led multi-site operations with full P&L responsibility, increasing
+            branch efficiency by 25% through streamlined processing and team
+            management.
+          </li>
+        </ul>
+
+        <h2 class="section-header">Education</h2>
+        <p>
+          <strong
+            >Master of Science in Engineering, Artificial Intelligence
+            (MSE-AI)</strong
+          ><br />
+          University of Pennsylvania, School of Engineering | (Pursuing -
+          Awaiting Application Decision)
+        </p>
+        <p>
+          <strong
+            >Bachelor of Science in Computer Science - Concentration in Data
+            Analysis</strong
+          ><br />
+          Southern New Hampshire University, 2024<br />
+          <em>Achievements: Summa Cum Laude, GPA: 4.0</em>
+        </p>
+
+        <h2 class="section-header">Certifications</h2>
+        <ul>
+          <li>
+            <strong
+              >IBM Generative AI Models for Natural Language (NLP & NLU)</strong
+            >
+            - August 2025
+          </li>
+          <li>
+            <strong>Python Developer Certificate: SoloLearn</strong> - July 2025
+          </li>
+          <li>
+            <strong>Google Data Analytics Professional Certificate</strong> -
+            May 2023
+          </li>
+          <li>
+            <strong>Google Foundations in Project Management Certificate</strong>
+            - July 2024
+          </li>
+        </ul>
+
+        <h2 class="section-header">Key Projects & Achievements</h2>
+        <ul>
+          <li>
+            <strong>Engineering Talent Development & Promotion (Scale AI):</strong>
+            Engineered a career development framework for a team of 150+ senior
+            engineers and AI consultants, providing continuous mentorship and
+            upskilling that resulted in a 96% promotion rate for the cohort into
+            advanced leadership and specialized technical roles.
+          </li>
+          <li>
+            <strong>Critical Data Warehouse Security Discovery (SNHU):</strong>
+            Identified a critical vulnerability in a new hybrid-cloud system
+            during a self-initiated server setup, preventing a potential breach
+            of the entire student body's PII and FAFSA data.
+          </li>
+          <li>
+            <strong>Narcolepsy Early Warning System (RTX Fellowship):</strong>
+            Led the full-cycle development of a HIPAA-compliant application to
+            improve clinician-patient communication for narcolepsy diagnosis,
+            achieving 98% predictability accuracy.
+          </li>
+          <li>
+            <strong>University Employee Impact Award (SNHU):</strong> Received a
+            university-wide award for architecting a new process integration
+            using Azure DevOps, SQL, and Python that automated tracking
+            capabilities and decreased data search time by 60%.
+          </li>
+          <li>
+            <strong>Systemic Fraud Detection & Resolution (Scale AI):</strong>
+            Uncovered and resolved an $800,000 fraudulent payment scheme by
+            designing and implementing advanced pattern-detection algorithms.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      function toggleHamburgerMenu() {
+        const hamburgerMenu = document.getElementById('hamburger');
+        hamburgerMenu.classList.toggle('open');
+
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('menu-open');
+
+        // Toggle no-scroll class on body
+        document.body.classList.toggle('no-scroll');
+      }
+
+      // PDF download functionality
+      document
+        .getElementById('download-pdf')
+        .addEventListener('click', function () {
+          // Show loading state on button
+          const button = this;
+          const originalText = button.innerHTML;
+          button.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+          button.disabled = true;
+
+          // Hide elements we don't want in the PDF
+          const elementsToHide = [
+            document.getElementById('navbar'),
+            document.querySelector('.download-container'),
+            document.querySelector('.background-container'),
+          ];
+
+          // Remember original display values
+          const originalDisplays = [];
+          elementsToHide.forEach((el) => {
+            if (el) {
+              originalDisplays.push(el.style.display);
+              el.style.display = 'none';
+            }
+          });
+
+          // Add temporary styles for PDF generation
+          const tempStyle = document.createElement('style');
+          tempStyle.id = 'pdf-styles';
+          tempStyle.innerHTML = `
+    body {
+      background-color: white !important;
+    }
+    .resume-container {
+      background-color: white !important;
+      color: black !important;
+      border: none !important;
+      box-shadow: none !important;
+      max-width: 100% !important;
+      padding: 10px !important;
+      margin: 0 !important;
+      font-size: 10pt !important;
+      line-height: 1.3 !important;
+    }
+    .resume-container * {
+      color: black !important;
+    }
+    
+    .resume-header {
+      margin-bottom: 10px !important;
+      padding-bottom: 10px !important;
+    }
+    
+    .resume-header h1 {
+      margin-bottom: 0px !important;
+      font-size: 18pt !important;
+    }
+    
+    .resume-header h2 {
+      margin-top: 5px !important;
+      margin-bottom: 0 !important;
+      font-size: 14pt !important;
+    }
+    
+    .contact-info {
+      color: black !important;
+      margin-bottom: 5px !important;
+      font-size: 9pt !important;
+      line-height: 1.4 !important;
+    }
+    
+    .section-header {
+      color: black !important;
+      font-weight: bold !important;
+      margin: 12px 0 5px !important;
+      padding-bottom: 3px !important;
+      font-size: 14pt !important;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    
+    .header {
+      color: black !important;
+      font-weight: bold !important;
+      margin: 8px 0 2px !important;
+      font-size: 12pt !important;
+    }
+    
+    .sub-header {
+      color: black !important;
+      font-weight: bold !important;
+      margin: 5px 0 2px !important;
+      font-size: 10pt !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    .sub-header::before {
+      color: black !important;
+      margin-right: 5px !important;
+    }
+    
+    p {
+      margin: 4px 0 !important;
+      font-size: 10pt !important;
+    }
+    
+    ul {
+      margin: 4px 0 !important;
+      padding-left: 20px !important;
+    }
+    
+    li {
+      margin-bottom: 2px !important;
+      font-size: 10pt !important;
+    }
+    
+    li ul {
+      margin: 2px 0 !important;
+    }
+    
+    li ul li {
+      font-size: 9pt !important;
+    }
+    
+    h2, h3, h4, .header, .sub-header {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      break-after: avoid !important;
+      page-break-after: avoid !important;
+    }
+    
+    ul, li {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    
+    p strong + span, p strong + text {
+      font-size: 9pt !important;
+      line-height: 1.2 !important;
+    }
+    
+    hr {
+      margin: 5px 0 !important;
+      break-before: auto !important;
+      page-break-before: auto !important;
+    }
+    
+    .sub-header + ul {
+      margin-bottom: 5px !important;
+    }
+    
+    .section-header + ul {
+      margin-top: 2px !important;
+    }
+    
+    strong {
+      color: black !important;
+    }
+  `;
+          document.head.appendChild(tempStyle);
+
+          // Get the resume container directly
+          const element = document.querySelector('.resume-container');
+
+          // Configure PDF options with compact settings
+          const opt = {
+            margin: [10, 10, 10, 10],
+            filename: 'Tammy_Hartline_Resume.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: {
+              scale: 2,
+              useCORS: true,
+              backgroundColor: '#ffffff',
+            },
+            jsPDF: {
+              unit: 'mm',
+              format: 'a4',
+              orientation: 'portrait',
+              compress: true,
+            },
+            pagebreak: {
+              mode: ['avoid-all', 'css', 'legacy'],
+              avoid: ['h3', 'h4', '.sub-header', 'li', '.header'],
+            },
+          };
+
+          // Generate PDF after a small delay to ensure styles are applied
+          setTimeout(() => {
+            // Temporarily modify contact info for PDF
+            const contactInfo = document.querySelector('.contact-info');
+            const originalContactHTML = contactInfo.innerHTML;
+
+            // Reformat contact info specifically for PDF
+            contactInfo.innerHTML = `
+      Email: tammyhartline@gmail.com | Phone: (256) 486-8191 | Location: Boaz, AL | Portfolio: <a href="https://tammyhartline.tech">https://tammyhartline.tech</a><br>
+      GitHub: <a href="https://github.com/thartline35">https://github.com/thartline35</a> | LinkedIn: <a href="https://www.linkedin.com/in/tammy-hartline-91981266/">https://www.linkedin.com/in/tammy-hartline-91981266/</a>
+    `;
+
+            html2pdf()
+              .from(element)
+              .set(opt)
+              .save()
+              .then(() => {
+                // Clean up
+                document.head.removeChild(tempStyle);
+
+                // Restore original contact info
+                contactInfo.innerHTML = originalContactHTML;
+
+                // Restore hidden elements
+                elementsToHide.forEach((el, index) => {
+                  if (el) {
+                    el.style.display = originalDisplays[index] || '';
+                  }
+                });
+
+                // Reset button
+                button.innerHTML = originalText;
+                button.disabled = false;
+              })
+              .catch((error) => {
+                console.error('PDF generation error:', error);
+
+                // Clean up
+                document.head.removeChild(tempStyle);
+
+                // Restore original contact info
+                contactInfo.innerHTML = originalContactHTML;
+
+                // Restore hidden elements
+                elementsToHide.forEach((el, index) => {
+                  if (el) {
+                    el.style.display = originalDisplays[index] || '';
+                  }
+                });
+
+                button.innerHTML = 'Error - Try Again';
+                button.disabled = false;
+                alert(
+                  'There was an error generating the PDF. Please try again.'
+                );
+              });
+          }, 100);
+        });
+    </script>
+  </body>
+</html>
