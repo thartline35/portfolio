@@ -5,7 +5,7 @@
   display: flex;
   flex: 1;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align to top */
   padding: var(--spacing-lg);
   min-width: 300px;
 }
@@ -20,14 +20,14 @@
   display: block;
   border: 3px solid var(--primary-color);
   border-radius: 5px;
+  max-width: 100%;
   height: auto;
   max-height: 400px;
-  width: auto; /* Let it size naturally */
+  margin-top: 2rem; /* Push image down to align with text */
   box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   filter: grayscale(20%) contrast(1.1);
   position: relative;
-  /* Remove any max-width constraints that prevent centering */
 }
 
 .profile-image:hover {
