@@ -15,42 +15,31 @@
   position: relative;
     /* Neural nodes */
   background:
-    /* Input layer nodes (left column) */
-    radial-gradient(circle at 15% 20%, var(--primary-color) 4px, transparent 5px),
-    radial-gradient(circle at 15% 35%, var(--primary-color) 4px, transparent 5px),
-    radial-gradient(circle at 15% 50%, var(--primary-color) 4px, transparent 5px),
-    radial-gradient(circle at 15% 65%, var(--primary-color) 4px, transparent 5px),
-    radial-gradient(circle at 15% 80%, var(--primary-color) 4px, transparent 5px),
+       repeating-linear-gradient(15deg, transparent 0px, rgba(100, 255, 218, 0.15) 1px, transparent 2px, transparent 50px),
+    repeating-linear-gradient(165deg, transparent 0px, rgba(100, 255, 218, 0.15) 1px, transparent 2px, transparent 50px),
     
-    /* Hidden layer nodes (middle column) */
+    /* Neural network nodes - Input layer (left column) */
+    radial-gradient(circle at 20% 20%, var(--primary-color) 4px, transparent 5px),
+    radial-gradient(circle at 20% 35%, var(--primary-color) 4px, transparent 5px),
+    radial-gradient(circle at 20% 50%, var(--primary-color) 4px, transparent 5px),
+    radial-gradient(circle at 20% 65%, var(--primary-color) 4px, transparent 5px),
+    radial-gradient(circle at 20% 80%, var(--primary-color) 4px, transparent 5px),
+    
+    /* Hidden layer (middle) */
     radial-gradient(circle at 50% 15%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
-    radial-gradient(circle at 50% 28%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
-    radial-gradient(circle at 50% 41%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
-    radial-gradient(circle at 50% 54%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
-    radial-gradient(circle at 50% 67%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
-    radial-gradient(circle at 50% 80%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 50% 30%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 50% 45%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 50% 60%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 50% 75%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
+    radial-gradient(circle at 50% 90%, rgba(100, 255, 218, 0.9) 5px, transparent 6px),
     
-    /* Output layer nodes (right column) */
-    radial-gradient(circle at 85% 30%, var(--primary-color) 4px, transparent 5px),
-    radial-gradient(circle at 85% 50%, var(--primary-color) 4px, transparent 5px),
-    radial-gradient(circle at 85% 70%, var(--primary-color) 4px, transparent 5px),
-    
-    /* Connections from input to hidden layer */
-    linear-gradient(8deg, transparent 49%, rgba(100, 255, 218, 0.2) 49.5%, rgba(100, 255, 218, 0.2) 50.5%, transparent 51%),
-    linear-gradient(15deg, transparent 49%, rgba(100, 255, 218, 0.15) 49.5%, rgba(100, 255, 218, 0.15) 50.5%, transparent 51%),
-    linear-gradient(0deg, transparent 49%, rgba(100, 255, 218, 0.2) 49.5%, rgba(100, 255, 218, 0.2) 50.5%, transparent 51%),
-    linear-gradient(-8deg, transparent 49%, rgba(100, 255, 218, 0.15) 49.5%, rgba(100, 255, 218, 0.15) 50.5%, transparent 51%),
-    linear-gradient(-15deg, transparent 49%, rgba(100, 255, 218, 0.2) 49.5%, rgba(100, 255, 218, 0.2) 50.5%, transparent 51%),
-    
-    /* Connections from hidden to output layer */
-    linear-gradient(172deg, transparent 49%, rgba(100, 255, 218, 0.2) 49.5%, rgba(100, 255, 218, 0.2) 50.5%, transparent 51%),
-    linear-gradient(165deg, transparent 49%, rgba(100, 255, 218, 0.15) 49.5%, rgba(100, 255, 218, 0.15) 50.5%, transparent 51%),
-    linear-gradient(180deg, transparent 49%, rgba(100, 255, 218, 0.2) 49.5%, rgba(100, 255, 218, 0.2) 50.5%, transparent 51%),
-    linear-gradient(188deg, transparent 49%, rgba(100, 255, 218, 0.15) 49.5%, rgba(100, 255, 218, 0.15) 50.5%, transparent 51%),
-    linear-gradient(195deg, transparent 49%, rgba(100, 255, 218, 0.2) 49.5%, rgba(100, 255, 218, 0.2) 50.5%, transparent 51%),
+    /* Output layer (right column) */
+    radial-gradient(circle at 80% 25%, var(--primary-color) 4px, transparent 5px),
+    radial-gradient(circle at 80% 50%, var(--primary-color) 4px, transparent 5px),
+    radial-gradient(circle at 80% 75%, var(--primary-color) 4px, transparent 5px),
     
     /* Background */
-    linear-gradient(135deg, rgba(30, 42, 56, 0.95), rgba(20, 30, 40, 0.9));
+    linear-gradient(135deg, rgba(30, 42, 56, 0.9), rgba(20, 30, 40, 0.95));
   background-size: 100% 100%;
 }
 
