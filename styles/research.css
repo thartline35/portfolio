@@ -1,24 +1,27 @@
 /* Research Portfolio Page Styles */
 
 .research-intro {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem 0;
+  text-align: left;
+  margin: 0 auto 3rem auto;
+  padding: 2rem;
+  max-width: 1200px;
 }
 
 .research-intro p {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.9);
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   line-height: 1.6;
 }
 
-.research-section {
+.research-section, .philosophy-section, .collaboration-section, .publications-section {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
-  padding: 2.5rem;
-  margin: 2rem 0;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: calc(100% - 2rem);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -181,7 +184,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .area-card {
@@ -297,7 +300,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .philosophy-card {
@@ -375,9 +378,14 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .research-section {
+  .research-section, .philosophy-section, .collaboration-section, .publications-section {
     padding: 2rem 1.5rem;
-    margin: 1rem 0;
+    margin: 1rem auto;
+    width: calc(100% - 1rem);
+  }
+  
+  .research-intro {
+    padding: 2rem 1rem;
   }
   
   .project-header {
