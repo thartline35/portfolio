@@ -14,7 +14,7 @@
   min-width: 300px;
   position: relative;
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrV8oCVbaTvtsCerH0biC917JUpVoSkdqosg&s');
-  background-size: contain;
+  background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
 }
