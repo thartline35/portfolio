@@ -124,10 +124,11 @@
   background: rgba(52, 152, 219, 0.1);
   border-left: 4px solid #3498db;
   border-radius: 0 8px 8px 0;
+  color: #2c3e50;
 }
 
 .highlight-item strong {
-  color: #1a365d;
+  color: #2980b9;
   font-weight: 700;
 }
 
