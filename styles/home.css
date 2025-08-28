@@ -13,10 +13,12 @@
   padding: var(--spacing-lg);
   min-width: 300px;
   position: relative;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrV8oCVbaTvtsCerH0biC917JUpVoSkdqosg&s');
-  background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: 
+    radial-gradient(circle at 25% 25%, #64ffda22 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, #64ffda22 2px, transparent 2px),
+    linear-gradient(45deg, #1e2a38 25%, transparent 25%),
+    linear-gradient(-45deg, #1e2a38 25%, transparent 25%);
+  background-size: 20px 20px, 20px 20px, 40px 40px, 40px 40px;
 }
 
 .profile-section::before {
