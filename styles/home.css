@@ -2,7 +2,7 @@
 /* Profile and about section */
 .container {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* Makes both columns same height */
 }
 
 .profile-section {
