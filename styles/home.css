@@ -1,13 +1,23 @@
 /* Modern home page specific styles */
-
 /* Profile and about section */
 .profile-section {
   display: flex;
   flex: 1;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   padding: var(--spacing-lg);
   min-width: 300px;
+}
+
+.profile-section::before {
+  content: "Professional Summary";
+  color: var(--primary-color);
+  font-family: var(--subheading-font);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .about-section {
@@ -57,7 +67,7 @@
 .about-section h3 {
   position: relative;
   display: block;
-  width: 100%; 
+  width: 100%;
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-xs);
   color: var(--text-color);
@@ -65,11 +75,7 @@
 }
 
 .about-section h3:before {
-  content: "Professional Summary ";
-  color: var(--primary-color);
-  font-family: var(--subheading-font);
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
+  display: none;
 }
 
 .about-section h3:after {
@@ -98,17 +104,22 @@
   .container {
     flex-direction: column;
   }
-
+  
   .profile-section,
   .about-section {
     flex: 100%;
     padding: var(--spacing-md);
   }
-
+  
   .profile-section {
     margin-bottom: var(--spacing-md);
   }
-
+  
+  .profile-section::before {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .profile-image {
     max-width: 80%;
     margin: 0 auto;
@@ -120,18 +131,17 @@
   .about-section {
     padding: var(--spacing-sm);
   }
-
+  
   .about-section h3 {
     font-size: 1.75rem;
   }
-
+  
   .about-section p {
     font-size: 1rem;
     line-height: 1.6;
   }
-
+  
   .profile-image::after {
     display: none;
   }
 }
-
