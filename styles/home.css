@@ -62,19 +62,28 @@
 
 .about-section h3 {
   position: relative;
-  display: inline-block;
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-xs);
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  font-weight: 700;
+  font-size: var(--h2-size);
+  font-family: var(--heading-font);
+  text-align: left;
   color: var(--text-color);
-  font-size: 2rem;
 }
 
 .about-section h3:before {
-  display: none;
+  content: "Professional Summary";
+  display: block;
 }
 
 .about-section h3:after {
-  display: none;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 2px;
+  background-color: var(--primary-color);
 }
 
 .about-section p {
