@@ -1,11 +1,16 @@
 ```css
 /* Modern home page specific styles */
 /* Profile and about section */
+.container {
+  display: flex;
+  align-items: center;
+}
+
 .profile-section {
   display: flex;
   flex: 1;
   justify-content: center;
-  align-items: flex-start; /* Align to top */
+  align-items: center;
   padding: var(--spacing-lg);
   min-width: 300px;
 }
