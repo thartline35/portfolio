@@ -3,6 +3,7 @@
     { "source": "/skills", "destination": "/skills.html" },
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/resume", "destination": "/resume.html"},
-    { "source": "/contact", "destination": "/contact.html" }
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/research", "destination": "/research.html" }
   ]
 }
