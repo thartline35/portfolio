@@ -1,1 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research - Tammy Hartline</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/research.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Gabriela&family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+    <script defer src="https://vercel.live/_vercel/insights/script.js"></script>
+  </head>
+  <body>
+    <div class="background-container">
+      <img
+        src="images/background.jpg"
+        class="background-image"
+        alt="Background"
+      />
+    </div>
 
+    <div class="navbar" id="navbar">
+      <a
+        href="javascript:void(0);"
+        id="hamburger"
+        onclick="toggleHamburgerMenu()"
+        ><span class="menu-icon">☰</span><span class="close-icon">✕</span
+      ></a>
+      <div class="nav-left">
+        <a href="/">Home</a>
+        <div class="navbar-links">
+          <a href="/skills">Skills</a>
+          <a href="/projects">Projects</a>
+          <a href="/research" class="active">Research</a>
+          <a href="/resume">Resume</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <!-- LinkedIn Icon -->
+        <a href="https://www.linkedin.com/in/tammy-hartline-91981266/" target="_blank" class="social-icon" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+        </a>
+        <!-- GitHub Icon -->
+        <a href="https://github.com/thartline35" target="_blank" class="social-icon" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="page-header">
+      <h1>Research Portfolio</h1>
+      <h6>
+        AI/ML Research, Training Methodologies & Data Science Applications
+      </h6>
+    </div>
+
+    <div class="container">
+      <div class="research-intro">
+        <p>
+          Combining practical AI operations experience with systematic research investigation, 
+          I focus on identifying and solving fundamental problems in AI training methodologies, 
+          model evaluation, and real-world deployment challenges.
+        </p>
+      </div>
+
+      <!-- Current Research Projects -->
+      <div class="research-section">
+        <h2><i class="fas fa-flask"></i> Current Research Projects</h2>
+        
+        <div class="research-project featured">
+          <div class="project-header">
+            <div class="project-title">
+              <h3>Iterative Learning Loss in LLM Training</h3>
+              <div class="project-badges">
+                <span class="badge active">Active Study</span>
+                <span class="badge phase">Data Collection Phase</span>
+              </div>
+            </div>
+            <div class="project-timeline">July 2025 - July 2026</div>
+          </div>
+          
+          <p class="project-description">
+            Systematic investigation of fundamental flaws in current AI training methodologies. 
+            This research addresses why models fabricate information instead of asking clarifying questions, 
+            and proposes collaborative training approaches that prioritize honesty over perceived helpfulness.
+          </p>
+
+          <div class="project-highlights">
+            <div class="highlight-item">
+              <strong>Novel Contribution:</strong> First systematic study of "iterative learning loss" in LLM training
+            </div>
+            <div class="highlight-item">
+              <strong>Real-World Impact:</strong> Addresses resume fabrication, assumption-based errors, and user frustration patterns
+            </div>
+            <div class="highlight-item">
+              <strong>Methodology:</strong> Comparative training of models using complete feedback loops vs. polished-only data
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/thartline35/llm-iterative-learning-research" target="_blank" class="research-btn primary">
+              <i class="fab fa-github"></i> Research Hub
+            </a>
+            <a href="https://github.com/thartline35/llm-iterative-learning-research/blob/main/research-framework.md" target="_blank" class="research-btn secondary">
+              <i class="fas fa-file-alt"></i> Full Framework
+            </a>
+            <a href="https://github.com/thartline35/llm-iterative-learning-research/blob/main/progress-updates.md" target="_blank" class="research-btn secondary">
+              <i class="fas fa-chart-line"></i> Live Updates
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Areas -->
+      <div class="research-section">
+        <h2><i class="fas fa-brain"></i> Research Areas</h2>
+        <div class="research-areas-grid">
+          <div class="area-card">
+            <div class="area-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h4>AI Training Methodologies</h4>
+            <p>Investigating flaws in current RLHF approaches, data contamination problems, and alternative training paradigms that improve model honesty and collaborative behavior.</p>
+          </div>
+          <div class="area-card">
+            <div class="area-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h4>Human-AI Interaction</h4>
+            <p>Studying real-world interaction patterns, frustration response mechanisms, and how to design AI systems that function as genuine collaborative partners.</p>
+          </div>
+          <div class="area-card">
+            <div class="area-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h4>Model Evaluation & Benchmarking</h4>
+            <p>Developing evaluation frameworks that measure real-world performance rather than artificial benchmarks, with focus on instruction-following and honesty metrics.</p>
+          </div>
+          <div class="area-card">
+            <div class="area-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h4>AI Safety & Alignment</h4>
+            <p>Research into preventing harmful AI outputs through better training data curation and feedback mechanisms that preserve authentic human collaborative patterns.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publications & Presentations -->
+      <div class="research-section">
+        <h2><i class="fas fa-book"></i> Publications & Presentations</h2>
+        
+        <div class="publications-section">
+          <h3>Peer-Reviewed Publications</h3>
+          <div class="publication-status">
+            <p><em>Publications in preparation - research currently in active data collection phase</em></p>
+          </div>
+
+          <h3>Planned Submissions</h3>
+          <div class="publication-item upcoming">
+            <div class="pub-details">
+              <h4>Iterative Learning Loss in LLM Training: A Systematic Study of Collaborative vs. Assumption-Based Training</h4>
+              <div class="pub-meta">
+                <span class="venue">Target: ICML 2026 or NeurIPS 2026</span>
+                <span class="status">In Progress</span>
+              </div>
+              <p class="pub-description">
+                Primary research paper presenting empirical findings on the impact of complete feedback loops 
+                in LLM training, with comparative analysis of model honesty and instruction-following capabilities.
+              </p>
+            </div>
+          </div>
+
+          <div class="publication-item upcoming">
+            <div class="pub-details">
+              <h4>Real-World vs. Benchmark Performance: Evaluation Gaps in Current LLM Assessment Methods</h4>
+              <div class="pub-meta">
+                <span class="venue">Target: FAccT 2026 or CHI 2026</span>
+                <span class="status">Framework Development</span>
+              </div>
+              <p class="pub-description">
+                Analysis of discrepancies between artificial benchmarks and authentic user interaction patterns, 
+                with proposed evaluation frameworks for real-world AI performance measurement.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="presentations-section">
+          <h3>Conference Presentations</h3>
+          <div class="presentation-status">
+            <p><em>Conference presentations planned upon research completion and peer review</em></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Philosophy -->
+      <div class="research-section">
+        <h2><i class="fas fa-lightbulb"></i> Research Philosophy</h2>
+        <div class="philosophy-content">
+          <div class="philosophy-card">
+            <h4><i class="fas fa-eye"></i> Transparent Research</h4>
+            <p>All methodology, progress, and findings documented publicly from start to finish. Complete reproducibility and open science principles guide every project.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4><i class="fas fa-handshake"></i> Collaborative Approach</h4>
+            <p>Research conducted with community input and feedback integration. Building solutions through dialogue rather than isolation.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4><i class="fas fa-target"></i> Real-World Impact</h4>
+            <p>Focus on solving actual problems that people face with AI systems, not just advancing metrics on artificial benchmarks.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4><i class="fas fa-balance-scale"></i> Ethical Standards</h4>
+            <p>Highest standards for human subjects research, data privacy, and ensuring research benefits society rather than just advancing technology.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collaboration & Contact -->
+      <div class="research-section">
+        <h2><i class="fas fa-hands-helping"></i> Research Collaboration</h2>
+        <div class="collaboration-content">
+          <p>
+            Open to collaboration with academic researchers, industry practitioners, and anyone interested 
+            in improving AI training methodologies and human-AI interaction patterns.
+          </p>
+          
+          <div class="collaboration-opportunities">
+            <div class="collab-item">
+              <h4>Academic Researchers</h4>
+              <p>Joint publications, data sharing, methodology consultation, and replication studies</p>
+            </div>
+            <div class="collab-item">
+              <h4>Industry Partners</h4>
+              <p>Real-world validation, implementation consultation, and early access to frameworks</p>
+            </div>
+            <div class="collab-item">
+              <h4>Open Source Contributors</h4>
+              <p>Technical development, evaluation tools, and research platform contributions</p>
+            </div>
+          </div>
+
+          <div class="contact-research">
+            <a href="/contact" class="research-btn primary">
+              <i class="fas fa-envelope"></i> Discuss Research Collaboration
+            </a>
+            <a href="https://github.com/thartline35" target="_blank" class="research-btn secondary">
+              <i class="fab fa-github"></i> View Research Repositories
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleHamburgerMenu() {
+        const hamburgerMenu = document.getElementById("hamburger");
+        hamburgerMenu.classList.toggle("open");
+
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("menu-open");
+
+        document.body.classList.toggle("no-scroll");
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 3. CREATE: styles/research.css -->
+/* Research Portfolio Page Styles */
+
+.research-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.research-intro p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.research-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.research-section h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Gabriela', serif;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.research-section h2 i {
+  color: #3498db;
+  font-size: 1.5rem;
+}
+
+/* Project Cards */
+.research-project {
+  border: 2px solid #e0e6ed;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.research-project.featured {
+  border-color: #3498db;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(52, 152, 219, 0.02));
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.project-title h3 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-family: 'Gabriela', serif;
+}
+
+.project-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.active {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.badge.planning {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+  color: white;
+}
+
+.badge.phase {
+  background: rgba(108, 117, 125, 0.1);
+  border: 1px solid rgba(108, 117, 125, 0.3);
+  color: #6c757d;
+}
+
+.project-timeline {
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.project-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #495057;
+}
+
+.project-highlights {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight-item {
+  padding: 1rem;
+  background: rgba(52, 152, 219, 0.1);
+  border-left: 4px solid #3498db;
+  border-radius: 0 8px 8px 0;
+}
+
+.highlight-item strong {
+  color: #2980b9;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.research-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  font-size: 0.9rem;
+}
+
+.research-btn.primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border-color: #3498db;
+}
+
+.research-btn.primary:hover {
+  background: linear-gradient(135deg, #2980b9, #21618c);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.research-btn.secondary {
+  background: transparent;
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.research-btn.secondary:hover {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Research Areas Grid */
+.research-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.area-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3498db;
+}
+
+.area-icon {
+  font-size: 2.5rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.area-card h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Gabriela', serif;
+}
+
+.area-card p {
+  color: #6c757d;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Publications Section */
+.publications-section, .presentations-section {
+  margin-bottom: 2rem;
+}
+
+.publications-section h3, .presentations-section h3 {
+  color: #495057;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.publication-status, .presentation-status {
+  padding: 1rem;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.publication-status em, .presentation-status em {
+  color: #856404;
+  font-style: italic;
+}
+
+.publication-item {
+  border: 2px solid #e0e6ed;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.publication-item.upcoming {
+  border-color: #17a2b8;
+  background: rgba(23, 162, 184, 0.05);
+}
+
+.pub-details h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.pub-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.venue {
+  background: rgba(23, 162, 184, 0.1);
+  color: #17a2b8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pub-description {
+  color: #6c757d;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Philosophy Section */
+.philosophy-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.philosophy-card {
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(155, 89, 182, 0.05));
+  border: 1px solid rgba(155, 89, 182, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.philosophy-card h4 {
+  color: #8e44ad;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.philosophy-card h4 i {
+  color: #9b59b6;
+}
+
+.philosophy-card p {
+  color: #6c757d;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Collaboration Section */
+.collaboration-content {
+  text-align: center;
+}
+
+.collaboration-content > p {
+  font-size: 1.1rem;
+  color: #495057;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.collaboration-opportunities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.collab-item {
+  background: rgba(26, 188, 156, 0.1);
+  border: 1px solid rgba(26, 188, 156, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.collab-item h4 {
+  color: #16a085;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.collab-item p {
+  color: #6c757d;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.contact-research {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .research-section {
+    padding: 2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .project-links, .contact-research {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .research-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .research-areas-grid, .philosophy-content, .collaboration-opportunities {
+    grid-template-columns: 1fr;
+  }
+}
